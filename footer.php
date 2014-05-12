@@ -1,4 +1,5 @@
 </main><!--end .main-->
+<?php include (TEMPLATEPATH . '/includes/donate.php'); ?>
 <footer class="footer" role="contentinfo">
 	<div class="footer-btn-bar-container">
 		<div class="footer-btn-bar">
@@ -137,7 +138,7 @@
 		</div><!--end .g-2up-->
 		
 		<div class="footer-meta">
-			<a href="/" rel="home" class="logo-link" tabindex="1"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="../../patterns/04-pages-10-other-02-privacy-policy/04-pages-10-other-02-privacy-policy.html">View our Privacy Policy</a></p>
+			<a href="/" rel="home" class="logo-link" tabindex="1"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="#">View our Privacy Policy</a></p>
 		</div>
 	</div>
 </footer>
