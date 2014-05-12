@@ -1,0 +1,158 @@
+/*
+Theme Name: Pittsburgh Food Bank
+Theme URI: http://pittsburghfoodbank.org
+Author: Brad Frost
+Author URI: http://bradfrostweb.com
+Description: Custom
+Version: 1.0
+*/
+
+/*------------------------------------*\
+    $TABLE OF CONTENTS
+\*------------------------------------*/
+/**
+ * VARIABLES..............................Declarations of Sass variables 
+ * .....Colors
+ * .....Typography
+ * .....Layout
+ * .....Defaults
+ * .....Breakpoints
+ * MIXINS.................................Sass mixins 
+ * RESET..................................Set reset defaults
+ * GLOBAL CLASSES.........................Set reset defaults
+ * GLOBAL ELEMENTS........................Establish global styles
+ * .....Main
+ * .....Headings
+ * .....Text-related elements (p, blockquote, lists)
+ * .....Defaults
+ * .....Breakpoints
+ * TYPOGRAPHY............................
+ * MEDIA.................................
+ * LAYOUT................................
+ * NAVIGATION............................
+ * TOC To Be Continued
+ */
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/* CSS Transition
+	Usage: @include transition(width,0.3s,ease-out);
+ */
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback  
+	Usage: @include font-size(1, large);
+*/
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+/* Border-Box http:/paulirish.com/2012/box-sizing-border-box-ftw/ */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, form, legend, label, table, header, footer, nav, section, figure {
+  margin: 0;
+  padding: 0; }
+
+header, footer, nav, section, article, hgroup, figure {
+  display: block; }
+
+/*------------------------------------*\
+    $GLOBAL ELEMENTS
+\*------------------------------------*/
+/*------------------------------------*\
+    $GLOBAL CLASSES
+\*------------------------------------*/
+/* Clearfix */
+.cf, .l-1col, .l-3col, .nav, .donate-form {
+  *zoom: 1; }
+
+.cf:before, .l-1col:before, .l-3col:before, .nav:before, .donate-form:before, .cf:after, .l-1col:after, .l-3col:after, .nav:after, .donate-form:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after, .l-1col:after, .l-3col:after, .nav:after, .donate-form:after {
+  clear: both; }
+
+/* Completely remove from the flow and screen readers. */
+.is-hidden {
+  display: none !important;
+  visibility: hidden !important; }
+
+/* Completely remove from the flow but leave available to screen readers. */
+.is-vishidden {
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Floats */
+.right {
+  float: right;
+  padding: 0 0 1em 1em; }
+
+.right-search {
+  float: right;
+  padding: 0 0 1em 0; }
+
+.left {
+  float: left;
+  padding: 0 1em 1em 0; }
+
+/* Text-Align */
+.align-right {
+  text-align: right; }
+
+.align-center {
+  text-align: center; }
+
+.align-left {
+  text-align: left; }
+
+/* Display Classes */
+@media all and (max-width: 46.8em) {
+  .hide-small {
+    display: none; } }
+
+@media all and (min-width: 46.8em) and (max-width: 66em) {
+  .hide-med {
+    display: none; } }
+
+@media all and (min-width: 66em) {
+  .hide-large {
+    display: none; } }
+
+.valid {
+  color: #089e00; }
+
+.error {
+  color: red; }
+
+body {
+  background: white;
+  font: 100%/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  color: #333333; }
+
+/* Temporary Styles */
+.page {
+	max-width: 80em;
+	margin: 0 auto;
+}
+
+.header {
+	background: #eee;
+}
+
+.footer {
+	background: #eee;
+	height: 100px;
+}
