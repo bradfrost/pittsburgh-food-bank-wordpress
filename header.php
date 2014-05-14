@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo('charset'); ?>" />
-<meta name="viewport" content="width=device-width" />
-<title><?php wp_title(' | ', true, 'right'); ?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
-<?php wp_head(); ?>
+	<meta charset="<?php bloginfo('charset'); ?>" />
+	<meta name="viewport" content="width=device-width" />
+	<title><?php wp_title(' | ', true, 'right'); ?> | <?php echo get_bloginfo ( 'name' ); ?></title>
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
+	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico">
+	
+	<script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
+	
+	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <div class="page" id="page">
@@ -30,8 +34,8 @@
 				<?php /* get_search_form(); */ ?>
 				<nav id="nav" class="nav" role="navigation">
 					<ul class="nav-action-list">
-						<li><a href="#">Get Help<span class="icon-arrow-right5"></span></a></li>
-						<li><a href="#">Give Help<span class="icon-arrow-right5"></span></a></li>
+						<li><a href="/get-help">Get Help<span class="icon-arrow-right5"></span></a></li>
+						<li><a href="/get-involved">Give Help<span class="icon-arrow-right5"></span></a></li>
 					</ul>
 					<ul class="nav-list">
 						<li>
@@ -81,7 +85,7 @@
 						<li><a href="#">Contact</a></li>
 						<li><a href="#" class="nav-donate">Donate</a></li>
 					</ul>
-					<?php /* wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); */ ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 				</nav><!--end .nav-->
 			</div><!--end .header-nav-container-->
 		</div><!--end .lc-->
