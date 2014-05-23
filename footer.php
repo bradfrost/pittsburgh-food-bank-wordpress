@@ -1,5 +1,9 @@
 </main><!--end .main-->
-<?php include (TEMPLATEPATH . '/includes/donate.php'); ?>
+<?php 
+	if (! is_page( 17 ) ) {
+		include (TEMPLATEPATH . '/includes/donate.php'); 
+	}
+?>
 <footer class="footer" role="contentinfo">
 	<div class="footer-btn-bar-container">
 		<div class="footer-btn-bar">

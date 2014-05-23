@@ -244,18 +244,5 @@
 		</div>
 	</section>
 </div>
-<section class="section section-block">
-				<div class="section-img">
-		<img src="../../images/fpo_hero.png" alt="Hero Image">				</div>
-				<div class="section-body">
-					<h2 class="section-title">Volunteer</h2>
-					<p class="section-desc">Can't make a financial donation? Donate your time and make a difference consectetur adipisicing elit. Tempore, enim, id! Iste repellendus quidem nesciunt.</p>
-					<ul class="text-list">
-						<li><a href="#">Volunteer opportunities</a></li>
-						<li><a href="#">Upcoming Events</a></li>
-						<li><a href="#">Organize a food drive</a></li>
-					</ul>
-				</div>
-			</section>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>
