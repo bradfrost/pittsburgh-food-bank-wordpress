@@ -7,8 +7,8 @@
 <footer class="footer" role="contentinfo">
 	<div class="footer-btn-bar-container">
 		<div class="footer-btn-bar">
-			<a href="#">Get Help<span class="icon-arrow-right5"></span></a>
-			<a href="#">Give Help<span class="icon-arrow-right5"></span></a>
+			<a href="/get-help">Get Help<span class="icon-arrow-right5"></span></a>
+			<a href="/get-involved">Give Help<span class="icon-arrow-right5"></span></a>
 		</div>
 	</div>
 	<div class="lc">
