@@ -818,11 +818,14 @@ td {
         margin-left: 13.5em;
         margin-top: -12em;
         padding: 2em 2em 0 2em;
-        min-height: 27em;
+        min-height: 40em;
         border-radius: 8px; } }
     @media all and (min-width: 64em) {
       .l-3col .l-main {
         margin-right: 13.5em; } }
+    @media all and (min-width: 70em) {
+      .l-3col .l-main {
+        padding: 2em 3em 0 3em; } }
   @media all and (min-width: 48em) {
     .l-3col .l-sidebar {
       position: absolute;
@@ -1119,6 +1122,7 @@ td {
       top: -0.1em;
       right: 0;
       max-height: none;
+      width: 14em;
       overflow: visible; } }
   @media all and (max-width: 46.8em) {
     .header .search-form {
@@ -3375,12 +3379,13 @@ td {
   .sidebar-section .text-btn, .widget-container .text-btn {
     display: block;
     margin: 1em 0 0;
-    color: #c14903; }
+    color: #c14903;
+    text-align: center; }
 
 .sidebar-section-events:before {
   background-image: url(images/icon_calendar.png); }
 
-.sidebar-section-title {
+.sidebar-section-title, .widget-title {
   color: gray;
   font-size: 1.2em;
   text-align: center; }
