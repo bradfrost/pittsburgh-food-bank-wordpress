@@ -24,22 +24,26 @@
 				$parent = $post->ID;
 			}
 			
+			if ($parent == 5 || $parent == 9 || $parent == 19) {
+				echo '<h3 class="section-nav-title"><a href="'.get_permalink($post->post_parent).'">'.get_the_title($parent).'</h3></a>';
+				
+				echo '<ul class="section-nav-list">';
+				$args = array(
+					'child_of'     => $parent,
+					'title_li'     => '',
+					'depth'        => 1
+				);
+				
+	
+				wp_list_pages( $args );
+				echo '</ul>';
+			}
 
-			echo '<h3 class="section-nav-title"><a href="'.get_permalink($post->post_parent).'">'.get_the_title($parent).'</h3></a>';
-			
-			echo '<ul class="section-nav-list">';
 			
 			
 			
-			$args = array(
-				'child_of'     => $parent,
-				'title_li'     => '',
-				'depth'        => 1
-			);
 			
-
-			wp_list_pages( $args );
-			echo '</ul>';
+			
 		?>
 		</nav><!--end .section-nav-->
 		

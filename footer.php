@@ -15,62 +15,64 @@
 		<nav role="navigation" class="nav-footer">
 			<div class="g g-4up">
 				<div class="gi">
-					<h3 class="nav-footer-item acc-handle"><a href="#">Programs</a></h3>
+					<h3 class="nav-footer-item acc-handle"><a href="/programs">Programs</a></h3>
 					<ul class="acc-panel">
-						<li><a href="#">Produce to People</a></li>
-						<li><a href="#">Community Harvest</a></li>
-						<li><a href="#">SNAP</a></li>
-						<li><a href="#">Farm Stand Project</a></li>
-						<li><a href="#">Summer Food</a></li>
-						<li><a href="#">Commodity Supplemental Food</a></li>
-						<li><a href="#">Nutrition</a></li>
-						<li><a href="#">Agency Relations</a></li>
-						<li><a href="#">Educational Programs</a></li>
+					<?php 			
+						$args = array(
+							'child_of'     => 5, //Programs page ID
+							'title_li'     => '',
+							'depth'        => 1
+						);
+						
+						wp_list_pages( $args );
+					?>
+					</ul>
+				</div><!--end .gi-->
+				<div class="gi">
+					<h3 class="nav-footer-item acc-handle"><a href="/about">About</a></h3>
+					<ul class="acc-panel">
+						<?php 			
+							$args = array(
+								'child_of'     => 9, //About page ID
+								'title_li'     => '',
+								'depth'        => 1
+							);
+							
+							wp_list_pages( $args );
+						?>
 					</ul>
 				</div>
 				<div class="gi">
-					<h3 class="nav-footer-item acc-handle"><a href="#">About</a></h3>
+					<h3 class="nav-footer-item acc-handle"><a href="/resources">Resources</a></h3>
 					<ul class="acc-panel">
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Operations</a></li>
-						<li><a href="#">Board and Management</a></li>
-						<li><a href="#">Jobs and Internships</a></li>
-						<li><a href="#">Agencies</a></li>
-						<li><a href="#">Donors</a></li>
-						<li><a href="#">Sponsors</a></li>
-						<li><a href="#">Finances</a></li>
-						<li><a href="#">Fundraising Policy</a></li>
-					</ul>
-				</div>
-				<div class="gi">
-					<h3 class="nav-footer-item acc-handle"><a href="#">Resources</a></h3>
-					<ul class="acc-panel">
-						<li><a href="#">Resource Center</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">About Hunger</a></li>
-						<li><a href="#">Hunger Profiles</a></li>
-						<li><a href="#">Food Sources</a></li>
-						<li><a href="#">Advocacy Information</a></li>
-						<li><a href="#">Links</a></li>
+						<?php 			
+							$args = array(
+								'child_of'     => 19, //Resources page ID
+								'title_li'     => '',
+								'depth'        => 1
+							);
+							
+							wp_list_pages( $args );
+						?>
 					</ul>
 				</div>
 				<div class="gi">			
-					<h3 class="nav-footer-item acc-handle"><a href="#">Upcoming Events</a></h3>
+					<h3 class="nav-footer-item acc-handle"><a href="/events">Upcoming Events</a></h3>
 					<div class="acc-panel">
 						<div class="block block-post-small">
 							<h4 class="b-title"><a href="#">Corpus Christi Parish Fish Fry</a></h4>
 							<p class="b-timestamp">March 5 - April 18, 2014</p>
 						</div>
-						<a href="#">View all events</a>
+						<a href="/events">View all events</a>
 						<hr>
 					</div>
-					<h3 class="nav-footer-item acc-handle"><a href="#">Latest from the Blog</a></h3>
+					<h3 class="nav-footer-item acc-handle"><a href="/blog">Latest from the Blog</a></h3>
 					<div class="acc-panel">
 						<div class="block block-post-small">
 							<h4 class="b-title"><a href="#">Brad Paisley Concert Food Drive</a></h4>
 							<p class="b-timestamp">March 23, 2014</p>
 						</div>
-						<a href="#">View all news</a>
+						<a href="/blog">View all news</a>
 					</div>
 				</div>
 			</div>
@@ -80,21 +82,21 @@
 			<div class="gi">
 				<div class="g g-2up footer-contact-area">
 					<div class="gi">
-						<h3 class="nav-footer-item acc-handle"><a href="#">Email Us</a></h3>
+						<h3 class="nav-footer-item acc-handle"><a href="/contact">Email Us</a></h3>
 						<div class="acc-panel">
 							<a href="mailto:info@pittsburghfoodbank.org"><span class="icon-mail3"></span>info@pittsburghfoodbank.org</a>
-							<a href="#"><span class="icon-user"></span>Email a department</a>
+							<a href="/contact#departments"><span class="icon-user"></span>Email a department</a>
 						</div>
 					</div><!--end .gi-->
 					<div class="gi">
 						<h3 class="nav-footer-item acc-handle">Call Us</h3>
 						<div class="acc-panel">
 							<a href="tel:+14124603663"><span class="icon-phone"></span>412-460-3663</a>
-							<a href="#"><span class="icon-user"></span>Call a department</a>
+							<a href="/contact#departments"><span class="icon-user"></span>Call a department</a>
 						</div>
 					</div><!--end .gi-->
 					<div class="gi">
-						<h3 class="nav-footer-item acc-handle"><a href="#">Find Us</a></h3>
+						<h3 class="nav-footer-item acc-handle"><a href="/contact">Find Us</a></h3>
 							<div class="acc-panel">
 								<div class="vcard">
 									<div class="adr">
@@ -107,7 +109,7 @@
 										<span class="postal-code">15110</span>
 									</div>
 								</div>
-								<a href="#"><span class="icon-location"></span>Get Directions</a>
+								<a href="/contact"><span class="icon-location"></span>Get Directions</a>
 							</div>
 					</div><!--end .gi-->
 					<div class="gi">
@@ -124,16 +126,8 @@
 				<h3 class="nav-footer-item acc-handle">Stay Up to Date</h3>
 				<div class="acc-panel">
 					<p>Stay informed about our organization, upcoming events, stories of lives we have touched and news that impacts what we do.</p>
-					<form action="#" method="post" class="inline-form newsletter-form">           
-					    <fieldset>
-						    <legend>Sign up for our newsletter</legend>
-						    <label for="newsletter-field" class="is-vishidden">Email address</label>
-						    <div class="inline-container">
-						   		<input type="newsletter" placeholder="E-mail address" id="newsletter-field" class="newsletter-field">
-						    	<button class="newsletter-submit">Sign Up</button>
-							</div>
-					    </fieldset>
-					</form>					<ul class="social-list">
+					<?php include (TEMPLATEPATH . '/includes/newsletter-form.php');  ?>
+					<ul class="social-list">
 						<li><a href="http://www.facebook.com/pages/Greater-Pittsburgh-Community-Food-Bank/145889928474" rel="external" target="_blank"><span class="icon-facebook"></span>Like us on Facebook</a></li>
 						<li><a href="http://www.twitter.com/pghfoodbank" rel="external" target="_blank"><span class="icon-twitter"></span>Follow us on Twitter</a></li>
 						<li><a href="http://www.youtube.com/pittsburghfoodbank" rel="external" target="_blank"><span class="icon-youtube"></span>Watch our videos on Youtube</a></li>
@@ -142,7 +136,7 @@
 		</div><!--end .g-2up-->
 		
 		<div class="footer-meta">
-			<a href="/" rel="home" class="logo-link" tabindex="1"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="#">View our Privacy Policy</a></p>
+			<a href="/" rel="home" class="logo-link"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="/privacy-policy">View our Privacy Policy</a></p>
 		</div>
 	</div>
 </footer>

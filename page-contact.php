@@ -52,7 +52,7 @@
 	</div>
 </div>
 <div class="lc">
-	<section class="section">
+	<section class="section" id="departments">
 		<h2 class="section-title">Contact Departments</h2>
 		<p class="section-desc">Please call <strong>(412) 460-3663</strong> and use the department's corresponding extension, or send an email.</p>
 		<div class="g g-4up-linear">
