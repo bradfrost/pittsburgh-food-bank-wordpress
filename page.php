@@ -25,7 +25,7 @@
 			}
 			
 			if ($parent == 5 || $parent == 9 || $parent == 19) {
-				echo '<h3 class="section-nav-title"><a href="'.get_permalink($post->post_parent).'">'.get_the_title($parent).'</h3></a>';
+				echo '<h3 class="section-nav-title"><a href="'.get_permalink($post->post_parent).'">'.get_the_title($parent).'</a></h3>';
 				
 				echo '<ul class="section-nav-list">';
 				$args = array(

@@ -22,8 +22,7 @@
 		<?php get_template_part('nav', 'below'); ?>
 	</div><!--end .l-main-->
 	<div class="l-sidebar">
-		
-		
+		<?php include (TEMPLATEPATH . '/includes/section-nav-categories.php');  ?>
 	</div><!--end .l-sidebar-->
 	<div class="l-sidebar2">
 		<?php get_sidebar(); ?>
