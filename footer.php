@@ -68,10 +68,20 @@
 					</div>
 					<h3 class="nav-footer-item acc-handle"><a href="/blog">Latest from the Blog</a></h3>
 					<div class="acc-panel">
-						<div class="block block-post-small">
-							<h4 class="b-title"><a href="#">Brad Paisley Concert Food Drive</a></h4>
-							<p class="b-timestamp">March 23, 2014</p>
-						</div>
+						<?php
+						
+						
+						$args = array( 'posts_per_page' => 1 );
+						
+						$myposts = get_posts( $args );
+						foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+							<div class="block block-post-small">
+								<h4 class="b-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<p class="b-timestamp"><?php the_date(); ?></p>
+							</div>
+						<?php endforeach; 
+						wp_reset_postdata();?>
+
 						<a href="/blog">View all news</a>
 					</div>
 				</div>
