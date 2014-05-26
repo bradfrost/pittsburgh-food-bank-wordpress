@@ -59,10 +59,38 @@
 				<div class="gi">			
 					<h3 class="nav-footer-item acc-handle"><a href="/events">Upcoming Events</a></h3>
 					<div class="acc-panel">
-						<div class="block block-post-small">
-							<h4 class="b-title"><a href="#">Corpus Christi Parish Fish Fry</a></h4>
-							<p class="b-timestamp">March 5 - April 18, 2014</p>
-						</div>
+					
+						<?php
+							//Get Latest Event
+							global $post;
+							$all_events = tribe_get_events(array(
+							'eventDisplay'=>'all',
+							'posts_per_page'=> 1
+							));
+							
+							foreach($all_events as $post) {
+							setup_postdata($post);
+							?>
+							
+							<div class="block block-post-small">
+								<h4 class="b-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<p class="b-timestamp">
+									<?php 
+										if(tribe_is_multiday()) {
+											echo tribe_get_start_date($post->ID, true, 'M j')."-".tribe_get_end_date($post->ID, true, 'j, Y');
+										} else {
+											echo tribe_get_start_date($post->ID, true, 'M j, Y');
+										}
+									?>
+								</p>
+							</div>
+							
+							<?php } //endforeach ?>
+							<?php wp_reset_query(); //End Events ?>
+					
+					
+					
+						
 						<a href="/events">View all events</a>
 						<hr>
 					</div>
@@ -70,7 +98,7 @@
 					<div class="acc-panel">
 						<?php
 						
-						
+						//Get Latest Post
 						$args = array( 'posts_per_page' => 1 );
 						
 						$myposts = get_posts( $args );
