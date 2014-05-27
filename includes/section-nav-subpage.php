@@ -8,6 +8,10 @@
 		$parent = $post->ID;
 	}
 	
+	if($parent == 200) {
+		$parent = 21;
+	}
+	
 	if ($parent == 5 || $parent == 9 || $parent == 19 || $parent == 21) { //If page is under programs, about, events, or resources
 		echo '<h3 class="section-nav-title"><a href="'.get_permalink($post->post_parent).'">'.get_the_title($parent).'</a></h3>';
 		

@@ -25,7 +25,7 @@
 		<?php include (TEMPLATEPATH . '/includes/section-nav-categories.php');  ?>
 	</div><!--end .l-sidebar-->
 	<div class="l-sidebar2">
-		<?php get_sidebar(); ?>
+		<?php include (TEMPLATEPATH . '/includes/sidebar-blog.php');  ?>
 	</div>
 </div><!--end .l-3col-->
 <?php get_footer(); ?>

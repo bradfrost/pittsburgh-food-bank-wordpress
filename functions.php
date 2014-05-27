@@ -26,20 +26,19 @@ array( 'main-menu' => __( 'Main Menu', 'blankslate' ) )
 }
 
 add_action('widgets_init', 'blankslate_widgets_init');
-function blankslate_widgets_init()
-{
-register_sidebar( array (
-'name' => __('Sidebar Widget Area', 'blankslate'),
-'id' => 'primary-widget-area',
-'before_widget' => '<li id="%1$s" class="widget %2$s">',
-'after_widget' => "</li>",
-'before_title' => '<h3 class="widgettitle">',
-'after_title' => '</h3>',
-) );
+function blankslate_widgets_init(){
+	register_sidebar( array (
+	'name' => __('Sidebar Widget Area', 'blankslate'),
+	'id' => 'primary-widget-area',
+	'before_widget' => '<li id="%1$s" class="widget %2$s">',
+	'after_widget' => "</li>",
+	'before_title' => '<h3 class="widgettitle">',
+	'after_title' => '</h3>',
+	) );
 }
 
 // Special Events Sidebar
-function custom_sidebar() {
+function specialevents_sidebar() {
 
 	$args = array(
 		'id'            => 'specialevents',
@@ -47,11 +46,25 @@ function custom_sidebar() {
 		'description'   => __( 'Sidebar that displays special events', 'text_domain' ),
 	);
 	register_sidebar( $args );
-
 }
-
 // Hook into the 'widgets_init' action
-add_action( 'widgets_init', 'custom_sidebar' );
+add_action( 'widgets_init', 'specialevents_sidebar' );
+
+
+// Blog Sidebar
+function blog_sidebar() {
+
+	$args = array(
+		'id'            => 'blog',
+		'name'          => __( 'Blog', 'text_domain' ),
+		'description'   => __( 'Sidebar to appear on blog-related content', 'text_domain' ),
+	);
+	register_sidebar( $args );
+}
+// Hook into the 'widgets_init' action
+add_action( 'widgets_init', 'blog_sidebar' );
+
+
 
 /*Remove Comments from Admin Menu*/
 function remove_comment_menu(){
