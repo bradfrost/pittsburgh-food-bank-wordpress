@@ -1,14 +1,21 @@
 <?php get_header(); ?>
-<section id="content" role="main">
-<article id="post-0" class="post not-found">
-<header class="header">
-<h1 class="entry-title"><?php _e( 'Not Found', 'blankslate' ); ?></h1>
-</header>
-<section class="entry-content">
-<p><?php _e( 'Nothing found for the requested page. Try a search instead?', 'blankslate' ); ?></p>
-<?php get_search_form(); ?>
-</section>
-</article>
-</section>
-<?php get_sidebar(); ?>
+<div class="banner banner-pattern"></div>
+<div class="l-3col">
+	<div class="l-main">
+		<div class="page-header">
+			<h1 class="page-title">Page Not Found</h1>
+			<p class="page-intro">The page you were looking for unfortunately isn't here.</p>
+		</div><!--end .page-header-->
+		
+		<div class="text">
+			<a href="/">Return to the homepage</a>
+		</div>
+	</div><!--end .l-main-->
+	<div class="l-sidebar">
+		<?php include (TEMPLATEPATH . '/includes/section-nav-subpage.php');  ?>
+	</div><!--end .l-sidebar-->
+	<div class="l-sidebar2">
+		<?php get_sidebar(); ?>
+	</div>
+</div><!--end .l-3col-->
 <?php get_footer(); ?>
