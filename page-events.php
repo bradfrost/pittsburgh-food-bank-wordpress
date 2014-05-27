@@ -53,7 +53,7 @@
 		</ul><!--end event-list-->
 	</div><!--end .l-main-->
 	<div class="l-sidebar">
-		adsfsdf
+		<?php include (TEMPLATEPATH . '/includes/section-nav-subpage.php');  ?>
 	</div><!--end .l-sidebar-->
 	<div class="l-sidebar2">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>
