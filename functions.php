@@ -31,12 +31,27 @@ function blankslate_widgets_init()
 register_sidebar( array (
 'name' => __('Sidebar Widget Area', 'blankslate'),
 'id' => 'primary-widget-area',
-'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+'before_widget' => '<li id="%1$s" class="widget %2$s">',
 'after_widget' => "</li>",
-'before_title' => '<h3 class="widget-title">',
+'before_title' => '<h3 class="widgettitle">',
 'after_title' => '</h3>',
 ) );
 }
+
+// Special Events Sidebar
+function custom_sidebar() {
+
+	$args = array(
+		'id'            => 'specialevents',
+		'name'          => __( 'Special Events', 'text_domain' ),
+		'description'   => __( 'Sidebar that displays special events', 'text_domain' ),
+	);
+	register_sidebar( $args );
+
+}
+
+// Hook into the 'widgets_init' action
+add_action( 'widgets_init', 'custom_sidebar' );
 
 /*Remove Comments from Admin Menu*/
 function remove_comment_menu(){

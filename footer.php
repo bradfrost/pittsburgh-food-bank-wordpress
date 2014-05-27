@@ -64,7 +64,7 @@
 							//Get Latest Event
 							global $post;
 							$all_events = tribe_get_events(array(
-							'eventDisplay'=>'all',
+							'eventDisplay'=>'upcoming',
 							'posts_per_page'=> 1
 							));
 							

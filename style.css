@@ -3362,13 +3362,13 @@ td {
     float: left;
     width: 50%; }
 
-.sidebar-section, .widget-container {
+.sidebar-section, .widget, .widget-container {
   background: #f9f9f9;
   padding: 2.5em 1em 1em;
   border-radius: 8px;
   margin-bottom: 3em;
   position: relative; }
-  .sidebar-section:before, .widget-container:before {
+  .sidebar-section:before, .widget:before, .widget-container:before {
     content: "";
     display: block;
     width: 3em;
@@ -3380,18 +3380,18 @@ td {
     left: 50%;
     margin-left: -2em;
     background: url(images/icon_carrot.png) no-repeat 50% 50% white; }
-  .sidebar-section .b-excerpt, .widget-container .b-excerpt {
+  .sidebar-section .b-excerpt, .widget .b-excerpt, .widget-container .b-excerpt {
     color: gray; }
-  .sidebar-section .text-btn, .widget-container .text-btn {
+  .sidebar-section .text-btn, .widget .text-btn, .widget-container .text-btn {
     display: block;
     margin: 1em 0 0;
     color: #c14903;
     text-align: center; }
 
-.sidebar-section-events:before {
+.sidebar-section-events:before, .tribe-events-list-widget:before {
   background-image: url(images/icon_calendar.png); }
 
-.sidebar-section-title, .widget-title {
+.sidebar-section-title, .widgettitle {
   color: gray;
   font-size: 1.2em;
   text-align: center; }
