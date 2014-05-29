@@ -1,3 +1,8 @@
+<?php
+/*
+ * Template Name: Special Events
+ */
+?>
 <?php get_header(); ?>
 <div class="banner banner-pattern"></div>
 <div class="l-3col">
