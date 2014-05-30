@@ -20,30 +20,21 @@ $event_id = get_the_ID();
 
 <div id="tribe-events-content" class="tribe-events-single">
 
-	<p class="tribe-events-back"><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
-
+	<div class="page-header">
+		<?php the_title( '<h1 class="page-title tribe-events-single-event-title summary">', '</h1>' ); ?>
+		<?php echo tribe_events_event_schedule_details( $event_id, '<p class="page-intro">', '</p>'); ?>
+	</div><!--end page-header-->
+	
 	<!-- Notices -->
 	<?php tribe_events_the_notices() ?>
 
-	<?php the_title( '<h2 class="tribe-events-single-event-title summary">', '</h2>' ); ?>
-
 	<div class="tribe-events-schedule updated published tribe-clearfix">
-		<?php echo tribe_events_event_schedule_details( $event_id, '<h3>', '</h3>'); ?>
+		
 		<?php  if ( tribe_get_cost() ) :  ?>
 			<span class="tribe-events-divider">|</span>
 			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
 		<?php endif; ?>
 	</div>
-
-	<!-- Event header -->
-	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
-		<!-- Navigation -->
-		<h3 class="tribe-events-visuallyhidden"><?php _e( 'Event Navigation', 'tribe-events-calendar' ) ?></h3>
-		<ul class="tribe-events-sub-nav">
-			<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ) ?></li>
-			<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>
-		</ul><!-- .tribe-events-sub-nav -->
-	</div><!-- #tribe-events-header -->
 
 	<?php while ( have_posts() ) :  the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class('vevent'); ?>>
@@ -75,5 +66,7 @@ $event_id = get_the_ID();
 			<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>
 		</ul><!-- .tribe-events-sub-nav -->
 	</div><!-- #tribe-events-footer -->
+	
+	<p class="tribe-events-back"><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
 
 </div><!-- #tribe-events-content -->

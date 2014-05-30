@@ -21,18 +21,11 @@ get_header(); ?>
 <div class="l-3col">
 	
 	<div class="l-main">
-		<div class="page-header">
-			<h1 class="page-title">Events</h1>
-			<p class="page-intro"><?php the_field('tagline', 21); ?></p>
-		</div><!--end .page-header-->
-		
 		<?php tribe_events_before_html(); ?>
 		<?php tribe_get_view(); ?>
 		<?php tribe_events_after_html(); ?>
 		
 		<ul class="post-list event-list">
-		
-		
 			<?php
 				global $post;
 				$all_events = tribe_get_events(array(
@@ -48,6 +41,8 @@ get_header(); ?>
 				<?php } //endforeach ?>
 				<?php wp_reset_query(); ?>
 		</ul><!--end event-list-->
+		
+		<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
 	</div><!--end .l-main-->
 	<div class="l-sidebar">
 		<?php include (TEMPLATEPATH . '/includes/section-nav-subpage.php');  ?>
