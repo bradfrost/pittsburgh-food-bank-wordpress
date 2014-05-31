@@ -45,7 +45,7 @@ get_header(); ?>
 		<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
 	</div><!--end .l-main-->
 	<div class="l-sidebar">
-		<?php include (TEMPLATEPATH . '/includes/section-nav-subpage.php');  ?>
+		
 	</div><!--end .l-sidebar-->
 	<div class="l-sidebar2">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>

@@ -13,6 +13,11 @@
 
 if ( !defined('ABSPATH') ) { die('-1'); } ?>
 
+<div class="page-header">
+	<h1 class="page-title">Events</h1>
+	<p class="page-intro"><?php the_field('tagline', 21); ?></p>
+</div><!--end .page-header-->
+
 <?php do_action( 'tribe_events_before_template' ) ?>
 
 <!-- Tribe Bar -->

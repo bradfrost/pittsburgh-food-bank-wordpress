@@ -14,68 +14,73 @@
 </div><!--end .banner-hero-->
 <div class="lc">
 	
-	<div class="g g-3up">
-		<div class="gi">
-			<div class="block block-thumb">
-				<a href="#" class="b-inner">
-					<div class="b-img">
-	<img src="images/fpo_thumb.png" alt="Thumb" />							</div>
-					<div class="b-text">
-						<h2 class="b-title">Lorem ipsum dolor sit (37 characters)</h2>
-						<p class="b-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+	<div class="g g-3up section">
+		<?php
+ 
+			// check if the repeater field has rows of data
+			if( have_rows('campaigns') ):
+			 
+			 	// loop through the rows of data
+			    while ( have_rows('campaigns') ) : the_row(); ?>        
+			        <div class="gi">
+						<div class="block block-thumb">
+							<a href="<?php the_sub_field('campaign_url'); ?>" class="b-inner">
+								<div class="b-img">
+									<img src="<?php the_sub_field('campaign_image'); ?>" alt="Thumb" />
+								</div>
+								<div class="b-text">
+									<h2 class="b-title"><?php the_sub_field('campaign_title'); ?></h2>
+									<p class="b-excerpt"><?php the_sub_field('campaign_description'); ?></p>
+								</div>
+							</a>
+						</div>
 					</div>
-				</a>
-			</div>				</div>
-		<div class="gi">
-			<div class="block block-thumb">
-				<a href="#" class="b-inner">
-					<div class="b-img">
-	<img src="images/fpo_thumb.png" alt="Thumb" />							</div>
-					<div class="b-text">
-						<h2 class="b-title">Lorem ipsum dolor sit (37 characters)</h2>
-						<p class="b-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-					</div>
-				</a>
-			</div>				</div>
-		<div class="gi">
-			<div class="block block-thumb">
-				<a href="#" class="b-inner">
-					<div class="b-img">
-	<img src="images/fpo_thumb.png" alt="Thumb" />							</div>
-					<div class="b-text">
-						<h2 class="b-title">Lorem ipsum dolor sit (37 characters)</h2>
-						<p class="b-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-					</div>
-				</a>
-			</div>				</div>
-	</div>
+		<?php 
+		    endwhile;
+		    endif;
+		?>
+	</div><!--end .g-3up-->
 </div><!--end .lc-->
-<div class="split">
+<div class="split section">
 	<div class="lc">
 		<div class="g g-2up">
 			<div class="gi split-col-1">
 				<div class="split-inner">
 					<h2 class="section-title">Get Help</h2>
-					<p>We're hear to help. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quasi.</p>
+					<p><?php the_field('get_help_description'); ?></p>
 					<ul class="text-list">
-						<li><a href="#">Find food near you</a></li>
-						<li><a href="#">View upcoming events</a></li>
-						<li><a href="#">View simple, affordable recipes</a></li>
-						<li><a href="#">View SNAP benefits</a></li>
-						<li><a href="#">Learn more about hunger</a></li>
+					<?php
+ 
+					// check if the repeater field has rows of data
+					if( have_rows('get_help_links') ):
+					 
+					 	// loop through the rows of data
+					    while ( have_rows('get_help_links') ) : the_row(); ?>        
+					        <li><a href="<?php the_sub_field('link_url'); ?>"><?php the_sub_field('link_text'); ?></a></li>
+					<?php 
+					    endwhile;
+					    endif;
+					?>
 					</ul>
 				</div>
 			</div>
 			<div class="gi split-col-2">
 				<div class="split-inner">
 					<h2 class="section-title">Give Help</h2>
-					<p>It's easy to contribute to ending hunger. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quasi.</p>
+					<p><?php the_field('give_help_description'); ?></p>
 					<ul class="text-list">
-						<li><a href="#">Donate</a></li>
-						<li><a href="#">Volunteer</a></li>
-						<li><a href="#">Organize a food drive</a></li>
-						<li><a href="#">View upcoming events</a></li>
-						<li><a href="#">Become a sponsor</a></li>
+						<?php
+ 
+						// check if the repeater field has rows of data
+						if( have_rows('give_help_links') ):
+						 
+						 	// loop through the rows of data
+						    while ( have_rows('give_help_links') ) : the_row(); ?>        
+						        <li><a href="<?php the_sub_field('link_url'); ?>"><?php the_sub_field('link_text'); ?></a></li>
+						<?php 
+						    endwhile;
+						    endif;
+						?>
 					</ul>
 				</div>
 			</div>
@@ -85,15 +90,33 @@
 <div class="lc">
 	<section class="section section-block">
 		<div class="section-img">
-<img src="../../images/fpo_hero.png" alt="Hero Image" />				</div>
+			<?php 
+			$attachment_id = get_field('about_image');
+			$size = "med-large";
+			$image = wp_get_attachment_image_src( $attachment_id, $size );
+			// url = $image[0];
+			// width = $image[1];
+			// height = $image[2];
+			?>
+			
+			<img src="<?php echo $image[0]; ?>" alt="" />
+		</div>
 		<div class="section-body">
-			<h2 class="section-title">About the GPCFB</h2>
-			<p class="section-desc">For the past xx years Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, enim, id! Iste repellendus quidem nesciunt.</p>
+			<h2 class="section-title"><?php the_field('about_title'); ?></h2>
+			<p class="section-desc"><?php the_field('about_description'); ?></p>
 			<ul class="text-list">
-				<li><a href="#">About our mission</a></li>
-				<li><a href="#">Our history</a></li>
-				<li><a href="#">Our leadership</a></li>
-				<li><a href="#">Jobs &amp; Internships</a></li>
+				<?php
+ 
+				// check if the repeater field has rows of data
+				if( have_rows('about_links') ):
+				 
+				 	// loop through the rows of data
+				    while ( have_rows('about_links') ) : the_row(); ?>        
+				        <li><a href="<?php the_sub_field('link_url'); ?>"><?php the_sub_field('link_text'); ?></a></li>
+				<?php 
+				    endwhile;
+				    endif;
+				?>
 			</ul>
 		</div>
 	</section>

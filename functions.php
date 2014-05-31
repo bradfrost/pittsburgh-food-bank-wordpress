@@ -13,16 +13,21 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0 );
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 add_action('after_setup_theme', 'blankslate_setup');
-function blankslate_setup()
-{
-load_theme_textdomain('blankslate', get_template_directory() . '/languages');
-add_theme_support('automatic-feed-links');
-add_theme_support('post-thumbnails');
-global $content_width;
-if ( ! isset( $content_width ) ) $content_width = 640;
-register_nav_menus(
-array( 'main-menu' => __( 'Main Menu', 'blankslate' ) )
-);
+
+function blankslate_setup() {
+	load_theme_textdomain('blankslate', get_template_directory() . '/languages');
+	add_theme_support('automatic-feed-links');
+	add_theme_support('post-thumbnails');
+	
+	if ( function_exists( 'add_image_size' ) ) { 
+		add_image_size( 'med-large', 800 ); //(cropped)
+	}
+	
+	global $content_width;
+	if ( ! isset( $content_width ) ) $content_width = 640;
+	register_nav_menus(
+	array( 'main-menu' => __( 'Main Menu', 'blankslate' ) )
+	);
 }
 
 add_action('widgets_init', 'blankslate_widgets_init');
@@ -35,6 +40,13 @@ function blankslate_widgets_init(){
 	'before_title' => '<h3 class="widgettitle">',
 	'after_title' => '</h3>',
 	) );
+}
+
+//Add image sizes
+add_theme_support( 'post-thumbnails' );
+
+if ( function_exists( 'add_image_size' ) ) { 
+	
 }
 
 // Special Events Sidebar
@@ -234,26 +246,15 @@ function create_resource_taxonomy() {
 	);
 }
 
-/*Add Department Post Type*/
-register_post_type('department', array(
-	'labels' => array(
-       'name'          => __('Departments'),
-       'singular_label' => __('Department'),
-		'add_new' => 'Add New Department',
-	    'add_new_item' =>'Add New Department',
-	    'edit' => 'Edit Department',
-	    'edit_new_item' => 'Edit Department',
-	    'rewrite' => array("slug" => "department")
-    ),
-    'menu_icon' => 'dashicons-networking',
-	'public' => true,
-	'show_ui' => true,
-	'capability_type' => 'post',
-	'hierarchical' => false,
-	'rewrite' => false,
-	'query_var' => false,
-	'taxonomies' => array('post_tag','category'),
-	'supports' => array('title', 'tags', 'editor', 'thumbnail','custom-fields')
-));
+/**
+ * Customize your tribe event calendar meta displays with a variety of methods.
+ * Place this in your functions.php file within your theme
+ */
+add_action( 'wp_head', 'custom_event_meta' );
+function custom_event_meta(){
+
+  // customize just the label
+  tribe_set_meta_label( 'tribe_event_address', __( 'Address:' ) );
+ }
 
 ?>

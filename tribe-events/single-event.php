@@ -43,7 +43,7 @@ $event_id = get_the_ID();
 
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
-			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
+			<div class="tribe-events-single-event-description tribe-events-content entry-content text">
 				<?php the_content(); ?>
 			</div><!-- .tribe-events-single-event-description -->
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
@@ -51,22 +51,12 @@ $event_id = get_the_ID();
 			<!-- Event meta -->
 			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
 				<?php echo tribe_events_single_event_meta() ?>
+
 			<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
 			</div><!-- .hentry .vevent -->
 		<?php if( get_post_type() == TribeEvents::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>
-
-	<!-- Event footer -->
-    <div id="tribe-events-footer">
-		<!-- Navigation -->
-		<!-- Navigation -->
-		<h3 class="tribe-events-visuallyhidden"><?php _e( 'Event Navigation', 'tribe-events-calendar' ) ?></h3>
-		<ul class="tribe-events-sub-nav">
-			<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ) ?></li>
-			<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>
-		</ul><!-- .tribe-events-sub-nav -->
-	</div><!-- #tribe-events-footer -->
 	
-	<p class="tribe-events-back"><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
+	<a href="<?php echo tribe_get_events_link() ?>" class="btn btn-small"> <?php _e( 'View All Events', 'tribe-events-calendar' ) ?></a>
 
 </div><!-- #tribe-events-content -->
