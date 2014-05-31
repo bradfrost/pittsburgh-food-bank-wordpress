@@ -13,127 +13,37 @@
 <?php endwhile; endif; ?>
 <div class="lc">
 			<div class="g g-3up">
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Food Security Partnership</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Produce to People</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">SNAP</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Farm Stand Project</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Community Harvest</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Summer Food</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Commodity</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Supplemental Food Program</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Nutrition</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Agency Relations</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-				<div class="gi">
-					<div class="block block-thumb">
-						<a href="#" class="b-inner">
-							<div class="b-img">
-			<img src="../../images/fpo_thumb.png" alt="Thumb" />							</div>
-							<div class="b-text">
-								<h2 class="b-title">Educational Programs</h2>
-								<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</a>
-					</div>				</div>
-			</div>
+				<?php
+				// The Query
+				query_posts( 'post_type=page&post_parent=5' );
+				
+				// The Loop
+				while ( have_posts() ) : the_post(); ?>
+				    <div class="gi">
+						<div class="block block-thumb">
+							<a href="<?php the_permalink(); ?>" class="b-inner">
+								<div class="b-img">
+									<?php 
+										if ( has_post_thumbnail() ) {
+											the_post_thumbnail();
+										} else {
+											echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) .'/images/fpo_square.png" />';
+										}
+									?>
+									
+								</div>
+								<div class="b-text">
+									<h2 class="b-title"><?php the_title(); ?></h2>
+									<p class="b-excerpt"><?php the_field('tagline'); ?></p>
+								</div>
+							</a>
+						</div>
+					</div><!--end .gi-->
+				<?php 
+				endwhile; 
+				wp_reset_query();
+				?>
+				
+			</div><!--end .g-3up-->
 		</div><!--end .lc-->
 <?php get_footer(); ?>

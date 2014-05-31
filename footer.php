@@ -122,14 +122,14 @@
 					<div class="gi">
 						<h3 class="nav-footer-item acc-handle"><a href="/contact">Email Us</a></h3>
 						<div class="acc-panel">
-							<a href="mailto:info@pittsburghfoodbank.org"><span class="icon-mail3"></span>info@pittsburghfoodbank.org</a>
+							<a href="mailto:<?php the_field('email',11); ?>"><span class="icon-mail3"></span><?php the_field('email',11); ?></a>
 							<a href="/contact#departments"><span class="icon-user"></span>Email a department</a>
 						</div>
 					</div><!--end .gi-->
 					<div class="gi">
 						<h3 class="nav-footer-item acc-handle">Call Us</h3>
 						<div class="acc-panel">
-							<a href="tel:+14124603663"><span class="icon-phone"></span>412-460-3663</a>
+							<a href="tel:+14124603663"><span class="icon-phone"></span><?php the_field('phone',11); ?></a>
 							<a href="/contact#departments"><span class="icon-user"></span>Call a department</a>
 						</div>
 					</div><!--end .gi-->
@@ -139,12 +139,11 @@
 								<div class="vcard">
 									<div class="adr">
 										<div class="org fn">
-											<div class="organization-name">Greater Pittsburgh Community Food Bank</div>
+											<div class="organization-name"><?php echo get_bloginfo('name'); ?></div>
 										</div>
-										<div class="street-address">1 North Linden Street</div>
-										<span class="locality">Duquesne</span>, 
-										<abbr title="Pennsylvania" class="region">PA</abbr>
-										<span class="postal-code">15110</span>
+										<div class="street-address"><?php the_field('address',11); ?></div>
+										<span class="locality"><?php the_field('citystate',11); ?></span>
+										<span class="postal-code"><?php the_field('zip', 11); ?></span>
 									</div>
 								</div>
 								<a href="/contact"><span class="icon-location"></span>Get Directions</a>
@@ -154,8 +153,8 @@
 						<h3 class="nav-footer-item acc-handle">If you need food</h3>
 						<div class="acc-panel">
 							<p>If you need food, please contact Hunger Services Network of the Urban League of Pittsburgh</p>
-							<a href="tel:+14123250749"><span class="icon-phone"></span>412-325-0749</a>
-							<a href="http://ulpgh.org/" rel="external"><span class="icon-link"></span>ulpgh.org</a>
+							<a href="tel:+14123250749"><span class="icon-phone"></span><?php the_field('urban_league_phone', 11); ?></a>
+							<a href="<?php the_field('urban_league_website', 11); ?>" rel="external"><span class="icon-link"></span><?php the_field('urban_league_website', 11); ?></a>
 						</div>
 					</div><!--end .gi-->
 				</div><!--end inner .g-2up-->
