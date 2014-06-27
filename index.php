@@ -1,11 +1,10 @@
 <?php get_header(); ?>
-<div class="banner banner-pattern"></div>
-<div class="l-3col">
+<div class="page-header">
+	<h1 class="page-title"><?php echo get_the_title(23); ?></h1>
+	<p class="page-intro"><?php the_field('tagline', 23); ?></p>
+</div>
+<div class="main-body l">
 	<div class="l-main">
-		<div class="page-header">
-			<h1 class="page-title"><?php echo get_the_title(23); ?></h1>
-			<p class="page-intro"><?php the_field('tagline', 23); ?></p>
-		</div>
 		<ul class="post-list">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<li>
@@ -22,10 +21,8 @@
 		<?php get_template_part('nav', 'below'); ?>
 	</div><!--end .l-main-->
 	<div class="l-sidebar">
+		<?php include (TEMPLATEPATH . '/includes/sidebar-blog.php');  ?>
 		<?php include (TEMPLATEPATH . '/includes/section-nav-categories.php');  ?>
 	</div><!--end .l-sidebar-->
-	<div class="l-sidebar2">
-		<?php include (TEMPLATEPATH . '/includes/sidebar-blog.php');  ?>
-	</div>
-</div><!--end .l-3col-->
+</div><!--end .main-body-->
 <?php get_footer(); ?>

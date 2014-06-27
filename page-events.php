@@ -5,18 +5,14 @@
 ?>
 
 <?php get_header(); ?>
-<div class="banner banner-pattern"></div>
-<div class="l-3col">
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<div class="page-header">
+	<h1 class="page-title"><?php the_title(); ?></h1>
+	<p class="page-intro"><?php the_field('tagline'); ?></p>
+</div><!--end .page-header-->
+<div class="main-body l">
 	<div class="l-main">
-		<div class="page-header">
-			<h1 class="page-title"><?php the_title(); ?></h1>
-			<p class="page-intro"><?php the_field('tagline'); ?></p>
-		</div><!--end .page-header-->
-		
-		<ul class="post-list event-list">
-		
-		
+		<ul class="post-list event-list">		
 			<?php
 				global $post;
 				$all_events = tribe_get_events(array(
@@ -53,11 +49,8 @@
 		</ul><!--end event-list-->
 	</div><!--end .l-main-->
 	<div class="l-sidebar">
-		
-	</div><!--end .l-sidebar-->
-	<div class="l-sidebar2">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>
-	</div>
+	</div><!--end .l-sidebar-->
 	<?php endwhile; endif; ?>
-</div><!--end .l-3col-->
+</div>
 <?php get_footer(); ?>

@@ -6,11 +6,11 @@
 
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<div class="lc">
-	<div class="page-header">
-		<h1 class="page-title"><?php the_title(); ?></h1>
-		<p class="page-intro"><?php the_field('tagline'); ?></p>
-	</div>
+<div class="page-header">
+	<h1 class="page-title"><?php the_title(); ?></h1>
+	<p class="page-intro"><?php the_field('tagline'); ?></p>
+</div>
+<div class="main-body l">
 	<div class="g g-2up">
 		<div class="gi">
 			<a href="#">
@@ -30,30 +30,29 @@
 			Email: <a href="mailto:<?php the_field('email'); ?>"><?php the_field('email'); ?></a>
 		</div>
 	</div>
-</div><!--end .lc-->
-<div class="split">
-	<div class="lc">
-		<div class="g g-2up">
-			<div class="gi split-col-1">
-				<div class="split-inner">
-					<h2 class="section-title">Get Help</h2>
-					<p>If you need emergency food, please contact the Hunger Services Network of the <a href="<?php the_field('urban_league_website'); ?>">Urban League of Pittsburgh</a> at <?php the_field('urban_league_phone'); ?></p>
-					<ul class="text-list">
-					</ul>
+	<div class="split">
+		<div class="lc">
+			<div class="g g-2up">
+				<div class="gi split-col-1">
+					<div class="split-inner">
+						<h2 class="section-title">Get Help</h2>
+						<p>If you need emergency food, please contact the Hunger Services Network of the <a href="<?php the_field('urban_league_website'); ?>">Urban League of Pittsburgh</a> at <?php the_field('urban_league_phone'); ?></p>
+						<ul class="text-list">
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="gi split-col-2">
-				<div class="split-inner">
-					<h2 class="section-title">Give Help</h2>
-					<p>If you want to donate money, please <a href="/donate">donate online</a> or call <a href="tel:+1<?php echo str_replace("-", "", $phone); ?>"><?php the_field('phone'); ?></a>.</p>
-					<ul class="text-list">
-					</ul>
+				<div class="gi split-col-2">
+					<div class="split-inner">
+						<h2 class="section-title">Give Help</h2>
+						<p>If you want to donate money, please <a href="/donate">donate online</a> or call <a href="tel:+1<?php echo str_replace("-", "", $phone); ?>"><?php the_field('phone'); ?></a>.</p>
+						<ul class="text-list">
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="lc">
+
 	<section class="section" id="departments">
 		<h2 class="section-title">Contact Departments</h2>
 		<p class="section-desc">Please call <strong><a href="tel:+1<?php echo str_replace("-", "", $phone); ?>"><?php the_field('phone'); ?></a></strong> and use the department's corresponding extension, or send an email.</p>
@@ -92,6 +91,6 @@
 		<h2 class="section-title">Send a Message</h2>
 		<?php echo do_shortcode('[contact-form-7 id="111" title="Contact form 1"]'); ?>
 	</section>
-</div>
+</div><!--end .main-body-->
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

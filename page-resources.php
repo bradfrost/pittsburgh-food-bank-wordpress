@@ -10,7 +10,7 @@
 	<h1 class="page-title"><?php the_title(); ?></h1>
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div>
-<div class="lc">
+<div class="main-body">
 	<div class="g g-3up">
 		<div class="gi">
 			<div class="block block-thumb">
@@ -80,6 +80,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div><!--end .main-body-->
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

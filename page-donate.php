@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<div class="hero hero-text">
+<div class="page-header">
 	<h1 class="page-title"><?php the_title(); ?></h1>
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 
@@ -159,7 +159,7 @@
 			</fieldset><!--end .donate-step-->
 	</form><!--end .donate-form-->		
 </div>
-<div class="lc">
+<div class="main-body l">
 	<h2>More Ways to Give</h2>
 	<div class="g g-3up">
 		<div class="gi">

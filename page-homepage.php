@@ -12,8 +12,7 @@
 		<h2 class="banner-hero-text"><?php the_field('tagline'); ?></h2>
 	</div>
 </div><!--end .banner-hero-->
-<div class="lc">
-	
+<div class="main-body">
 	<div class="g g-3up section">
 		<?php
  
@@ -40,9 +39,9 @@
 		    endif;
 		?>
 	</div><!--end .g-3up-->
-</div><!--end .lc-->
-<div class="split section">
-	<div class="lc">
+	
+	<div class="split section">
+
 		<div class="g g-2up">
 			<div class="gi split-col-1">
 				<div class="split-inner">
@@ -86,8 +85,7 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="lc">
+
 	<section class="section section-block">
 		<div class="section-img">
 			<?php 
@@ -120,6 +118,7 @@
 			</ul>
 		</div>
 	</section>
-</div><!--end .lc-->
+	
+</div><!--end .main-body-->
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

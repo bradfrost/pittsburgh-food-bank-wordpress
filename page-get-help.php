@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<div class="hero hero-text">
+<div class="page-header">
 	<h1 class="page-title"><?php the_title(); ?></h1>
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 	<form action="#" method="post" class="inline-form find-help">           
