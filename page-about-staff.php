@@ -12,65 +12,67 @@
 </div>
 
 <div class="main-body">
-	
-	<h2><?php the_field('executive_staff_title'); ?></h2>
-	<div class="g g-3up section">
-		<?php
- 
-			// check if the repeater field has rows of data
-			if( have_rows('executive_staff') ):
-			 
-			 	// loop through the rows of data
-			    while ( have_rows('executive_staff') ) : the_row(); ?>        
-			        <div class="gi">
-						<div class="block block-thumb">
-							
-							<div class="b-img">
-								<img src="<?php the_sub_field('image'); ?>" alt="Thumb" />
+	<section class="section">
+		<header class="section-header">
+			<h2 class="section-title"><?php the_field('executive_staff_title'); ?></h2>
+		</header>
+		<div class="lc">
+			<div class="g g-3up">
+				<?php
+		 
+					// check if the repeater field has rows of data
+					if( have_rows('executive_staff') ):
+					 
+					 	// loop through the rows of data
+					    while ( have_rows('executive_staff') ) : the_row(); ?> 
+					    	<?php $image = get_sub_field('image'); ?>      
+					        <div class="gi">
+								<div class="block block-thumb">
+									
+									<div class="b-img">
+										<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" />
+									</div>
+									<div class="b-text">
+										<h2 class="b-title"><?php the_sub_field('name'); ?></h2>
+										<p class="b-excerpt"><?php the_sub_field('title'); ?></p>
+									</div>
+		
+								</div>
 							</div>
-							<div class="b-text">
+				<?php 
+				    endwhile;
+				    endif;
+				?>
+			</div><!--end .g-3up-->
+		</div>
+	</section>
+	
+	<section class="section section-alt">
+		<header class="section-header">
+			<h2 class="section-title"><?php the_field('board_title'); ?></h2>
+		</header>
+		<div class="lc">
+			<div class="g g-3up">
+				<?php
+		 
+					// check if the repeater field has rows of data
+					if( have_rows('board_member') ):
+					 
+					 	// loop through the rows of data
+					    while ( have_rows('board_member') ) : the_row(); ?>
+					    <div class="gi">    
+					        <div class="block block-text">
 								<h2 class="b-title"><?php the_sub_field('name'); ?></h2>
-								<p class="b-excerpt"><?php the_sub_field('title'); ?></p>
+								<p class="b-excerpt"><?php the_sub_field('organization'); ?></p>
 							</div>
-
-						</div>
-					</div>
-		<?php 
-		    endwhile;
-		    endif;
-		?>
-	</div><!--end .g-3up-->
-	
-	<hr />
-	
-	<h2><?php the_field('board_title'); ?></h2>
-	<h2><?php the_field('executive_staff_title'); ?></h2>
-	<div class="g g-3up section">
-		<?php
- 
-			// check if the repeater field has rows of data
-			if( have_rows('campaigns') ):
-			 
-			 	// loop through the rows of data
-			    while ( have_rows('campaigns') ) : the_row(); ?>        
-			        <div class="gi">
-						<div class="block block-thumb">
-							<a href="<?php the_sub_field('campaign_url'); ?>" class="b-inner">
-								<div class="b-img">
-									<img src="<?php the_sub_field('campaign_image'); ?>" alt="Thumb" />
-								</div>
-								<div class="b-text">
-									<h2 class="b-title"><?php the_sub_field('campaign_title'); ?></h2>
-									<p class="b-excerpt"><?php the_sub_field('campaign_description'); ?></p>
-								</div>
-							</a>
-						</div>
-					</div>
-		<?php 
-		    endwhile;
-		    endif;
-		?>
-	</div><!--end .g-3up-->
+					    </div>
+				<?php 
+				    endwhile;
+				    endif;
+				?>
+			</div><!--end .g-3up-->
+		</div>
+	</section>
 </div>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

@@ -76,6 +76,19 @@ function blog_sidebar() {
 // Hook into the 'widgets_init' action
 add_action( 'widgets_init', 'blog_sidebar' );
 
+// Resources Sidebar
+function resources_sidebar() {
+
+	$args = array(
+		'id'            => 'resources',
+		'name'          => __( 'Resources', 'text_domain' ),
+		'description'   => __( 'Sidebar to appear on job-related content', 'text_domain' ),
+	);
+	register_sidebar( $args );
+}
+// Hook into the 'widgets_init' action
+add_action( 'widgets_init', 'resources_sidebar' );
+
 
 
 /*Remove Comments from Admin Menu*/
@@ -150,28 +163,6 @@ register_post_type('job', array(
 	'supports' => array('title', 'tags', 'editor', 'thumbnail','custom-fields')
 ));
 
-/*Add Story Post Type*/
-register_post_type('story', array(
-	'labels' => array(
-       'name'          => __('Stories'),
-       'singular_label' => __('Story'),
-		'add_new' => 'Add New Story',
-	    'add_new_item' =>'Add New Story',
-	    'edit' => 'Edit Story',
-	    'edit_new_item' => 'Edit Story',
-	    'rewrite' => array("slug" => "story")
-    ),
-    'menu_icon' => 'dashicons-format-video',
-	'public' => true,
-	'show_ui' => true,
-	'capability_type' => 'post',
-	'hierarchical' => false,
-	'rewrite' => false,
-	'query_var' => false,
-	'taxonomies' => array('post_tag','category'),
-	'supports' => array('title', 'tags', 'editor', 'thumbnail','custom-fields')
-));
-
 /*Add FAQ Post Type*/
 register_post_type('faq', array(
 	'labels' => array(
@@ -210,15 +201,15 @@ function create_faq_taxonomy() {
 }
 
 /*Add Resource Post Type*/
-register_post_type('resource', array(
+register_post_type('link', array(
 	'labels' => array(
-       'name'          => __('Resources'),
-       'singular_label' => __('Resource'),
-		'add_new' => 'Add New Resource',
-	    'add_new_item' =>'Add New Resource',
-	    'edit' => 'Edit Resource',
-	    'edit_new_item' => 'Edit Resource',
-	    'rewrite' => array("slug" => "resource")
+       'name'          => __('Links'),
+       'singular_label' => __('Link'),
+		'add_new' => 'Add New Link',
+	    'add_new_item' =>'Add New Link',
+	    'edit' => 'Edit Link',
+	    'edit_new_item' => 'Edit Link',
+	    'rewrite' => array("slug" => "link")
     ),
     'menu_icon' => 'dashicons-admin-links',
 	'public' => true,
@@ -232,15 +223,15 @@ register_post_type('resource', array(
 ));
 
 /*Add Resource Taxonomy */
-add_action( 'init', 'create_resource_taxonomy' );
+add_action( 'init', 'create_link_taxonomy' );
 
-function create_resource_taxonomy() {
+function create_link_taxonomy() {
 	register_taxonomy(
-		'resource_cat',
-		'resource',
+		'link_cat',
+		'link',
 		array(
-			'label' => __( 'Resource Category' ),
-			'rewrite' => array( 'slug' => 'resource_cat' ),
+			'label' => __( 'Link Category' ),
+			'rewrite' => array( 'slug' => 'link_cat' ),
 			'hierarchical' => true,
 		)
 	);

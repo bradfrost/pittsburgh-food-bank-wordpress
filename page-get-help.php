@@ -8,10 +8,9 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="page-header">
 	<h1 class="page-title"><?php the_title(); ?></h1>
-	<p class="page-intro"><?php the_field('tagline'); ?></p>
-	<form action="#" method="post" class="inline-form find-help">           
+	<form action="/get-help/directory" method="post" class="inline-form find-help">           
 		<fieldset>
-		    <legend>Find help near you</legend>
+		    <legend>Find food near you</legend>
 		    <label for="help-field" class="is-vishidden">Email address</label>
 		    <div class="inline-container">
 		   		<input type="newsletter" placeholder="Enter your neighborhood or zip code" id="help-field" class="help-field">
@@ -20,138 +19,56 @@
 		</fieldset>
 	</form>
 </div>
-<div class="lc">
-	<p class="banner-text">If you need emergency food, please call Hunger Services Network of the Urban League of Pittsburgh at</p>
-	<a href="tel:+4123250749" class="banner-cta text-btn">412-325-0749</a>
-</div>
-<div class="lc">
-	<section class="section">
-		<h2 class="section-title">Our Programs</h2>
-		<p class="section-desc">We offer a host of services to Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<div class="g g-3up">
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Food Security Partnership</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Produce to People</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">SNAP</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Farm Stand Project</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Community Harvest</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Summer Food</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Commodity</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Supplemental Food Program</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Nutrition</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Agency Relations</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
-			<div class="gi">
-				<div class="block block-thumb">
-					<a href="#" class="b-inner">
-						<div class="b-img">
-	<img src="../../images/fpo_square.png" alt="Square Thumbnail">								</div>
-						<div class="b-text">
-							<h2 class="b-title">Educational Programs</h2>
-							<p class="b-excerpt">140 characer or less description of the program Lorem ipsum dolor sit amet, consectetur</p>
-						</div>
-					</a>
-				</div>					</div>
+<div class="main-body l">
+	<div class="banner banner-cta">
+		<div class="lc">
+			<p class="banner-text"><?php the_field('emergency_food_instruction'); ?></p>
+			<a href="tel:+4123250749" class="text-btn"><?php the_field('emergency_food_number'); ?></a>
 		</div>
+	</div>
+	<section class="section section-full section-alt">
+		<header class="section-header">
+			<h2 class="section-title"><?php the_field('get_help_resources_title'); ?></h2>
+		</header>
+		<div class="lc">
+			<div class="g g-3up">
+				<?php
+	
+				// check if the repeater field has rows of data
+				if( have_rows('get_help_resources') ):
+				 
+				 	// loop through the rows of data
+				    while ( have_rows('get_help_resources') ) : the_row(); ?>        
+				        <div class="gi">
+							<div class="block block-thumb">
+								<a href="<?php the_sub_field('get_help_resource_link'); ?>" class="b-inner">
+									<div class="b-img">
+										<?php 
+											$image = get_sub_field('get_help_repeater_img');
+											if ( $image ) {
+				
+												echo '<img src="' . get_sub_field('get_help_repeater_img') .'" alt="Thumb" />';
+												
+											} else {
+											
+												echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) .'/images/fpo_square.png" />';
+											}
+										?>
+									</div>
+									<div class="b-text">
+										<h2 class="b-title"><?php the_sub_field('get_help_resource_title'); ?></h2>
+										<p class="b-excerpt"><?php the_sub_field('get_help_resource_desc'); ?></p>
+									</div>
+								</a>
+							</div>
+						</div>
+			<?php 
+			    endwhile;
+			    endif;
+			?>		
+			</div><!--end .g-3up-->
+		</div><!--end .lc-->
 	</section>
-</div>
+</div><!--end main-body-->
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

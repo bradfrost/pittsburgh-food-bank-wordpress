@@ -5,11 +5,12 @@
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div><!--end .page-header-->
 <div class="main-body l">
-	<div class="l-main">
+	<div class="l-main lc lc-single">
 		<div class="text">
 		<?php the_content(); ?>
 		</div>
 	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php get_sidebar(); ?>
 	</div>

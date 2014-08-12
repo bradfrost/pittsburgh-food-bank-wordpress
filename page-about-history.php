@@ -11,7 +11,7 @@
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div>
 
-<div class="main-body">
+<div class="main-body lc lc-single">
 	
 	<ol class="timeline">
 		<?php

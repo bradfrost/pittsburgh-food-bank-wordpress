@@ -27,8 +27,8 @@ $event_id = get_the_ID();
 
 <div class="main-body l">
 	
-	<div class="l-main">
-		
+	<div class="lc lc-single">
+		<div class="text">
 		<!-- Notices -->
 		<?php tribe_events_the_notices() ?>
 	
@@ -62,9 +62,9 @@ $event_id = get_the_ID();
 		<?php endwhile; ?>
 		
 		<p><a href="<?php echo tribe_get_events_link() ?>" class="btn btn-small"> <?php _e( 'View All Events', 'tribe-events-calendar' ) ?></a></p>
-		<hr />
-		<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
+		</div><!--end text-->
 	</div><!--end l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
 	<div class="l-sidebar">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>
 	</div><!--end .l-sidebar-->

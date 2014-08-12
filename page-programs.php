@@ -11,7 +11,7 @@
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div>
 <?php endwhile; endif; ?>
-<div class="main-body">
+<div class="lc">
 	<div class="g g-3up">
 		<?php
 		// The Query

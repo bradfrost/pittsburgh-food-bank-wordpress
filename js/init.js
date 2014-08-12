@@ -169,4 +169,9 @@
 			return false;
 		}
 	});
+	
+	//Prevent Orphans
+	$('.page-title, .page-intro, .b-title, .b-excerpt').each(function() {
+        $(this).html($(this).html().replace(/\s([^\s<]+)\s*$/,'&nbsp;$1'));
+    });
 })(this);

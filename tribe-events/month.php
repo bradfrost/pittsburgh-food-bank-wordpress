@@ -18,7 +18,7 @@ if ( !defined('ABSPATH') ) { die('-1'); } ?>
 	<p class="page-intro"><?php the_field('tagline', 21); ?></p>
 </div><!--end .page-header-->
 <div class="main-body l">
-	<div class="l-main">
+	<div class="l-main lc lc-single">
 
 		<?php do_action( 'tribe_events_before_template' ) ?>
 		
@@ -31,6 +31,7 @@ if ( !defined('ABSPATH') ) { die('-1'); } ?>
 		<?php do_action( 'tribe_events_after_template' ) ?>
 
 	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
 	<div class="l-sidebar">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>
 	</div><!--end .l-sidebar-->

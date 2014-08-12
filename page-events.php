@@ -11,7 +11,7 @@
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div><!--end .page-header-->
 <div class="main-body l">
-	<div class="l-main">
+	<div class="l-main lc">
 		<ul class="post-list event-list">		
 			<?php
 				global $post;
