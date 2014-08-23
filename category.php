@@ -1,13 +1,31 @@
 <?php get_header(); ?>
-<section id="content" role="main">
-<header class="header">
-<h1 class="entry-title"><?php _e( 'Category Archives: ', 'blankslate' ); ?><?php single_cat_title(); ?></h1>
-<?php if ( '' != category_description() ) echo apply_filters('archive_meta', '<div class="archive-meta">' . category_description() . '</div>'); ?>
-</header>
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<?php get_template_part('entry'); ?>
-<?php endwhile; endif; ?>
-<?php get_template_part('nav', 'below'); ?>
-</section>
-<?php get_sidebar(); ?>
+<div class="page-header">
+	<h1 class="page-title"><?php single_cat_title(); ?></h1>
+	<p class="page-intro">All posts categorized as "<?php single_cat_title(); ?>"</p>
+</div>
+<div class="main-body l">
+	<div class="l-main">
+		<div class="lc lc-single">
+			<ul class="post-list">
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<li>
+				<div class="block block-post">
+					<div class="b-body">
+						<p class="b-timestamp"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_date(); ?></a></p>
+						<h3 class="b-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a></h3>
+						<p class="b-excerpt"><?php echo get_the_excerpt(); ?></p>
+					</div>
+				</div>
+			</li>
+			<?php endwhile; endif; ?>
+			</ul><!--end post-list-->
+			<?php get_template_part('nav', 'below'); ?>
+		</div><!--end .lc-->
+	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
+	<div class="l-sidebar">
+		<?php include (TEMPLATEPATH . '/includes/sidebar-blog.php');  ?>
+		<?php /* include (TEMPLATEPATH . '/includes/section-nav-categories.php'); */  ?>
+	</div><!--end .l-sidebar-->
+</div><!--end .main-body-->
 <?php get_footer(); ?>

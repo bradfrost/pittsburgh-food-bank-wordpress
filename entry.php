@@ -1,8 +1,7 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<header>
-<?php if ( is_singular() ) {echo '<h1 class="entry-title">';} else {echo '<h2 class="entry-title">';} ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a><?php if ( is_singular() ) {echo '</h1>';} else {echo '</h2>';} ?> <?php edit_post_link(); ?>
-<?php if (!is_search()) get_template_part('entry', 'meta'); ?>
-</header>
-<?php get_template_part('entry', (is_archive() || is_search() ? 'summary' : 'content')); ?>
-<?php if (!is_search()) get_template_part('entry-footer'); ?>
-</article>
+<div id="post-<?php the_ID(); ?>" class="block block-post">
+	<div class="b-body">
+		<p class="b-timestamp"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_date(); ?></a></p>
+		<h3 class="b-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a></h3>
+		<p class="b-excerpt"><?php echo get_the_excerpt(); ?></p>
+	</div>
+</div>

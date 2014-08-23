@@ -9,7 +9,7 @@
 		<a href="<?php the_field('cta_link'); ?>" class="btn"><?php the_field('cta_link_text'); ?></a>
 	</div>
 </div><!--end .well-->
-<?php elseif ($cta == 'newsletter') : ?>
+<?php else : ?>
 <div class="well">
 	<div class="lc lc-single">
 		<h2 class="well-title">Join Our Newsletter</h2>
