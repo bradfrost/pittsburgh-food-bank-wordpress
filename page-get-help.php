@@ -8,16 +8,9 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="page-header <?php the_field('header_image'); ?>">
 	<h1 class="page-title"><?php the_title(); ?></h1>
-	<form action="/get-help/directory" method="post" class="inline-form find-help">           
-		<fieldset>
-		    <legend>Find food near you</legend>
-		    <label for="help-field" class="is-vishidden">Email address</label>
-		    <div class="inline-container">
-		   		<input type="newsletter" placeholder="Enter your neighborhood or zip code" id="help-field" class="help-field">
-		    	<button class="newsletter-submit">Search</button>
-			</div>
-		</fieldset>
-	</form>
+	<p class="page-intro"><?php the_field('tagline'); ?></p>
+	<a href="/get-help/directory" class="btn">Find food near you</a>
+	
 </div>
 <div class="main-body l">
 	<div class="banner banner-cta">

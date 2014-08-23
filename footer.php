@@ -179,12 +179,7 @@
 </footer>
 </div><!--end .page-->
 <script src="<?php bloginfo('template_directory'); ?>/js/jquery.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/jquery.mobile.custom.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/jquery.inputmask.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/single-cc-field.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/parsley.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/init.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/production.min.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>
