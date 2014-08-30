@@ -9,6 +9,9 @@
 		<a href="<?php the_field('cta_link'); ?>" class="btn"><?php the_field('cta_link_text'); ?></a>
 	</div>
 </div><!--end .well-->
+<?php elseif ($cta == 'none') : //Display nothing ?>
+
+
 <?php else : ?>
 <div class="well">
 	<div class="lc lc-single">
