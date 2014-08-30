@@ -11,6 +11,7 @@
 			</div>
 		</div>
 	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php get_sidebar(); ?>
 	</div>
