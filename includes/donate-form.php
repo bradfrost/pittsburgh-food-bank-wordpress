@@ -109,5 +109,5 @@
 			</div><!--end .g-2up-->
 		</div><!--end .payment-container-bank-->
 	</fieldset><!--end .donate-step-->
-	<button class="donate-submit btn"><span class="donate-submit-text">Donate</span> <span class="icon-arrow-right5"></span></button>
+	<button class="donate-submit btn btn-alt"><span class="donate-submit-text">Donate</span> <span class="icon-arrow-right5"></span></button>
 </form><!--end .donate-form-->
