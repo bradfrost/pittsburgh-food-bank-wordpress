@@ -97,6 +97,28 @@ function remove_comment_menu(){
 }
 add_action( 'admin_menu', 'remove_comment_menu' );
 
+/*Add Object Post Type*/
+register_post_type('object', array(
+	'labels' => array(
+       'name'          => __('Objects'),
+       'singular_label' => __('Object'),
+		'add_new' => 'Add New Object',
+	    'add_new_item' =>'Add New Object',
+	    'edit' => 'Edit Object',
+	    'edit_new_item' => 'Edit Object',
+	    'rewrite' => array("slug" => "object")
+    ),
+    'menu_icon' => 'dashicons-welcome-widgets-menus',
+	'public' => true,
+	'show_ui' => true,
+	'capability_type' => 'post',
+	'hierarchical' => false,
+	'rewrite' => false,
+	'query_var' => false,
+	'taxonomies' => array('post_tag','category'),
+	'supports' => array('title', 'tags', 'editor', 'thumbnail','custom-fields')
+));
+
 /*Add Agency Post Type*/
 register_post_type('agency', array(
 	'labels' => array(
@@ -164,7 +186,7 @@ register_post_type('job', array(
 ));
 
 /*Add FAQ Post Type*/
-register_post_type('faq', array(
+/* register_post_type('faq', array(
 	'labels' => array(
        'name'          => __('FAQs'),
        'singular_label' => __('FAQ'),
@@ -184,8 +206,10 @@ register_post_type('faq', array(
 	'taxonomies' => array('post_tag','category'),
 	'supports' => array('title', 'tags', 'editor', 'thumbnail','custom-fields')
 ));
+*/
 
 /*Add FAQ Taxonomy */
+/*
 add_action( 'init', 'create_faq_taxonomy' );
 
 function create_faq_taxonomy() {
@@ -199,8 +223,10 @@ function create_faq_taxonomy() {
 		)
 	);
 }
+*/
 
 /*Add Resource Post Type*/
+/*
 register_post_type('link', array(
 	'labels' => array(
        'name'          => __('Links'),
@@ -221,8 +247,10 @@ register_post_type('link', array(
 	'taxonomies' => array('post_tag','category'),
 	'supports' => array('title', 'tags', 'custom-fields')
 ));
+*/
 
 /*Add Resource Taxonomy */
+/*
 add_action( 'init', 'create_link_taxonomy' );
 
 function create_link_taxonomy() {
@@ -236,6 +264,7 @@ function create_link_taxonomy() {
 		)
 	);
 }
+*/
 
 /**
  * Customize your tribe event calendar meta displays with a variety of methods.
