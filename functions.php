@@ -42,6 +42,19 @@ function blankslate_widgets_init(){
 	) );
 }
 
+//Load Javascript
+function load_js() {
+   wp_enqueue_script( 'jq', get_template_directory_uri() . '/js/jquery.js', true);
+   wp_enqueue_script( 'production', get_template_directory_uri() . '/js/production.min.js', array ('jquery'), true);
+   
+   //If page is Get Help Directory
+   if ( is_page(55) ) {
+   		wp_enqueue_script( 'typeahead', get_template_directory_uri() . '/js/typeahead.bundle.min.js', true);
+   		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/gethelp.js', array ('jquery'), true);
+   }
+} 
+add_action( 'wp_footer', 'load_js' );
+
 //Add image sizes
 add_theme_support( 'post-thumbnails' );
 

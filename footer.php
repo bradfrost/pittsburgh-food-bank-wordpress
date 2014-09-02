@@ -1,6 +1,6 @@
 </main><!--end .main-->
 <?php 
-	if (! is_page( 17 ) ) {
+	if (!is_page(17) && !is_page(55) ) {
 		include (TEMPLATEPATH . '/includes/donate.php'); 
 	}
 ?>
@@ -178,8 +178,6 @@
 	</div>
 </footer>
 </div><!--end .page-->
-<script src="<?php bloginfo('template_directory'); ?>/js/jquery.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/production.min.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

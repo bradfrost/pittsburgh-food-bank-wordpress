@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Get Help - Food Assistance Directory
+ * Template Name: Get Help - Food Assistance
  */
 ?>
 
@@ -23,8 +23,8 @@ $firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 	    <fieldset>
 		    <legend>Enter your neighborhood or ZIP</legend>
 		    <div class="inline-container" id="neighborhood">
-		   		<input type="newsletter" name="neighborhood" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto">
-		    	<button class="newsletter-submit">Search</button>
+		   		<input type="text" name="neighborhood" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto">
+		    	<button class="neighborhood-submit">Search</button>
 			</div>
 	    </fieldset>
 	</form>
@@ -91,13 +91,15 @@ $firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 				<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGOK9vXhVlYy-jAlV9lUXiP0rpjP_NF88&q=<?php print $firstmap; ?>" width="600" height="450" frameborder="0" style="border:0" id="directory-map"></iframe>
 			</div>
 		</div>
-
-</div>
+</div><!--end lc-->
 <?php endwhile; endif; ?>
-
+<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
+<div class="l">
+	<div class="l-sidebar">
+		<?php get_sidebar(); ?>
+	</div>
+</div>
 <?php get_footer(); ?>
-<script src="<?php bloginfo('template_directory'); ?>/js/typeahead.bundle.min.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/gethelp.js"></script>
 
 
 
