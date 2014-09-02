@@ -55,13 +55,31 @@ $firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 							</div>
 							<dl class="block-directory-extra is-vishidden">
 								<dt>Operating Hours</dt>
-								<dd>Mondays and Tuesdays (11 AM - 12:30 PM)</dd>
+								<?php if ($item['mon'] != '') { ?>
+									<dd>Mon (<?php print $item['mon']?>)</dd>
+								<?php } ?>
+								<?php if ($item['tue'] != '') { ?>
+									<dd>Tue (<?php print $item['tue']?>)</dd>
+								<?php } ?>
+								<?php if ($item['wed'] != '') { ?>
+									<dd>Wed (<?php print $item['wed']?>)</dd>
+								<?php } ?>
+								<?php if ($item['thr'] != '') { ?>
+									<dd>Thu (<?php print $item['thr']?>)</dd>
+								<?php } ?>
+								<?php if ($item['fri'] != '') { ?>
+									<dd>Fri (<?php print $item['fri']?>)</dd>
+								<?php } ?>
+								<?php if ($item['sat'] != '') { ?>
+									<dd>Sat (<?php print $item['sat']?>)</dd>
+								<?php } ?>
+								<?php if ($item['sun'] != '') { ?>
+									<dd>Sun (<?php print $item['sun']?>)</dd>
+								<?php } ?>
 								<dt>Contact</dt>
-								<dd>Fran McFadden</dd>
+								<dd><?php print $item['contact']?></dd>
 								<dt>Type of Program</dt>
-								<dd>This is a food pantry. A food pantry is an organization that stores and distributes food to individuals, usually in the form of weekly or monthly grocery bags.  
-
-						</dd>
+								<dd><?php print $item['programtype']?></dd>
 							</dl>
 						<a href="#" class="text-btn">More info</a></div>
 					</li>
