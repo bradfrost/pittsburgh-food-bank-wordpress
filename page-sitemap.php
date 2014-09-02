@@ -12,6 +12,10 @@
 <div class="lc lc-single">
 	<div class="text">
 		<ul>
+			<?php $args = array(
+				'title_li'     => ""
+			); ?>
+		
 		<?php wp_list_pages( $args ); ?>
 		</ul>
 	</div>

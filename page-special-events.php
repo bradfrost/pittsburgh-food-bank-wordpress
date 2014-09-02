@@ -10,33 +10,32 @@
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div><!--end .page-header-->
 <div class="main-body l">
-	<div class="l-main">
+	<div class="lc lc-single">
 		<div class="text">
 		<?php the_content(); ?>
 		</div>
 		
 		<ul class="post-list">
-		<?php
-			$specialevents = get_pages( array( 'child_of' => 818 ) );
-		
-			foreach( $specialevents as $page ) {		
-				$content = $page->post_content;
-		
-				$content = apply_filters( 'the_content', $content );
-				$nospaces = str_replace(' ', '-', $page->post_title);
-				$path = strtolower($nospaces);
-			?>
-				<li id="<?php echo $path; ?>">
-					<h2><a href="#<?php echo $path; ?>"><?php echo $page->post_title; ?></a></h2>
-					<div><?php echo $content; ?></div>
-				</li>
 			<?php
-			}	
-		?>
+		 
+				// check if the repeater field has rows of data
+				if( have_rows('special_events_list') ):
+				
+					$path = "path";
+				 
+				 	// loop through the rows of data
+				    while ( have_rows('special_events_list') ) : the_row(); ?>     
+				        <li id="<?php echo $path; ?>">
+							<h2><a href="#<?php echo $path; ?>"><?php the_sub_field('special_event_title'); ?></a></h2>
+							<div><?php the_sub_field('special_event_description'); ?></div>
+						</li>
+			<?php 
+			    endwhile;
+			    endif;
+			?>
 		</ul><!--end post-list-->
-		
-		<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
 	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php get_sidebar(); ?>
 	</div><!--end .l-sidebar-->

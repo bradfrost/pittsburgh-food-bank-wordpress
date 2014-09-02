@@ -89,7 +89,7 @@
 		<header class="section-header">
 			<h2 class="section-title">Send a Message</h2>
 		</header>
-		<div class="lc">
+		<div class="lc lc-single">
 			<?php echo do_shortcode('[contact-form-7 id="111" title="Contact form 1"]'); ?>
 		</div>
 	</section>
