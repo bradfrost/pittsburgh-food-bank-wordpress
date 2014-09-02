@@ -16,7 +16,7 @@
 			    while ( have_rows('donate_widget_values',1833) ) : the_row(); 
 			?>  
 			<li>
-				<input type="radio" id="donate-amount-<?php echo $i; ?>" name="donate-amount" <?php if($i==2) { echo 'checked'; } ?> />
+				<input type="radio" id="donate-amount-<?php echo $i; ?>" name="donate-amount" />
 				<label for="donate-amount-<?php echo $i; ?>" data-amount="<?php the_sub_field('donate_amount',1833); ?>" data-message="<?php the_sub_field('donate_impact'); ?>">$<?php the_sub_field('donate_amount',1833); ?></label>
 				
 				<?php $i++; ?>
