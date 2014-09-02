@@ -10,26 +10,21 @@
 		<h4 class="donate-step-legend"><span class="form-step">1</span> <span class="donate-step-message">Choose an amount to donate:</span></h4>
 		
 		<ul class="chicklet-list">
+			<?php
+				if( have_rows('donate_widget_values',1833) ):
+				$i = 1;
+			    while ( have_rows('donate_widget_values',1833) ) : the_row(); 
+			?>  
 			<li>
-				<input type="radio" id="donate-amount-1" name="donate-amount" />
-				<label for="donate-amount-1" data-amount="25" data-message="$25 can feed a family for a day">$25</label>
+				<input type="radio" id="donate-amount-<?php echo $i; ?>" name="donate-amount" />
+				<label for="donate-amount-<?php echo $i; ?>" data-amount="<?php the_sub_field('donate_amount',1833); ?>" data-message="<?php the_sub_field('donate_impact'); ?>">$<?php the_sub_field('donate_amount',1833); ?></label>
+				
+				<?php $i++; ?>
 			</li>
-			<li>
-				<input type="radio" id="donate-amount-2" name="donate-amount" checked="checked" />
-				<label for="donate-amount-2" data-amount="50" data-message="$50 can feed a family for a week">$50</label>
-			</li>
-			<li>
-				<input type="radio" id="donate-amount-3" name="donate-amount" />
-				<label for="donate-amount-3" data-amount="100" data-message="$100 can feed a family of 4 for a week">$100</label>
-			</li>
-			<li>
-				<input type="radio" id="donate-amount-4" name="donate-amount" />
-				<label for="donate-amount-4" data-amount="250" data-message="$250 can feed a family of 4 for two weeks">$250</label>
-			</li>
-			<li>
-				<input type="radio" id="donate-amount-5" name="donate-amount" />
-				<label for="donate-amount-5" data-amount="500" data-message="$500 can feed a family of 4 for four weeks">$500</label>
-			</li>
+			<?php 
+			    endwhile;
+			    endif;
+			?>	
 			<li>
 				<div class="input-container" data-message="Every dollar you donate helps end hunger.">
 					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other"  />
