@@ -1,6 +1,17 @@
+<?php 
+	global $post;
+	
+	//If this page is a child of the donate page
+	if ( $post->post_parent == '17' ) {
+		$postID = $post->ID;
+	} else {
+		$postID = 1833; 
+	}
+?>
+
 <form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donation-form" id="donate-form">
 	<input type="hidden" name="method" value="donate" />
-    <input type="hidden" name="form_id" value="4080" />
+    <input type="hidden" name="form_id" value="<?php the_field('form_id',$postID); ?>" data-monthly-id="<?php the_field('monthly_form_id',$postID); ?>" />
     <input type="hidden" name="validate" value="true" />
     <input type="hidden" name="df_preview" value="true" />
     <input type="hidden" name="billing.name.first" id="billing-first-name" value="" />
@@ -11,13 +22,13 @@
 		
 		<ul class="chicklet-list">
 			<?php
-				if( have_rows('donate_widget_values',1833) ):
+				if( have_rows('donate_widget_values',$postID) ):
 				$i = 1;
-			    while ( have_rows('donate_widget_values',1833) ) : the_row(); 
+			    while ( have_rows('donate_widget_values',$postID) ) : the_row(); 
 			?>  
 			<li>
-				<input type="radio" id="donate-amount-<?php echo $i; ?>" name="donate-amount" <?php if($i==2) { echo 'checked'; } ?> />
-				<label for="donate-amount-<?php echo $i; ?>" data-amount="<?php the_sub_field('donate_amount',1833); ?>" data-message="<?php the_sub_field('donate_impact'); ?>">$<?php the_sub_field('donate_amount',1833); ?></label>
+				<input type="radio" id="donate-amount-<?php echo $i; ?>" name="level_id" value="<?php the_sub_field('level_id',$postID); ?>" data-onetime-value="<?php the_sub_field('level_id',$postID); ?>" data-monthly-value="<?php the_sub_field('monthly_level_id',$postID); ?>" <?php if($i==2) { echo 'checked'; } ?> />
+				<label for="donate-amount-<?php echo $i; ?>" data-amount="<?php the_sub_field('donate_amount',$postID); ?>" data-message="<?php the_sub_field('donate_impact'); ?>">$<?php the_sub_field('donate_amount',$postID); ?></label>
 				
 				<?php $i++; ?>
 			</li>
@@ -26,6 +37,7 @@
 			    endif;
 			?>	
 			<li>
+				<input type="radio" id="donate-amount-other" name="level_id" value="<?php the_field('other_level_id',$postID); ?>" data-onetime-value="<?php the_field('other_level_id',$postID); ?>" data-monthly-value="<?php the_field('other_monthly_level_id',$postID); ?>" style="display: none;" />
 				<div class="input-container" data-message="Every dollar you donate helps end hunger.">
 					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other"  />
 				</div>
