@@ -63,10 +63,7 @@ add_action( 'wp_footer', 'load_js' );
 
 //Add image sizes
 add_theme_support( 'post-thumbnails' );
-
-if ( function_exists( 'add_image_size' ) ) { 
-	
-}
+add_image_size( 'square', 250, 250, true );
 
 // Special Events Sidebar
 function specialevents_sidebar() {
