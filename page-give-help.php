@@ -15,8 +15,11 @@
 	<div class="hero hero-main section">
 			<div class="hero-img">
 				<a href="<?php the_field('volunteer_url'); ?>">
-					<?php $image = get_field('volunteer_image'); ?>
-					<img src="<?php echo $image['url'] ?>" alt="">
+					<?php 
+						$image = get_field('volunteer_image'); 
+						$imageURL = $image['url'];
+					?>
+					<img src="<?php echo $imageURL ?>" alt="">
 				</a>
 			</div>
 			<div class="hero-body">
@@ -45,9 +48,11 @@
 									<div class="b-img">
 										<?php 
 											$image = get_sub_field('give_help_resource_img');
+											$imageURL = $image['url'];
+											$imageCrop = aq_resize($imageURL,250, 250, true);
 											if ( $image ) {
 				
-												echo '<img src="' . $image["url"] .'" alt="Thumb" />';
+												echo '<img src="' . $imageCrop .'" alt="Thumb" />';
 												
 											} else {
 											

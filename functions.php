@@ -65,6 +65,9 @@ add_action( 'wp_footer', 'load_js' );
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'square', 250, 250, true );
 
+//Add Aqua Resizer for updating image sizes on the fly
+require_once('aq_resizer.php');
+
 // Special Events Sidebar
 function specialevents_sidebar() {
 
