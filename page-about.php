@@ -47,7 +47,7 @@
 							<div class="b-img">
 								<?php 
 									if ( has_post_thumbnail() ) {
-										the_post_thumbnail();
+										the_post_thumbnail('square');
 									} else {
 										echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) .'/images/fpo_square.png" />';
 									}

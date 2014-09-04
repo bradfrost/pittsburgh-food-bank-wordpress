@@ -55,6 +55,7 @@ function load_js() {
    
    //If page is Recipe Rainbow
    if ( is_page(1194) ) {
+   		wp_enqueue_script( 'typeahead', get_template_directory_uri() . '/js/typeahead.bundle.min.js', true);
    		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/recipe-rainbow.js', array ('jquery'), true);
    }
 } 
