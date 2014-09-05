@@ -2,6 +2,7 @@
 // Recipe Rainbow
 //
 
+
 (function(w) {
 
 	var $ingredientForm = $('#ingredient-form'),
@@ -9,8 +10,12 @@
 		$ingredientControls = $('.ingredients-controls'),
 		$ingredientList = $('.ingredient-list');
 	
+	//Add Typeahead to the ingredient
+	
+	
+	
 	//Hide initially control list 
-	$ingredientControls.hide();	
+	$ingredientControls.hide();
 	
 	
 		
