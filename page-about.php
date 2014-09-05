@@ -21,9 +21,14 @@
 			</div>
 			<div class="section-body">
 				<h2><?php the_field('mission_statement_title'); ?></h2>
-				<div class="intro">
+				<p class="intro">
 					<?php the_field('mission_statement'); ?>
-				</div>
+				</p>
+				
+				<h2><?php the_field('vision_title'); ?></h2>
+				<p class="intro">
+					<?php the_field('vision'); ?>
+				</p>
 			</div>
 		</div>
 	</section>
