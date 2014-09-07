@@ -19,7 +19,7 @@
 			<a href="tel:+4123250749" class="text-btn"><?php the_field('emergency_food_number'); ?></a>
 		</div>
 	</div>
-	<section class="section section-full section-alt">
+	<section class="section section-full">
 		<header class="section-header">
 			<h2 class="section-title"><?php the_field('get_help_resources_title'); ?></h2>
 		</header>
@@ -61,6 +61,7 @@
 			?>		
 			</div><!--end .g-3up-->
 		</div><!--end .lc-->
+		<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	</section>
 </div><!--end main-body-->
 <?php endwhile; endif; ?>

@@ -1,6 +1,6 @@
 </main><!--end .main-->
 <?php 
-	if (!is_page(17) && !is_page(55) ) {
+	if (!is_page(13) && !is_page(17) && !is_page(55) ) {
 		include (TEMPLATEPATH . '/includes/donate.php'); 
 	}
 ?>
