@@ -32,10 +32,16 @@
 				if( have_rows('ct_donor') ):
 				 
 				 	// loop through the rows of data
-				    while ( have_rows('ct_donor') ) : the_row(); ?>        
+				    while ( have_rows('ct_donor') ) : the_row(); 
+					
+					$url = get_sub_field('donor_url'); 
+				
+				?>        
 				        <div class="gi">
 							<div class="block block-thumb">
-								<a href="<?php the_sub_field('donor_url'); ?>" class="b-inner">
+								<?php if($url) : ?>
+								<a href="<?php echo $url; ?>" class="b-inner">
+								<?php endif; ?>
 									<div class="b-img">
 										<?php 
 											$image = get_sub_field('donor_image');
@@ -53,7 +59,10 @@
 									<div class="b-text">
 										<h2 class="b-title"><?php the_sub_field('donor_name'); ?></h2>
 									</div>
+								<?php if($url) : ?>
 								</a>
+								<?php endif; ?>
+								
 							</div>
 						</div>
 			<?php 
