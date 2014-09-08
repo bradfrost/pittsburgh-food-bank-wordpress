@@ -32,17 +32,20 @@ $has_venue_address = ( $venue_address ) ? ' location': '';
 
 <div class="block block-event">
 	<div class="b-body">
-		<p class="b-timestamp">
-			<a href="<?php echo tribe_get_event_link() ?>">
-			<?php 
-				if(tribe_is_multiday()) {
-					echo tribe_get_start_date($post->ID, true, 'M j')."-".tribe_get_end_date($post->ID, true, 'j, Y');
-				} else {
-					echo tribe_get_start_date($post->ID, true, 'M j, Y');
-				}
-			?>
-			</a>
-		</p>
+		<a href="<?php echo tribe_get_event_link() ?>" class="b-timestamp">
+			<span class="b-timestamp-month"><?php echo tribe_get_start_date($post->ID, true, 'M'); ?></span>
+			<span class="b-timestamp-day">
+				<?php 
+					if(tribe_is_multiday()) {
+						echo tribe_get_start_date($post->ID, true, 'd')."-".tribe_get_end_date($post->ID, true, 'd');
+					} else {
+						echo tribe_get_start_date($post->ID, true, 'd');
+					}
+				?>
+			</span>
+			<span class="b-timestamp-year"><?php echo tribe_get_start_date($post->ID, true, 'Y'); ?></span>
+			
+		</a>
 		<?php do_action( 'tribe_events_before_the_event_title' ) ?>
 		<h3 class="b-title">
 			<a class="url" href="<?php echo tribe_get_event_link() ?>" title="<?php the_title() ?>" rel="bookmark">
@@ -63,7 +66,7 @@ $has_venue_address = ( $venue_address ) ? ' location': '';
 			<?php do_action( 'tribe_events_after_the_content' ) ?>
 		</p>
 	</div>
-</div>
+</div><!--end block-event-->
 
 <!-- Event Cost -->
 <?php /* if ( tribe_get_cost() ) : ?> 

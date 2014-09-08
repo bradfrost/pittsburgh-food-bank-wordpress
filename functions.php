@@ -68,6 +68,12 @@ add_image_size( 'square', 250, 250, true );
 //Add Aqua Resizer for updating image sizes on the fly
 require_once('aq_resizer.php');
 
+//Excerpt length and read more
+function new_excerpt_more( $more ) {
+	return '...<a class="text-btn" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'your-text-domain') . '</a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+
 // Special Events Sidebar
 function specialevents_sidebar() {
 
