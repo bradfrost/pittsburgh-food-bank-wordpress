@@ -8,6 +8,11 @@
 		<div class="l-main lc lc-single">
 			<div class="text">
 				<?php the_content(); ?>
+				
+				<div class="post-footer">
+					<p>Posted by <?php the_author(); ?> on <?php the_date(); ?> in <?php the_category(', '); ?></p>
+					<?php the_tags(); ?>
+				</div>
 			</div><!--end text-->
 		</div><!--end l-main-->
 	<?php endwhile; endif; ?>
