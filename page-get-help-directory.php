@@ -10,7 +10,7 @@
 
 $nhood = htmlspecialchars($_POST["neighborhood"]);
 
-$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood='.$nhood;
+$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood='.urlencode($nhood);
 $content = file_get_contents($url);
 $json = json_decode($content, true);
 $arrayLen = sizeof($json);

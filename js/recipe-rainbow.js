@@ -5,29 +5,47 @@
 
 (function(w) {
 
+var $ =jQuery.noConflict();
 	var $ingredientForm = $('#ingredient-form'),
-		$ingredientInput = $('#ingredient'),
+		$ingredientInput = $('#selectedingredient'),
 		$ingredientControls = $('.ingredients-controls'),
-		$ingredientList = $('.ingredient-list');
+		$ingredientList = $('.ingredient-list'),
+		$ingList = "";
 	
 	//Add Typeahead to the ingredient
 	
 	
+	var ingredients = new Bloodhound({
+  		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
+  		queryTokenizer: Bloodhound.tokenizers.whitespace,
+  		remote: 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=ingredientlist&ing=%QUERY'
+	});
+	 
+	ingredients.initialize();
+	 
+	$("#ingredient .typeahead").typeahead(null, {
+	  name: 'ingredient',
+	  displayKey: 'label',
+	  source: ingredients.ttAdapter()
+	});
 	
 	//Hide initially control list 
-	$ingredientControls.hide();
+//	$ingredientControls.hide();
 	
 	
 		
 	//Submit Ingredient Form
 	$ingredientForm.submit(function(e) {
-		e.preventDefault();
+//		e.preventDefault();
 		var val = $ingredientInput.val();
 		
 		if (val) {
 			updateIngredientList(val);
 			updateTitle(val);
 			$ingredientInput.val('');
+			$ingList = $ingList.slice(0, - 1);
+			$('input#ingredientHiddenList').val($ingList);
+
 		}
 		
 	});
@@ -36,12 +54,14 @@
 	function updateIngredientList(val) {
 		$ingredientControls.show();
 		
-		$ingredientList.append('<li data-ingredient-name="'+ val +'">'+ val +' <a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>');
+//		$ingredientList.append('<li data-ingredient-name="'+ val +'">'+ val +' <a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>');
+	
+		$ingList += (val + ",");
 	}
 	
 	//Remove ingredient
 	$ingredientList.on( "click", ".ingredient-remove", function(e){
-		e.preventDefault();
+//		e.preventDefault();
 		var $li = $(this).parent('li'),
 			$ingredient = $li.attr('data-ingredient-name');
 		
