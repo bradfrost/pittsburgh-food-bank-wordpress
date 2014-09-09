@@ -5,16 +5,25 @@
 
 (function(w) {
 
-var $ =jQuery.noConflict();
+	// typeahead won't work without this - looks like wp loads jquery and so do we
+	var $ =jQuery.noConflict();
+	
 	var $ingredientForm = $('#ingredient-form'),
 		$ingredientInput = $('#selectedingredient'),
 		$ingredientControls = $('.ingredients-controls'),
 		$ingredientList = $('.ingredient-list'),
 		$ingList = "";
 	
+	// if ingredients are already selected, gather them for next submit
+	var ingItems = $(".ingredient-list li");
+	ingItems.each(function(index) {
+//		console.log(index + ": " + $(this).attr('data-ingredient-name'));
+		item = $(this).attr('data-ingredient-name');
+		$ingList = $ingList + item.replace(",",";") + ",";
+	});
+	
 	//Add Typeahead to the ingredient
-	
-	
+		
 	var ingredients = new Bloodhound({
   		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
   		queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -30,7 +39,7 @@ var $ =jQuery.noConflict();
 	});
 	
 	//Hide initially control list 
-//	$ingredientControls.hide();
+//			$ingredientControls.hide();
 	
 	
 		
@@ -41,12 +50,14 @@ var $ =jQuery.noConflict();
 		
 		if (val) {
 			updateIngredientList(val);
-			updateTitle(val);
+//			updateTitle(val);
 			$ingredientInput.val('');
-			$ingList = $ingList.slice(0, - 1);
-			$('input#ingredientHiddenList').val($ingList);
-
 		}
+		
+			// remove last comma before submit
+			$ingList = $ingList.slice(0, - 1);
+			// set hidden ingredients field for submit
+			$('input#ingredientHiddenList').val($ingList);
 		
 	});
 	
@@ -56,7 +67,7 @@ var $ =jQuery.noConflict();
 		
 //		$ingredientList.append('<li data-ingredient-name="'+ val +'">'+ val +' <a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>');
 	
-		$ingList += (val + ",");
+		$ingList = $ingList + val.replace(",",";") + ",";
 	}
 	
 	//Remove ingredient
@@ -65,13 +76,19 @@ var $ =jQuery.noConflict();
 		var $li = $(this).parent('li'),
 			$ingredient = $li.attr('data-ingredient-name');
 		
-		$li.remove();
-		updateResults();
-		updateTitle($ingredient,"remove");
+//		$li.remove();
+		$ing = $ingredient.replace(',',';') +',';
+		$ingList = $ingList.replace($ing,'');
 		
-		if($('.ingredient-list li').length==0) {
-			$ingredientControls.hide();
-		}
+//		updateResults();
+//		updateTitle($ingredient,"remove");
+		
+//		if($('.ingredient-list li').length==0) {
+//			$ingredientControls.hide();
+//		}
+//		else {
+			$('#ingredient-form').submit();
+//		}
 	});
 	
 	//Update Recipe Results Title

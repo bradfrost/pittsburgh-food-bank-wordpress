@@ -7,14 +7,19 @@
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 
-$ings = htmlspecialchars($_POST["ingredients"]);
-$ingredients = explode(",", $ings);
-$ingsLen = sizeof($ingredients);
-
-$url = 'http://wordpress.pittsburghfoodbank.org/reciperainbow/reciperainbow.cfc?method=recipelist&ingredient=' . urlencode($ings);
-$content = file_get_contents($url);
-$recipes = json_decode($content, true);
-
+	if( isset($_POST['ingredients']) ) {
+		$ings = htmlspecialchars($_POST["ingredients"]);
+		$ingredients = explode(",", $ings);
+		$ingsLen = sizeof($ingredients);
+		
+		$url = 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=recipelist&ingredient=' . urlencode($ings);
+		$content = file_get_contents($url);
+		$recipes = json_decode($content, true);
+		$recipeLen = sizeof($recipes);
+	}
+	else {
+		$ingredients = [];
+	}
 ?>
 
 
@@ -42,18 +47,24 @@ $recipes = json_decode($content, true);
 					</form>
 					
 					<div class="ingredients-controls">
+					<?php if($ingsLen > 0 && $ingredients[0] !== '') { ?>
 						<h4>Your ingredients:</h4>
 						<ul class="ingredient-list">
-						<?php foreach($ingredients as $item){  ?>
+						<?php foreach($ingredients as $item){  
+							$item = str_replace(";",",",$item);
+							if ($item !== '') {?>
 							<li data-ingredient-name="<?php print("$item") ?>"><?php print("$item")?><a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>
-						<?php 	} ?>
+						<?php 	}} ?>
 						</ul>
+					<?php } ?>
 					</div>
 				</div>
 				<div class="recipe-results">
-					<h2 class="recipe-results-title">Recipes containing <span class="result-ingredient-list">
+					<?php if($recipeLen > 0) { ?>
+					<h2 class="recipe-results-title"><?php print("$recipeLen") ?> Recipes containing <span class="result-ingredient-list">
 						<?php 	$i = 0;
-								foreach($ingredients as $item){  ?>
+								foreach($ingredients as $item){  
+									$item = str_replace(";",",",$item); ?>
 							<strong data-ingredient-name="<?php print("$item") ?>"><?php print("$item") ?></strong>
 							<?php $i = $i + 1;
 								if ($i < $ingsLen) { ?>
@@ -62,14 +73,15 @@ $recipes = json_decode($content, true);
 							<?php }
 						 	} ?>
 						</span>:</h2>
+					<?php } ?>
 					<ul class="g g-2up">
 					<?php 
 						foreach($recipes as $item){ ?>
 						<li class="gi">
 							<a href="#" class="block block-recipe">
-								<h3 class="b-title"><?php print $item['title'] ?></h3>
-								<p class="b-desc"><?php print $item['description'] ?></p>
-								<p class="b-ingredients">You have <strong><?php print $item['numitems'] ?></strong> of <strong><?php print $item['numing'] ?></strong> ingredients for this recipe.</p>
+								<h3 class="b-title"><?php print $item['recipe_name'] ?></h3>
+								<p class="b-desc"><?php print $item['short_description'] ?></p>
+								<p class="b-ingredients">You have <strong><?php print $item['have_ingredients'] ?></strong> of <strong><?php print $item['num_ingredients'] ?></strong> ingredients for this recipe.</p>
 								<button class="btn btn-small">View Recipe</button>
 							</a>
 						</li>
