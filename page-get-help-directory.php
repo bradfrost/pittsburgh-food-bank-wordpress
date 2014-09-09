@@ -10,10 +10,14 @@
 
 $nhood = htmlspecialchars($_POST["neighborhood"]);
 
-$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood='.$nhood;
+$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood='.urlencode($nhood);
 $content = file_get_contents($url);
 $json = json_decode($content, true);
-$firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
+$arrayLen = sizeof($json);
+if ($arrayLen > 0)
+{
+	$firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
+}
 
 ?>
 
@@ -23,7 +27,8 @@ $firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 	    <fieldset>
 		    <legend>Enter your neighborhood or ZIP</legend>
 		    <div class="inline-container" id="neighborhood">
-		   		<input type="text" name="neighborhood" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto">
+		   		<input type="text" name="neighborhood" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto"
+				value="<?php echo htmlspecialchars($_POST["neighborhood"])?>">
 		    	<button class="neighborhood-submit">Search</button>
 			</div>
 	    </fieldset>
@@ -39,7 +44,8 @@ $firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 				<div class="directory-list-container">
 				
 				<ol class="directory-list">
-				<?php  foreach($json as $item){ ?>
+				<?php 
+				foreach($json as $item){ ?>
 					<li>
 						<div class="block block-directory">
 							<div class="vcard">
@@ -83,13 +89,18 @@ $firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 							</dl>
 						<a href="#" class="text-btn">More info</a></div>
 					</li>
-				<?php } ?>
+					
+		<?php 	} ?>
 	 
 				</ol>
 			</div>
+			<?php if ($arrayLen > 0 ) { ?>
 			<div class="directory-map-container">
 				<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGOK9vXhVlYy-jAlV9lUXiP0rpjP_NF88&q=<?php print $firstmap; ?>" width="600" height="450" frameborder="0" style="border:0" id="directory-map"></iframe>
 			</div>
+			<?php 
+			} 
+			?>
 		</div>
 </div><!--end lc-->
 <?php endwhile; endif; ?>

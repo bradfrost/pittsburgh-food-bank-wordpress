@@ -5,30 +5,59 @@
 
 (function(w) {
 
+	// typeahead won't work without this - looks like wp loads jquery and so do we
+	var $ =jQuery.noConflict();
+	
 	var $ingredientForm = $('#ingredient-form'),
-		$ingredientInput = $('#ingredient'),
+		$ingredientInput = $('#selectedingredient'),
 		$ingredientControls = $('.ingredients-controls'),
-		$ingredientList = $('.ingredient-list');
+		$ingredientList = $('.ingredient-list'),
+		$ingList = "";
+	
+	// if ingredients are already selected, gather them for next submit
+	var ingItems = $(".ingredient-list li");
+	ingItems.each(function(index) {
+//		console.log(index + ": " + $(this).attr('data-ingredient-name'));
+		item = $(this).attr('data-ingredient-name');
+		$ingList = $ingList + item.replace(",",";") + ",";
+	});
 	
 	//Add Typeahead to the ingredient
-	
-	
+		
+	var ingredients = new Bloodhound({
+  		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
+  		queryTokenizer: Bloodhound.tokenizers.whitespace,
+  		remote: 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=ingredientlist&ing=%QUERY'
+	});
+	 
+	ingredients.initialize();
+	 
+	$("#ingredient .typeahead").typeahead(null, {
+	  name: 'ingredient',
+	  displayKey: 'label',
+	  source: ingredients.ttAdapter()
+	});
 	
 	//Hide initially control list 
-	$ingredientControls.hide();
+//			$ingredientControls.hide();
 	
 	
 		
 	//Submit Ingredient Form
 	$ingredientForm.submit(function(e) {
-		e.preventDefault();
+//		e.preventDefault();
 		var val = $ingredientInput.val();
 		
 		if (val) {
 			updateIngredientList(val);
-			updateTitle(val);
+//			updateTitle(val);
 			$ingredientInput.val('');
 		}
+		
+			// remove last comma before submit
+			$ingList = $ingList.slice(0, - 1);
+			// set hidden ingredients field for submit
+			$('input#ingredientHiddenList').val($ingList);
 		
 	});
 	
@@ -36,22 +65,30 @@
 	function updateIngredientList(val) {
 		$ingredientControls.show();
 		
-		$ingredientList.append('<li data-ingredient-name="'+ val +'">'+ val +' <a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>');
+//		$ingredientList.append('<li data-ingredient-name="'+ val +'">'+ val +' <a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>');
+	
+		$ingList = $ingList + val.replace(",",";") + ",";
 	}
 	
 	//Remove ingredient
 	$ingredientList.on( "click", ".ingredient-remove", function(e){
-		e.preventDefault();
+//		e.preventDefault();
 		var $li = $(this).parent('li'),
 			$ingredient = $li.attr('data-ingredient-name');
 		
-		$li.remove();
-		updateResults();
-		updateTitle($ingredient,"remove");
+//		$li.remove();
+		$ing = $ingredient.replace(',',';') +',';
+		$ingList = $ingList.replace($ing,'');
 		
-		if($('.ingredient-list li').length==0) {
-			$ingredientControls.hide();
-		}
+//		updateResults();
+//		updateTitle($ingredient,"remove");
+		
+//		if($('.ingredient-list li').length==0) {
+//			$ingredientControls.hide();
+//		}
+//		else {
+			$('#ingredient-form').submit();
+//		}
 	});
 	
 	//Update Recipe Results Title
