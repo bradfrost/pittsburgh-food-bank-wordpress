@@ -12,34 +12,39 @@
 </div>
 
 <div class="main-body l">
-	<div class="l-main">
-		<h2><?php the_field('available_jobs_title'); ?></h2>
-		 <ul class="post-list">
-		<?php
-		// The Query
-		query_posts( 'post_type=job' );
-		
-		// The Loop
-		while ( have_posts() ) : the_post(); ?>
-		<li>
-			<div class="block block-post">
-				<div class="b-body">
-					<p class="b-timestamp"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_date(); ?></a></p>
-					<h3 class="b-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a></h3>
-					<p class="b-excerpt"><?php the_field('summary'); ?></p>
+	<div class="l-main lc lc-single">
+		<section class="section">
+			<header class="section-header">
+				<h2 class="section-title"><?php the_field('available_jobs_title'); ?></h2>
+			</header>
+			 <ul class="post-list">
+			<?php
+			// The Query
+			query_posts( 'post_type=job' );
+			
+			// The Loop
+			while ( have_posts() ) : the_post(); ?>
+			<li>
+				<div class="block block-post">
+					<div class="b-body">
+						<p class="b-timestamp"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_date(); ?></a></p>
+						<h3 class="b-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a></h3>
+						<p class="b-excerpt"><?php the_field('summary'); ?></p>
+					</div>
 				</div>
-			</div>
-		</li>		    
-		   
-		<?php 
-		endwhile; 
-		wp_reset_query();
-		?>
-		</ul><!--end post-list-->
+			</li>		    
+			   
+			<?php 
+			endwhile; 
+			wp_reset_query();
+			?>
+			</ul><!--end post-list-->
+		</section>
 	</div><!--end l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
-		<?php include (TEMPLATEPATH . '/includes/sidebar-resources.php');  ?>
-	</div><!--end l-main-->
+		<?php get_sidebar(); ?>
+	</div>
 </div>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

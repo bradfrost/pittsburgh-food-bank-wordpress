@@ -20,13 +20,16 @@
 		 
 				// check if the repeater field has rows of data
 				if( have_rows('special_events_list') ):
-				
-					$path = "path";
 				 
 				 	// loop through the rows of data
-				    while ( have_rows('special_events_list') ) : the_row(); ?>     
-				        <li id="<?php echo $path; ?>">
-							<h2><a href="#<?php echo $path; ?>"><?php the_sub_field('special_event_title'); ?></a></h2>
+				    while ( have_rows('special_events_list') ) : the_row(); 
+				    	$title =  get_sub_field('special_event_title');
+						$titleLower = strtolower($title);
+						$titleDashes = str_replace(" ", "-", $titleLower);
+				    ?>
+				    	
+				        <li id="<?php echo $titleDashes; ?>">
+							<h2><a href="#<?php echo $titleDashes; ?>"><?php the_sub_field('special_event_title'); ?></a></h2>
 							<div><?php the_sub_field('special_event_description'); ?></div>
 						</li>
 			<?php 

@@ -14,6 +14,7 @@
 			<?php get_template_part('nav', 'below'); ?>
 		</div><!--end .lc-->
 	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-blog.php');  ?>
 		<?php /* include (TEMPLATEPATH . '/includes/section-nav-categories.php'); */  ?>

@@ -55,7 +55,7 @@
 			<p class="section-desc">Please call <strong><a href="tel:+1<?php echo str_replace("-", "", $phone); ?>"><?php the_field('phone'); ?></a></strong> and use the department's corresponding extension, or send an email.</p>
 		</header>
 		<div class="lc">
-			<div class="g g-4up-linear">
+			<div class="g g-4up-linear g-flex">
 				<?php
 	 
 					// check if the repeater field has rows of data
@@ -72,8 +72,8 @@
 											$deptpath = strtolower($deptnamedash);
 										?>
 										<h3 class="b-title"><a href="#<?php echo $deptpath; ?>"><?php the_sub_field('department_name'); ?></a></h3>
-										<a href="#" class="b-phone"><?php the_field('phone'); ?> ext. <?php the_sub_field('department_extension'); ?></a>
-										<a href="#" class="b-email"><?php the_sub_field('department_email'); ?></a>
+										<div class="b-phone"><?php the_field('phone'); ?> ext. <?php the_sub_field('department_extension'); ?></div>
+										<a href="mailto:<?php the_sub_field('department_email'); ?>" class="b-email"><?php the_sub_field('department_email'); ?></a>
 									</div>
 								</div>
 							</div>

@@ -1,6 +1,7 @@
 <aside id="sidebar" role="complementary">
 	<?php 
-		echo $customCat;
+		$customCat = get_field('recent_posts_category');
+	
 		if($customCat == 34 || !$customCat) { //If Category is set to 'All'
 			$archive_query = new WP_Query('showposts=5');
 			$catName = "";

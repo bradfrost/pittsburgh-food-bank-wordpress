@@ -10,13 +10,7 @@
 			<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li>
-					<div class="block block-post">
-						<div class="b-body">
-							<p class="b-timestamp"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_date(); ?></a></p>
-							<h3 class="b-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a></h3>
-							<p class="b-excerpt"><?php echo get_the_excerpt(); ?></p>
-						</div>
-					</div>
+					<?php include (TEMPLATEPATH . '/includes/block-post.php');  ?>
 				</li>
 			<?php endwhile; ?>
 			</ul><!--end post-list-->
@@ -32,6 +26,7 @@
 			<?php endif; ?>
 		</div>
 	</div><!--end .l-main-->
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php get_sidebar(); ?>
 	</div><!--end .l-sidebar-->
