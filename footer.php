@@ -54,6 +54,7 @@
 							
 							wp_list_pages( $args );
 						?>
+						<li><a href="/"></a>
 					</ul>
 				</div>
 				<div class="gi">			
@@ -173,7 +174,7 @@
 		</div><!--end .g-2up-->
 		
 		<div class="footer-meta">
-			<a href="/" rel="home" class="logo-link"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="/privacy-policy">View our Privacy Policy</a></p>
+			<a href="/" rel="home" class="logo-link"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="/privacy-policy">Privacy Policy</a> | <a href="">Agency Login</a></p>
 		</div>
 	</div>
 </footer>
