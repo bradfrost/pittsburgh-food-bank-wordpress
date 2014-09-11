@@ -43,7 +43,7 @@ if ($arrayLen > 0)
 	<div class="directory section">
 				<header class="section-header">
 					<h2 class="section-title">Food assistance closest to you</h2>
-					<p class="section-desc">These are the results closest to you.</p>
+					<p class="section-desc">These are the results closest to <?php echo htmlspecialchars($_POST["neighborhood"])?>. (<a href="javascript:window.print()">Print</a>)</p>
 				</header>
 				
 				<div class="directory-list-container">
@@ -61,7 +61,6 @@ if ($arrayLen > 0)
 									<div class="org fn">
 										<h3 class="organization-name b-title"><?php print $item['agencyname']?></h3>
 									</div>
-									<span class="locality" ><strong>Serves:  </strong><?php print $item['serves']?></span></br>
 									<div class="street-address"><?php print $item['address']?></div>
 									<?php if ($item['address2'] != '') { ?>
 									<div class="street-address"><?php print $item['address2']?></div>
@@ -72,16 +71,22 @@ if ($arrayLen > 0)
 								</div>
 							</div>
 							<dl class="block-directory-extra is-vishidden">
-								</br>
+								<dt>Serves</dt>
+								<dd><span class="locality" ><?php print $item['serves']?></span>
 								<dt>Operating Hours</dt>
+								<dd>
+									<ul>
 	<?php /* operating hours are in a single text field; for display purposes, line breaks are indicated by a + in the primarious field and this code breaks them into lines */ 
+								
 									$hours = explode("+", $item['hourscomments']);
 									foreach($hours as $hourline) { 	
 								?>
-									<dd><?php print("$hourline")?></dd>
-								<?php } ?></br>
+									<li><?php print("$hourline")?></li>
+								<?php } ?>
+									</ul>
+								</dd>
 								<dt>Contact</dt>
-								<dd><?php print $item['contact']?></dd></br>
+								<dd><?php print $item['contact']?></dd>
 								<dt>Type of Program</dt>
 								<dd><?php print $item['programtype']?></dd>
 							</dl>
