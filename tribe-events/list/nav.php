@@ -27,7 +27,7 @@ if ( !defined('ABSPATH') ) { die('-1'); } ?>
 		<?php if( get_previous_posts_link() ) : ?>
 			<li class="tribe-events-nav-previous tribe-events-nav-left">
 			<a href="<?php echo tribe_get_upcoming_link() ?>" rel="prev"><?php _e( '<span>&laquo;</span> Previous Events', 'tribe-events-calendar' ) ?></a>
-		<?php elseif ( tribe_has_past_events() ) : ?>
+		<?php else : ?>
 			<li class="tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
 			<a href="<?php echo tribe_get_past_link() ?>" rel="prev"><?php _e( '<span>&laquo;</span> Previous Events', 'tribe-events-calendar' ) ?></a>
 		<?php endif; ?>
