@@ -8,15 +8,20 @@
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 
+/* get the neighborhood value from the post fields and call the agencylist api for a list of agencies */
 $nhood = htmlspecialchars($_POST["neighborhood"]);
 
-$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood='.urlencode($nhood);
+$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood=' . urlencode($nhood);
 $content = file_get_contents($url);
+
+/* decode the json results into an array */
 $json = json_decode($content, true);
 $arrayLen = sizeof($json);
+
+/* set the initial map address in google if there are results */
 if ($arrayLen > 0)
 {
-	$firstmap = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
+	$mapaddress = $json[0]['address'].$json[0]['city'].$json[0]['zip'];
 }
 
 ?>
@@ -46,7 +51,10 @@ if ($arrayLen > 0)
 				<ol class="directory-list">
 				<?php 
 				foreach($json as $item){ ?>
-					<li>
+							
+	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency */ ?> 
+				
+					<li dir-mapaddress="<?php print($item['address'] . ' ' . $item['city'] . ' ' . $item['zip']) ?>">
 						<div class="block block-directory">
 							<div class="vcard">
 								<div class="adr">
@@ -54,36 +62,22 @@ if ($arrayLen > 0)
 										<h3 class="organization-name b-title"><?php print $item['agencyname']?></h3>
 									</div>
 									<div class="street-address"><?php print $item['address']?></div>
-									<span class="locality"><?php print $item['city']?></span>, 
+									<span class="locality" ><?php print $item['city']?></span>, 
 									<span class="postal-code"><?php print $item['zip']?></span>
 									<div class="tel"><?php print $item['phone']?></div>
 								</div>
 							</div>
 							<dl class="block-directory-extra is-vishidden">
+								</br>
 								<dt>Operating Hours</dt>
-								<?php if ($item['mon'] != '') { ?>
-									<dd>Mon (<?php print $item['mon']?>)</dd>
-								<?php } ?>
-								<?php if ($item['tue'] != '') { ?>
-									<dd>Tue (<?php print $item['tue']?>)</dd>
-								<?php } ?>
-								<?php if ($item['wed'] != '') { ?>
-									<dd>Wed (<?php print $item['wed']?>)</dd>
-								<?php } ?>
-								<?php if ($item['thr'] != '') { ?>
-									<dd>Thu (<?php print $item['thr']?>)</dd>
-								<?php } ?>
-								<?php if ($item['fri'] != '') { ?>
-									<dd>Fri (<?php print $item['fri']?>)</dd>
-								<?php } ?>
-								<?php if ($item['sat'] != '') { ?>
-									<dd>Sat (<?php print $item['sat']?>)</dd>
-								<?php } ?>
-								<?php if ($item['sun'] != '') { ?>
-									<dd>Sun (<?php print $item['sun']?>)</dd>
-								<?php } ?>
+	<?php /* operating hours are in a single text field; for display purposes, line breaks are indicated by a + in the primarious field and this code breaks them into lines */ 
+									$hours = explode("+", $item['hourscomments']);
+									foreach($hours as $hourline) { 	
+								?>
+									<dd><?php print("$hourline")?></dd>
+								<?php } ?></br>
 								<dt>Contact</dt>
-								<dd><?php print $item['contact']?></dd>
+								<dd><?php print $item['contact']?></dd></br>
 								<dt>Type of Program</dt>
 								<dd><?php print $item['programtype']?></dd>
 							</dl>
@@ -96,7 +90,7 @@ if ($arrayLen > 0)
 			</div>
 			<?php if ($arrayLen > 0 ) { ?>
 			<div class="directory-map-container">
-				<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGOK9vXhVlYy-jAlV9lUXiP0rpjP_NF88&q=<?php print $firstmap; ?>" width="600" height="450" frameborder="0" style="border:0" id="directory-map"></iframe>
+				<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGOK9vXhVlYy-jAlV9lUXiP0rpjP_NF88&q=<?php print $mapaddress; ?>" width="600" height="450" frameborder="0" style="border:0" id="directory-map"></iframe>
 			</div>
 			<?php 
 			} 
