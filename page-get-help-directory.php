@@ -54,14 +54,18 @@ if ($arrayLen > 0)
 							
 	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency */ ?> 
 				
-					<li dir-mapaddress="<?php print($item['address'] . ' ' . $item['city'] . ' ' . $item['zip']) ?>">
+					<li >
 						<div class="block block-directory">
 							<div class="vcard">
-								<div class="adr">
+								<div class="adr" dir-mapaddress="<?php print($item['address'] . ' ' . $item['city'] . ' ' . $item['zip']) ?>">
 									<div class="org fn">
 										<h3 class="organization-name b-title"><?php print $item['agencyname']?></h3>
 									</div>
+									<span class="locality" ><strong>Serves:  </strong><?php print $item['serves']?></span></br>
 									<div class="street-address"><?php print $item['address']?></div>
+									<?php if ($item['address2'] != '') { ?>
+									<div class="street-address"><?php print $item['address2']?></div>
+									<?php } ?>
 									<span class="locality" ><?php print $item['city']?></span>, 
 									<span class="postal-code"><?php print $item['zip']?></span>
 									<div class="tel"><?php print $item['phone']?></div>

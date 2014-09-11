@@ -24,10 +24,9 @@
 
 // change the google address when user clicks on an agency block
 
-	$directoryList.on( "click", ".block", function(e){
+	$directoryList.on( "click", ".adr", function(e){
 	//		e.preventDefault();
-			var $li = $(this).parent('li'),
-				$mapaddress = $li.attr('dir-mapaddress');
+			var $mapaddress = $(this).attr('dir-mapaddress');
 				
 				$mapurl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyAGOK9vXhVlYy-jAlV9lUXiP0rpjP_NF88&q='  + $mapaddress;
 
