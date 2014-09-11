@@ -98,7 +98,7 @@
 			<h4>Credit Card Info</h4>
 			<div class="credit-card-group">
 				<label for="card-number">Credit Card Number</label>
-				<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number" name="card-num">
+				<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number">
 				<label for="card-expiration">Credit Card Expiration</label>
 				<input placeholder="MM/YY" pattern="[0-9]*" type="text" class="card-expiration" id="card-expiration" name="card_exp">
 				<label for="card-cvv">Credit Card Expiration</label>
