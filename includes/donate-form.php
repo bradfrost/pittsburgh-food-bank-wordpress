@@ -8,8 +8,7 @@
 		$postID = 1833; 
 	}
 ?>
-
-<form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donation-form" id="donate-form">
+<form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donate-form" id="donate-form">
 	<input type="hidden" name="method" value="donate" />
     <input type="hidden" name="form_id" value="<?php the_field('form_id',$postID); ?>" data-monthly-id="<?php the_field('monthly_form_id',$postID); ?>" />
     <input type="hidden" name="validate" value="true" />
@@ -44,11 +43,6 @@
 			</li>
 		</ul>
 		
-		<div class="field-container amount-container">
-			<label for="other">Enter Amount</label>
-			<input type="number" pattern="[0-9]*" id="donation-amount" name="donation_amount" placeholder="$50.00" />
-		</div>
-		
 		<div class="field-container checkbox-container">
 			<input type="checkbox" id="donate-monthly" />
 			<label for="donate-monthly">I would like to make this a monthly donation</label>
@@ -61,15 +55,15 @@
 		<div class="g g-2up">
 			<div class="field-container gi">
 				<label for="donate-name">Full Name</label>
-				<input type="text" id="donate-name" placeholder="Firstname Lastname" autocomplete="name" name="fullname" required pattern="\ " data-parsley-pattern="\ " data-parsley-error-message="Please enter your first and last name" />
+				<input type="text" id="donate-name" placeholder="Firstname Lastname" autocomplete="name" name="fullname" required pattern="[a-zA-Z0-9\s]+" data-parsley-pattern="[a-zA-Z0-9\s]+" data-parsley-error-message="Please enter your first and last name" />
 			</div>
 			<div class="field-container gi">
 				<label for="donate-email">E-mail</label>
-				<input type="email" id="donate-email" placeholder="your@email.com" required data-parsley-error-message="Please enter a valid e-mail address" name="donor.email" />
+				<input type="email" id="donate-email" placeholder="your@email.com" required data-parsley-error-message="Please enter a valid e-mail address" name="donor.email" autocomplete="email" />
 			</div>
 			<div class="field-container gi">
 				<label for="donate-address">Address</label>
-				<input type="text" id="donate-address" placeholder="123 Main St, Apt 2" autocomplete="email" name="email" required data-parsley-error-message="Please enter your street address" name="billing.address.street1" />
+				<input type="text" id="donate-address" placeholder="123 Main St, Apt 2" required data-parsley-error-message="Please enter your street address" name="billing.address.street1" />
 			</div>
 			<div class="field-container gi">
 				<label for="donate-zip">ZIP</label>
@@ -90,8 +84,8 @@
 		<h4 class="donate-step-legend"><span class="form-step">3</span> Enter your billing info:</h4>
 		
 		<div class="radio-container" id="payment-type-radio">
-			<label><input type="radio" name="payment_type" checked="checked" data-payment-type="payment-type-cc" /> Credit Card</label>
-			<label><input type="radio" name="payment_type"  data-payment-type="payment-type-bank" /> Bank Account</label>
+			<label><input type="radio" name="" checked="checked" data-payment-type="payment-type-cc" /> Credit Card</label>
+			<label><input type="radio" name=""  data-payment-type="payment-type-bank" /> Bank Account</label>
 		</div>
 		
 		<div class="payment-type active" id="payment-type-cc">
@@ -100,8 +94,8 @@
 				<label for="card-number">Credit Card Number</label>
 				<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number">
 				<label for="card-expiration">Credit Card Expiration</label>
-				<input placeholder="MM/YY" pattern="[0-9]*" type="text" class="card-expiration" id="card-expiration" name="card_exp">
-				<label for="card-cvv">Credit Card Expiration</label>
+				<input placeholder="MM/YY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
+				<label for="card-cvv">CVV Number</label>
 				<input placeholder="CVV" pattern="[0-9]*" type="text" class="card-cvv" id="card-cvv" name="card_cvv" autocomplete="cc-csc">
 			</div><!--end .credit-card-group-->
 		</div><!--end .payment-type-bank-->
@@ -110,11 +104,11 @@
 			<div class="g g-2up">
 				<div class="field-container gi">
 					<label for="bank-routing">Routing Number</label>
-					<input type="text" id="bank-routing" placeholder="036001808" pattern="[0-9]*" autocomplete="off" name="billing.address.state" />
+					<input type="text" id="bank-routing" placeholder="036001808" pattern="[0-9]*" autocomplete="off" name="ach_routing" />
 				</div>
 				<div class="field-container gi">
 					<label for="bank-account">Bank Account Number</label>
-					<input type="text" id="bank-account" placeholder="0175380001" pattern="[0-9]*" name="billing.address.zip" />
+					<input type="text" id="bank-account" placeholder="0175380001" pattern="[0-9]*" name="ach_account" />
 				</div>
 			</div><!--end .g-2up-->
 		</div><!--end .payment-container-bank-->
