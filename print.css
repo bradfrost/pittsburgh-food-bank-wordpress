@@ -1,0 +1,16 @@
+.nav-toggle, .menu, .l-sidebar, .well, footer {
+	display: none;
+}
+
+
+.block-directory .text-btn {
+	display: none;
+}
+
+.block-directory-extra.is-vishidden {
+	display: block !important;
+	position: static !important;
+	width: auto;
+	height: auto;
+	clip: auto;
+}

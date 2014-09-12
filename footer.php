@@ -61,7 +61,7 @@
 					<h3 class="nav-footer-item acc-handle"><a href="/events">Upcoming Events</a></h3>
 					<div class="acc-panel">
 					
-						<?php
+						<?php 
 							//Get Latest Event
 							global $post;
 							$all_events = tribe_get_events(array(

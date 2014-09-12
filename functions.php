@@ -45,19 +45,19 @@ function blankslate_widgets_init(){
 //Load Javascript
 function load_js() {
    wp_enqueue_script( 'jq', get_template_directory_uri() . '/js/jquery.js', true);
-   wp_enqueue_script( 'luminate', get_template_directory_uri() . '/js/luminateExtend.js', true);
-   wp_enqueue_script( 'production', get_template_directory_uri() . '/js/production.min.js', array ('jquery'), true);
+   wp_enqueue_script( 'production', get_template_directory_uri() . '/js/production.min.js', array ('jq'), true);
+   wp_enqueue_script( 'luminate', get_template_directory_uri() . '/js/luminateExtend.js', array ('jq'), true);
    
    //If page is Get Help Directory
    if ( is_page(55) ) {
    		wp_enqueue_script( 'typeahead', get_template_directory_uri() . '/js/typeahead.bundle.min.js', true);
-   		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/gethelp.js', array ('jquery'), true);
+   		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/gethelp.js', array ('jq'), true);
    }
    
    //If page is Recipe Rainbow
    if ( is_page(1194) ) {
    		wp_enqueue_script( 'typeahead', get_template_directory_uri() . '/js/typeahead.bundle.min.js', true);
-   		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/recipe-rainbow.js', array ('jquery'), true);
+   		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/recipe-rainbow.js', array ('jq'), true);
    }
 } 
 add_action( 'wp_footer', 'load_js' );
@@ -296,11 +296,11 @@ function create_link_taxonomy() {
  * Customize your tribe event calendar meta displays with a variety of methods.
  * Place this in your functions.php file within your theme
  */
-add_action( 'wp_head', 'custom_event_meta' );
-function custom_event_meta(){
+// add_action( 'wp_head', 'custom_event_meta' );
+// function custom_event_meta(){
 
   // customize just the label
-  tribe_set_meta_label( 'tribe_event_address', __( 'Address:' ) );
- }
+//  tribe_set_meta_label( 'tribe_event_address', __( 'Address:' ) );
+// }
 
 ?>
