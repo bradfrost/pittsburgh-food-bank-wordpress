@@ -32,14 +32,6 @@ $event_id = get_the_ID();
 		<!-- Notices -->
 		<?php tribe_events_the_notices() ?>
 	
-		<div class="tribe-events-schedule updated published tribe-clearfix">
-			
-			<?php  if ( tribe_get_cost() ) :  ?>
-				<span class="tribe-events-divider">|</span>
-				<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
-			<?php endif; ?>
-		</div>
-	
 		<?php while ( have_posts() ) :  the_post(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class('vevent'); ?>>
 				<!-- Event featured image -->
@@ -64,7 +56,7 @@ $event_id = get_the_ID();
 		<p><a href="<?php echo tribe_get_events_link() ?>" class="btn btn-small"> <?php _e( 'View All Events', 'tribe-events-calendar' ) ?></a></p>
 		</div><!--end text-->
 	</div><!--end l-main-->
-	<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>
 	</div><!--end .l-sidebar-->
