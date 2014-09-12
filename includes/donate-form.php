@@ -8,8 +8,7 @@
 		$postID = 1833; 
 	}
 ?>
-
-<form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donation-form" id="donate-form">
+<form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donate-form" id="donate-form">
 	<input type="hidden" name="method" value="donate" />
     <input type="hidden" name="form_id" value="<?php the_field('form_id',$postID); ?>" data-monthly-id="<?php the_field('monthly_form_id',$postID); ?>" />
     <input type="hidden" name="validate" value="true" />
@@ -39,7 +38,7 @@
 			<li>
 				<input type="radio" id="donate-amount-other" name="level_id" value="<?php the_field('other_level_id',$postID); ?>" data-onetime-value="<?php the_field('other_level_id',$postID); ?>" data-monthly-value="<?php the_field('other_monthly_level_id',$postID); ?>" style="display: none;" />
 				<div class="input-container" data-message="Every dollar you donate helps end hunger.">
-					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other"  />
+					<span class="input-addon">$</span><input type="text" id="other-amount" name="other_amount" placeholder="Other"  />
 				</div>
 			</li>
 		</ul>
@@ -85,8 +84,8 @@
 		<h4 class="donate-step-legend"><span class="form-step">3</span> Enter your billing info:</h4>
 		
 		<div class="radio-container" id="payment-type-radio">
-			<label><input type="radio" name="payment_type" checked="checked" data-payment-type="payment-type-cc" /> Credit Card</label>
-			<label><input type="radio" name="payment_type"  data-payment-type="payment-type-bank" /> Bank Account</label>
+			<label><input type="radio" name="" checked="checked" data-payment-type="payment-type-cc" /> Credit Card</label>
+			<label><input type="radio" name=""  data-payment-type="payment-type-bank" /> Bank Account</label>
 		</div>
 		
 		<div class="payment-type active" id="payment-type-cc">
@@ -95,7 +94,7 @@
 				<label for="card-number">Credit Card Number</label>
 				<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number">
 				<label for="card-expiration">Credit Card Expiration</label>
-				<input placeholder="MM/YY"  type="text" class="card-expiration" id="card-expiration" name="card_exp">
+				<input placeholder="MM/YY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
 				<label for="card-cvv">CVV Number</label>
 				<input placeholder="CVV" pattern="[0-9]*" type="text" class="card-cvv" id="card-cvv" name="card_cvv" autocomplete="cc-csc">
 			</div><!--end .credit-card-group-->
@@ -105,11 +104,11 @@
 			<div class="g g-2up">
 				<div class="field-container gi">
 					<label for="bank-routing">Routing Number</label>
-					<input type="text" id="bank-routing" placeholder="036001808" pattern="[0-9]*" autocomplete="off" name="billing.address.state" />
+					<input type="text" id="bank-routing" placeholder="036001808" pattern="[0-9]*" autocomplete="off" name="ach_routing" />
 				</div>
 				<div class="field-container gi">
 					<label for="bank-account">Bank Account Number</label>
-					<input type="text" id="bank-account" placeholder="0175380001" pattern="[0-9]*" name="billing.address.zip" />
+					<input type="text" id="bank-account" placeholder="0175380001" pattern="[0-9]*" name="ach_account" />
 				</div>
 			</div><!--end .g-2up-->
 		</div><!--end .payment-container-bank-->
