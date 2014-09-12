@@ -45,8 +45,8 @@ function blankslate_widgets_init(){
 //Load Javascript
 function load_js() {
    wp_enqueue_script( 'jq', get_template_directory_uri() . '/js/jquery.js', true);
-   wp_enqueue_script( 'luminate', get_template_directory_uri() . '/js/luminateExtend.js', true);
    wp_enqueue_script( 'production', get_template_directory_uri() . '/js/production.min.js', array ('jq'), true);
+   wp_enqueue_script( 'luminate', get_template_directory_uri() . '/js/luminateExtend.js', array ('jq'), true);
    
    //If page is Get Help Directory
    if ( is_page(55) ) {
