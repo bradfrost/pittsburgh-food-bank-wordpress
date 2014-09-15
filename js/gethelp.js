@@ -4,7 +4,6 @@
 
 (function(w) {
 
-	var $ =jQuery.noConflict();
 	
 	var $directoryList = $('.directory-list');
 	
@@ -17,7 +16,7 @@
 	neighborhoods.initialize();
 	 
 	$("#neighborhood .typeahead").typeahead(null, {
-	  name: 'neighborhood',
+	  name: 'q',
 	  displayKey: 'label',
 	  source: neighborhoods.ttAdapter()
 	}).on('typeahead:selected', function(e, data) {

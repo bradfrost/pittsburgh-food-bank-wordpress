@@ -9,9 +9,9 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 
 /* get the neighborhood value from the post fields and call the agencylist api for a list of agencies */
-$nhood = htmlspecialchars($_POST["neighborhood"]);
+$nhood = htmlspecialchars($_GET["q"]);
 
-$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood=' . urlencode($nhood);
+$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&q=' . urlencode($nhood);
 $content = file_get_contents($url);
 
 /* decode the json results into an array */
@@ -28,11 +28,11 @@ if ($arrayLen > 0)
 
 <div class="page-header <?php the_field('header_image'); ?>">
 	<h1 class="page-title"><?php the_title(); ?></h1>
-	<form action="#" method="post" class="inline-form find-help">           
+	<form action="" method="get" class="inline-form find-help">           
 	    <fieldset>
 		    <legend>Enter your neighborhood or ZIP</legend>
 		    <div class="inline-container" id="neighborhood">
-		   		<input type="text" name="neighborhood" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto"
+		   		<input type="text" name="q" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto"
 				value="<?php echo htmlspecialchars($_POST["neighborhood"])?>">
 		    	<button class="neighborhood-submit">Search</button>
 			</div>
