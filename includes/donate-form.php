@@ -8,7 +8,7 @@
 		$postID = 1833; 
 	}
 ?>
-<form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donate-form" id="donate-form">
+<form method="post" action="https://secure2.convio.net/gpcfb/site/CRDonationAPI" class="donate-form luminateApi donate-form" id="donate-form" data-luminateApi='{"callback": "donateCallback"}'>
 	<input type="hidden" name="method" value="donate" />
     <input type="hidden" name="form_id" value="<?php the_field('form_id',$postID); ?>" data-monthly-id="<?php the_field('monthly_form_id',$postID); ?>" />
     <input type="hidden" name="validate" value="true" />
@@ -38,7 +38,7 @@
 			<li>
 				<input type="radio" id="donate-amount-other" name="level_id" value="<?php the_field('other_level_id',$postID); ?>" data-onetime-value="<?php the_field('other_level_id',$postID); ?>" data-monthly-value="<?php the_field('other_monthly_level_id',$postID); ?>" style="display: none;" />
 				<div class="input-container" data-message="Every dollar you donate helps end hunger.">
-					<span class="input-addon">$</span><input type="text" id="other-amount" name="other_amount" placeholder="Other"  />
+					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other"  />
 				</div>
 			</li>
 		</ul>
@@ -84,8 +84,8 @@
 		<h4 class="donate-step-legend"><span class="form-step">3</span> Enter your billing info:</h4>
 		
 		<div class="radio-container" id="payment-type-radio">
-			<label><input type="radio" name="" checked="checked" data-payment-type="payment-type-cc" /> Credit Card</label>
-			<label><input type="radio" name=""  data-payment-type="payment-type-bank" /> Bank Account</label>
+			<label><input type="radio" name="payment_type" checked="checked" data-payment-type="payment-type-cc" /> Credit Card</label>
+			<label><input type="radio" name="payment_type"  data-payment-type="payment-type-bank" /> Bank Account</label>
 		</div>
 		
 		<div class="payment-type active" id="payment-type-cc">
