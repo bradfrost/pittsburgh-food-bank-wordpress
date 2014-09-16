@@ -11,12 +11,17 @@
 /* get the neighborhood value from the post fields and call the agencylist api for a list of agencies */
 $nhood = htmlspecialchars($_GET["q"]);
 
-$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&q=' . urlencode($nhood);
-$content = file_get_contents($url);
+if ($nhood != '') {
+	$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&q=' . urlencode($nhood);
+	$content = file_get_contents($url);
 
-/* decode the json results into an array */
-$json = json_decode($content, true);
-$arrayLen = sizeof($json);
+	/* decode the json results into an array */
+	$json = json_decode($content, true);
+	$arrayLen = sizeof($json);
+}
+else {
+		$arrayLen = 0;
+}
 
 /* set the initial map address in google if there are results */
 if ($arrayLen > 0)
@@ -43,18 +48,19 @@ if ($arrayLen > 0)
 	<div class="directory section">
 				<header class="section-header">
 					<h2 class="section-title">Food assistance closest to you</h2>
-					<p class="section-desc">These are the results closest to <?php echo htmlspecialchars($_POST["neighborhood"])?>. (<a href="javascript:window.print()">Print</a>)</p>
+					<p class="section-desc">These are the results closest to <?php echo $nhood?>. (<a href="javascript:window.print()">Print</a>)</p>
 				</header>
 				
 				<div class="directory-list-container">
 				
 				<ol class="directory-list">
 				<?php 
-				foreach($json as $item){ ?>
+				foreach($json as $key=>$item){ ?>
 							
-	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency */ ?> 
+	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency 
+				and default first list item to active class */ ?> 
 				
-					<li >
+					<li <?php if ($key === 0) { ?> class="active" <?php } ?>>
 						<div class="block block-directory">
 							<div class="vcard">
 								<div class="adr" dir-mapaddress="<?php print($item['address'] . ' ' . $item['city'] . ' ' . $item['zip']) ?>">
