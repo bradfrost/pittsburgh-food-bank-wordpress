@@ -4,9 +4,6 @@
 
 
 (function(w) {
-
-	// typeahead won't work without this - looks like wp loads jquery and so do we
-	var $ =jQuery.noConflict();
 	
 	var $ingredientForm = $('#ingredient-form'),
 		$ingredientInput = $('#selectedingredient'),
@@ -33,7 +30,7 @@
 	ingredients.initialize();
 	 
 	$("#ingredient .typeahead").typeahead(null, {
-	  name: 'ingredient',
+	  name: 'q',
 	  displayKey: 'label',
 	  source: ingredients.ttAdapter()
 	}).on('typeahead:selected', function(e, data) {

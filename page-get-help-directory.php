@@ -33,12 +33,12 @@ if ($arrayLen > 0)
 
 <div class="page-header <?php the_field('header_image'); ?>">
 	<h1 class="page-title"><?php the_title(); ?></h1>
-	<form action="" method="get" class="inline-form find-help">           
+	<form action="" method="GET" class="inline-form find-help">           
 	    <fieldset>
 		    <legend>Enter your neighborhood or ZIP</legend>
 		    <div class="inline-container" id="neighborhood">
 		   		<input type="text" name="q" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto"
-				value="<?php echo htmlspecialchars($_POST["neighborhood"])?>">
+				value="<?php echo $nhood ?>">
 		    	<button class="neighborhood-submit">Search</button>
 			</div>
 	    </fieldset>
