@@ -36,8 +36,9 @@
 	  name: 'ingredient',
 	  displayKey: 'label',
 	  source: ingredients.ttAdapter()
-	});
-	
+	}).on('typeahead:selected', function(e, data) {
+	  $('.get-ingredient').submit();
+	});;
 	//Hide initially control list 
 //			$ingredientControls.hide();
 	

@@ -19,6 +19,9 @@
 	}
 	else {
 		$ingredients = [];
+		$ingsLen = 0;
+		$recipes = [];
+		$recipeLen = 0;
 	}
 ?>
 
@@ -33,7 +36,7 @@
 		<div class="section">
 			<div class="recipe-rainbow">
 				<div class="recipe-toolbar">
-					<form action="#" method="POST" class="inline-form" id="ingredient-form">
+					<form action="#" method="POST" class="inline-form get-ingredient" id="ingredient-form">
 						<input type="hidden" name="ingredients" id="ingredientHiddenList" />
 						<fieldset>
 							<legend>Enter ingredients</legend>
@@ -68,7 +71,7 @@
 							<strong data-ingredient-name="<?php print("$item") ?>"><?php print("$item") ?></strong>
 							<?php $i = $i + 1;
 								if ($i < $ingsLen) { ?>
-								<span class="spacer"> and </span>
+								<span class="spacer"> or </span>
 								
 							<?php }
 						 	} ?>
