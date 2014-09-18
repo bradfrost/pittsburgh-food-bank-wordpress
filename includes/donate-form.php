@@ -38,7 +38,7 @@
 			<li>
 				<input type="radio" id="donate-amount-other" name="level_id" value="<?php the_field('other_level_id',$postID); ?>" data-onetime-value="<?php the_field('other_level_id',$postID); ?>" data-monthly-value="<?php the_field('other_monthly_level_id',$postID); ?>" style="display: none;" />
 				<div class="input-container" data-message="Every dollar you donate helps end hunger.">
-					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other"  />
+					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other" name="other_amount" />
 				</div>
 			</li>
 		</ul>
@@ -94,7 +94,7 @@
 				<label for="card-number">Credit Card Number</label>
 				<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number">
 				<label for="card-expiration">Credit Card Expiration</label>
-				<input placeholder="MM/YY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
+				<input placeholder="MM/YYYY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
 				<label for="card-cvv">CVV Number</label>
 				<input placeholder="CVV" pattern="[0-9]*" type="text" class="card-cvv" id="card-cvv" name="card_cvv" autocomplete="cc-csc">
 			</div><!--end .credit-card-group-->
