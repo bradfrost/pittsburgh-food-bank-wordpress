@@ -36,7 +36,7 @@
 			    endif;
 			?>	
 			<li>
-				<input type="radio" id="donate-amount-other" name="level_id" value="<?php the_field('other_level_id',$postID); ?>" data-onetime-value="<?php the_field('other_level_id',$postID); ?>" data-monthly-value="<?php the_field('other_monthly_level_id',$postID); ?>" style="display: none;" />
+				<input type="radio" id="donate-amount-other" name="level_id_other" value="<?php the_field('other_level_id',$postID); ?>" data-onetime-value="<?php the_field('other_level_id',$postID); ?>" data-monthly-value="<?php the_field('other_monthly_level_id',$postID); ?>" style="display: none;" />
 				<div class="input-container" data-message="Every dollar you donate helps end hunger.">
 					<span class="input-addon">$</span><input type="text" id="other-amount" placeholder="Other" name="other_amount" />
 				</div>
