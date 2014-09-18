@@ -31,7 +31,7 @@ if ( !defined('ABSPATH') ) { die('-1'); } ?>
 		<?php do_action( 'tribe_events_after_template' ) ?>
 
 	</div><!--end .l-main-->
-	<?php include (TEMPLATEPATH . '/includes/well-newsletter.php');  ?>
+	<?php include (TEMPLATEPATH . '/includes/well.php');  ?>
 	<div class="l-sidebar">
 		<?php include (TEMPLATEPATH . '/includes/sidebar-specialevents.php');  ?>
 	</div><!--end .l-sidebar-->
