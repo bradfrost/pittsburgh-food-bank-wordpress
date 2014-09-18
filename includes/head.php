@@ -9,5 +9,9 @@
 	
 	<script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
 	
+	<!--[if lte IE 8 ]>
+	<script src="<?php bloginfo('template_directory'); ?>/js/respond.min.js"></script>
+	<![endif]-->
+	
 	<?php wp_head(); ?>
 </head>
