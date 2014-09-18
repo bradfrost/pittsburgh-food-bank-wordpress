@@ -9,14 +9,19 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 
 /* get the neighborhood value from the post fields and call the agencylist api for a list of agencies */
-$nhood = htmlspecialchars($_POST["neighborhood"]);
+$nhood = htmlspecialchars($_GET["q"]);
 
-$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&neighborhood=' . urlencode($nhood);
-$content = file_get_contents($url);
+if ($nhood != '') {
+	$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&q=' . urlencode($nhood);
+	$content = file_get_contents($url);
 
-/* decode the json results into an array */
-$json = json_decode($content, true);
-$arrayLen = sizeof($json);
+	/* decode the json results into an array */
+	$json = json_decode($content, true);
+	$arrayLen = sizeof($json);
+}
+else {
+		$arrayLen = 0;
+}
 
 /* set the initial map address in google if there are results */
 if ($arrayLen > 0)
@@ -28,12 +33,12 @@ if ($arrayLen > 0)
 
 <div class="page-header <?php the_field('header_image'); ?>">
 	<h1 class="page-title"><?php the_title(); ?></h1>
-	<form action="#" method="post" class="inline-form find-help">           
+	<form action="" method="GET" class="inline-form find-help">           
 	    <fieldset>
 		    <legend>Enter your neighborhood or ZIP</legend>
 		    <div class="inline-container" id="neighborhood">
-		   		<input type="text" name="neighborhood" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto"
-				value="<?php echo htmlspecialchars($_POST["neighborhood"])?>">
+		   		<input type="text" name="q" placeholder="i.e. 15201, or Lawrenceville" id="help-field" class="typeahead help-field" data-provide="typeahead" dir="auto"
+				value="<?php echo $nhood ?>">
 		    	<button class="neighborhood-submit">Search</button>
 			</div>
 	    </fieldset>
@@ -43,18 +48,19 @@ if ($arrayLen > 0)
 	<div class="directory section">
 				<header class="section-header">
 					<h2 class="section-title">Food assistance closest to you</h2>
-					<p class="section-desc">These are the results closest to <?php echo htmlspecialchars($_POST["neighborhood"])?>. (<a href="javascript:window.print()">Print</a>)</p>
+					<p class="section-desc">These are the results closest to <?php echo $nhood?>. (<a href="javascript:window.print()">Print</a>)</p>
 				</header>
 				
 				<div class="directory-list-container">
 				
 				<ol class="directory-list">
 				<?php 
-				foreach($json as $item){ ?>
+				foreach($json as $key=>$item){ ?>
 							
-	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency */ ?> 
+	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency 
+				and default first list item to active class */ ?> 
 				
-					<li >
+					<li <?php if ($key === 0) { ?> class="active" <?php } ?>>
 						<div class="block block-directory">
 							<div class="vcard">
 								<div class="adr" dir-mapaddress="<?php print($item['address'] . ' ' . $item['city'] . ' ' . $item['zip']) ?>">

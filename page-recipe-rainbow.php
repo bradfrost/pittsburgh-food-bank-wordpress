@@ -7,18 +7,21 @@
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 
-	if( isset($_POST['ingredients']) ) {
-		$ings = htmlspecialchars($_POST["ingredients"]);
+	if( isset($_GET['q']) ) {
+		$ings = htmlspecialchars($_GET["q"]);
 		$ingredients = explode(",", $ings);
 		$ingsLen = sizeof($ingredients);
 		
-		$url = 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=recipelist&ingredient=' . urlencode($ings);
+		$url = 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=recipelist&q=' . urlencode($ings);
 		$content = file_get_contents($url);
 		$recipes = json_decode($content, true);
 		$recipeLen = sizeof($recipes);
 	}
 	else {
 		$ingredients = [];
+		$ingsLen = 0;
+		$recipes = [];
+		$recipeLen = 0;
 	}
 ?>
 
@@ -33,14 +36,14 @@
 		<div class="section">
 			<div class="recipe-rainbow">
 				<div class="recipe-toolbar">
-					<form action="#" method="POST" class="inline-form" id="ingredient-form">
-						<input type="hidden" name="ingredients" id="ingredientHiddenList" />
+					<form action="" method="GET" class="inline-form get-ingredient" id="ingredient-form">
+						<input type="hidden" name="q" id="ingredientHiddenList" />
 						<fieldset>
 							<legend>Enter ingredients</legend>
 							<label for="ingredient">Enter an ingredient:</label>
 							<div class="inline-container" id="ingredient">
-								<input type="text" name="ingredient" id="selectedingredient" class="typeahead" placeholder='i.e. "Carrots", "Beets"' data-provide="typeahead" dir="auto" 
-									value="<?php echo htmlspecialchars($_POST["ingredient"])?>">
+								<input type="text" name="" id="selectedingredient" class="typeahead" placeholder='i.e. "Carrots", "Beets"' data-provide="typeahead" dir="auto" 
+									value="">
 								<button class="btn">Add</button>
 							</div>
 						</fieldset>
@@ -68,7 +71,7 @@
 							<strong data-ingredient-name="<?php print("$item") ?>"><?php print("$item") ?></strong>
 							<?php $i = $i + 1;
 								if ($i < $ingsLen) { ?>
-								<span class="spacer"> and </span>
+								<span class="spacer"> or </span>
 								
 							<?php }
 						 	} ?>
