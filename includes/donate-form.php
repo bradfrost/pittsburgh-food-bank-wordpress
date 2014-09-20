@@ -2,7 +2,7 @@
 	global $post;
 	
 	//If this page is a child of the donate page
-	if ( $post->post_parent == '17' ) {
+	if ( $post->post_parent == '17' && $post->ID != '2161' ) {
 		$postID = $post->ID;
 	} else {
 		$postID = 1833; 
