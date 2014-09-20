@@ -15,7 +15,7 @@
 		<nav role="navigation" class="nav-footer">
 			<div class="g g-4up">
 				<div class="gi">
-					<h3 class="nav-footer-item acc-handle"><a href="/programs">Programs</a></h3>
+					<h3 class="nav-footer-item acc-handle"><a href="/programs">What We Do</a></h3>
 					<ul class="acc-panel">
 					<?php 			
 						$args = array(
@@ -43,7 +43,7 @@
 					</ul>
 				</div>
 				<div class="gi">
-					<h3 class="nav-footer-item acc-handle"><a href="/resources">Resources</a></h3>
+					<h3 class="nav-footer-item acc-handle"><a href="/resources">Learn</a></h3>
 					<ul class="acc-panel">
 						<?php 			
 							$args = array(
