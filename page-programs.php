@@ -19,36 +19,42 @@
 <div class="lc">
 	<div class="g g-3up">
 		<?php
-		// The Query
-		query_posts( 'post_type=page&post_parent=5&order=ASC' );
-		
-		// The Loop
-		while ( have_posts() ) : the_post(); ?>
-		    <div class="gi">
-				<div class="block block-thumb">
-					<a href="<?php the_permalink(); ?>" class="b-inner">
-						<div class="b-img">
-							<?php 
-								if ( has_post_thumbnail() ) {
-									the_post_thumbnail();
-								} else {
-									echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) .'/images/fpo_square.png" />';
-								}
-							?>
-							
+	
+				// check if the repeater field has rows of data
+				if( have_rows('program') ):
+				 
+				 	// loop through the rows of data
+				    while ( have_rows('program') ) : the_row(); ?>        
+				        <div class="gi">
+							<div class="block block-thumb">
+								<a href="<?php the_sub_field('program_link'); ?>" class="b-inner">
+									<div class="b-img">
+										<?php 
+											$image = get_sub_field('program_image');
+											$imageURL = $image['url'];
+											$imageCrop = aq_resize($imageURL,250, 250, true);
+											if ( $image ) {
+				
+												echo '<img src="' . $imageCrop .'" alt="Thumb" />';
+												
+											} else {
+											
+												echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) .'/images/fpo_square.png" />';
+											}
+										?>
+										
+									</div>
+									<div class="b-text">
+										<h2 class="b-title"><?php the_sub_field('program_title'); ?></h2>
+										<p class="b-excerpt"><?php the_sub_field('program_desc'); ?></p>
+									</div>
+								</a>
+							</div>
 						</div>
-						<div class="b-text">
-							<h2 class="b-title"><?php the_title(); ?></h2>
-							<p class="b-excerpt"><?php the_field('tagline'); ?></p>
-						</div>
-					</a>
-				</div>
-			</div><!--end .gi-->
-		<?php 
-		endwhile; 
-		wp_reset_query();
-		?>
-		
+			<?php 
+			    endwhile;
+			    endif;
+			?>
 	</div><!--end .g-3up-->
 </div><!--end .main-body-->
 <?php get_footer(); ?>

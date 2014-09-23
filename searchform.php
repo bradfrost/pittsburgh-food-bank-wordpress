@@ -2,7 +2,7 @@
 	<fieldset>
 	    <legend class="is-vishidden">Search</legend>
 	    <label for="search" class="is-vishidden">Search</label>
-	    <input type="search" name="s" placeholder="Search" id="search" class="search-field" value="<?php the_search_query(); ?>" />
+	    <input type="search" name="s" placeholder="Search" id="search" class="search-field" />
 	    <button class="search-submit">
 	    	<span class="icon-search" aria-hidden="true"></span>
 	    	<span class="is-vishidden">Search</span>
