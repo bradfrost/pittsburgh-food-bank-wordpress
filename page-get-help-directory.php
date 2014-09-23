@@ -55,7 +55,8 @@ if ($arrayLen > 0)
 				
 				<ol class="directory-list">
 				<?php 
-				foreach($json as $key=>$item){ ?>
+				if ($arrayLen > 0) {
+					foreach($json as $key=>$item){ ?>
 							
 	<?php /* store the agency address in the dir-mapaddress attribute so we can use it in javascript to change the map when they click on the agency 
 				and default first list item to active class */ ?> 
@@ -99,7 +100,7 @@ if ($arrayLen > 0)
 						<a href="#" class="text-btn">More info</a></div>
 					</li>
 					
-		<?php 	} ?>
+		<?php }	} ?>
 	 
 				</ol>
 			</div>
