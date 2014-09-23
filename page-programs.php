@@ -11,11 +11,16 @@
 	<p class="page-intro"><?php the_field('tagline'); ?></p>
 </div>
 <?php endwhile; endif; ?>
+<div class="lc lc-single">
+	<div class="text">
+		<?php the_field('program_intro'); ?>
+	</div>
+</div>
 <div class="lc">
 	<div class="g g-3up">
 		<?php
 		// The Query
-		query_posts( 'post_type=page&post_parent=5' );
+		query_posts( 'post_type=page&post_parent=5&order=ASC' );
 		
 		// The Loop
 		while ( have_posts() ) : the_post(); ?>

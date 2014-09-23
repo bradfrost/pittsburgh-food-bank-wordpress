@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="page-header">
 	<h1 class="page-title"><?php single_cat_title(); ?></h1>
-	<p class="page-intro">All posts categorized as "<?php single_cat_title(); ?>"</p>
+	<p class="page-intro">All posts in the "<?php single_cat_title(); ?>" category</p>
 </div>
 <div class="main-body l">
 	<div class="l-main">
