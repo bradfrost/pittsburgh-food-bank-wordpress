@@ -135,15 +135,25 @@
 				</div><!--end inner .g-2up-->
 			</div><!--end .gi-->
 			<div class="gi">
-				<h3 class="nav-footer-item acc-handle">Stay Up to Date</h3>
+				<h3 class="nav-footer-item acc-handle"><?php the_field('newsletter_widget_title',1832); ?></h3>
 				<div class="acc-panel">
-					<p>Stay informed about our organization, upcoming events, stories of lives we have touched and news that impacts what we do.</p>
+					<p><?php the_field('newsletter_widget_desc',1832); ?></p>
 					<?php include (TEMPLATEPATH . '/includes/newsletter-form.php');  ?>
 					<ul class="social-list">
-						<li><a href="http://www.facebook.com/pages/Greater-Pittsburgh-Community-Food-Bank/145889928474" rel="external" target="_blank"><span class="icon-facebook"></span>Like us on Facebook</a></li>
-						<li><a href="http://www.twitter.com/pghfoodbank" rel="external" target="_blank"><span class="icon-twitter"></span>Follow us on Twitter</a></li>
-						<li><a href="http://www.youtube.com/pittsburghfoodbank" rel="external" target="_blank"><span class="icon-youtube"></span>Watch our videos on Youtube</a></li>
-					</ul>				</div>
+						<?php
+	
+						// check if the repeater field has rows of data
+						if( have_rows('social_list',3007) ):
+						 
+						 	// loop through the rows of data
+						    while ( have_rows('social_list',3007) ) : the_row(); ?>
+						    	<li><a href="<?php the_sub_field('url'); ?>" rel="external" target="_blank"><span class="icon-<?php the_sub_field('icon'); ?>"></span><?php the_sub_field('message'); ?></a></li>       
+						<?php 
+						    endwhile;
+						    endif;
+						?>
+					</ul>
+				</div>
 			</div><!--end .gi-->
 		</div><!--end .g-2up-->
 		
