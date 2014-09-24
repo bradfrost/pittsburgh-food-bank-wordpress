@@ -15,52 +15,26 @@
 		<nav role="navigation" class="nav-footer">
 			<div class="g g-4up">
 				<div class="gi">
-					<h3 class="nav-footer-item acc-handle"><a href="/programs">What We Do</a></h3>
-					<ul class="acc-panel">
-					<?php 			
-						$args = array(
-							'child_of'     => 5, //Programs page ID
-							'title_li'     => '',
-							'depth'        => 1
-						);
-						
-						wp_list_pages( $args );
-					?>
-					</ul>
-				</div><!--end .gi-->
-				<div class="gi">
 					<h3 class="nav-footer-item acc-handle"><a href="/about">About</a></h3>
-					<ul class="acc-panel">
-						<?php 			
-							$args = array(
-								'child_of'     => 9, //About page ID
-								'title_li'     => '',
-								'depth'        => 1
-							);
-							
-							wp_list_pages( $args );
-						?>
-					</ul>
+					<div class="acc-panel">
+						<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'submenu' => '9' ) ); ?>
+					</div>
 				</div>
 				<div class="gi">
+					<h3 class="nav-footer-item acc-handle"><a href="/programs">What We Do</a></h3>
+					<div class="acc-panel">
+						<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'submenu' => '5' ) ); ?>
+					</div>
+				</div><!--end .gi-->
+				<div class="gi">
 					<h3 class="nav-footer-item acc-handle"><a href="/resources">Learn</a></h3>
-					<ul class="acc-panel">
-						<?php 			
-							$args = array(
-								'child_of'     => 19, //Resources page ID
-								'title_li'     => '',
-								'depth'        => 1
-							);
-							
-							wp_list_pages( $args );
-						?>
-						<li><a href="/"></a>
-					</ul>
+					<div class="acc-panel">
+						<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'submenu' => '19' ) ); ?>
+					</div>
 				</div>
 				<div class="gi">			
 					<h3 class="nav-footer-item acc-handle"><a href="/events">Upcoming Events</a></h3>
 					<div class="acc-panel">
-					
 						<?php 
 							//Get Latest Event
 							global $post;
