@@ -100,7 +100,7 @@
 					 
 					 	// loop through the rows of data
 					    while ( have_rows('tier_3_company') ) : the_row(); ?>
-					    <?php $image = get_sub_field('sponsor_logo'); ?>      
+					    <?php $image = get_sub_field('sponsor_image'); ?>      
 					    <div class="gi">
 					        
 					        <div class="block block-thumb">
@@ -134,7 +134,7 @@
 					 
 					 	// loop through the rows of data
 					    while ( have_rows('tier_4_company') ) : the_row(); ?>
-					    <?php $image = get_sub_field('sponsor_logo'); ?>      
+					    <?php $image = get_sub_field('sponsor_image'); ?>      
 					    <div class="gi">
 					        
 					        <div class="block block-thumb">
