@@ -12,7 +12,7 @@
 $recipeguid = htmlspecialchars($_GET["q"]);
 
 if ($recipeguid != '') {
-	$url = 'http://wordpress.pittsburghfoodbank.org:8888/reciperainbow/reciperainbowlookups.cfc?method=getrecipe&recipe_guid=' . urlencode($recipeguid);
+	$url = 'https://www.pittsburghfoodbank.org/reciperainbow/reciperainbowlookups.cfc?method=getrecipe&recipe_guid=' . urlencode($recipeguid);
 	$content = file_get_contents($url);
 
 	/* decode the json results into an array */
@@ -41,7 +41,7 @@ else {
 <?php print $item['cooking_instructions'] ?>
 
 		<h2>Nutrition Information</h2>
-		<p><img src="http://wordpress.pittsburghfoodbank.org/reciperainbow/nutritionfacts/<?php print strtolower($item['recipe_guid']) ?>.jpg" alt="<?php print $item['recipe_guid'] ?>" width="138" height="300" class="alignnone size-medium wp-image-2919" /></p>
+		<p><img src="https://www.pittsburghfoodbank.org/reciperainbow/nutritionfacts/<?php print strtolower($item['recipe_guid']) ?>.jpg" alt="<?php print $item['recipe_guid'] ?>" width="138" height="300" class="alignnone size-medium wp-image-2919" /></p>
 <p>All recipes ranked according to <a href="/resources/nutrition/chop/">CHOP for nutritional quality</a></p>
 		</div>
 

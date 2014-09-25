@@ -12,7 +12,7 @@
 		$ingredients = explode(",", $ings);
 		$ingsLen = sizeof($ingredients);
 		
-		$url = 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=recipelist&q=' . urlencode($ings);
+		$url = 'https://www.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=recipelist&q=' . urlencode($ings);
 		$content = file_get_contents($url);
 		$recipes = json_decode($content, true);
 		$recipeLen = sizeof($recipes);
@@ -81,11 +81,11 @@
 					<?php 
 						foreach($recipes as $item){ ?>
 						<li class="gi">
-							<a href="#" class="block block-recipe">
+							<a href="/resources/recipe-rainbow/recipe/?q=<?php print $item['recipe_guid'] ?>" class="block block-recipe">
 								<h3 class="b-title"><?php print $item['recipe_name'] ?></h3>
 								<p class="b-desc"><?php print $item['short_description'] ?></p>
 								<p class="b-ingredients">You have <strong><?php print $item['have_ingredients'] ?></strong> of <strong><?php print $item['num_ingredients'] ?></strong> ingredients for this recipe.</p>
-								<button class="btn btn-small">View Recipe</button>
+								<button class="btn btn-small" >View Recipe</button>
 							</a>
 						</li>
 					<?php 	} ?>
