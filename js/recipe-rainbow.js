@@ -24,7 +24,7 @@
 	var ingredients = new Bloodhound({
   		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
   		queryTokenizer: Bloodhound.tokenizers.whitespace,
-  		remote: 'http://wordpress.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=ingredientlist&ing=%QUERY'
+  		remote: 'https://www.pittsburghfoodbank.org/reciperainbow/recipeLookups.cfc?method=ingredientlist&ing=%QUERY'
 	});
 	 
 	ingredients.initialize();

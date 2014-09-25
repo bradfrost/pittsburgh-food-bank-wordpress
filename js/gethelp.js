@@ -10,7 +10,8 @@
 	var neighborhoods = new Bloodhound({
 	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
 	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  remote: 'http://wordpress.pittsburghfoodbank.org/gethelp/gethelp.cfc?method=neighborhoodlist&zip=%QUERY'
+	  limit: 20,
+	  remote: 'https://www.pittsburghfoodbank.org/gethelp/gethelp.cfc?method=neighborhoodlist&zip=%QUERY'
 	});
 	 
 	neighborhoods.initialize();

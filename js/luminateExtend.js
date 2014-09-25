@@ -53,7 +53,7 @@
         }
         else {
           $('.donation-loading').remove();
-		  window.location.replace("http://wordpress.pittsburghfoodbank.org/donate/success/");
+		  window.location.replace("https://www.pittsburghfoodbank.org/donate/success/");
         }
       }
     };  

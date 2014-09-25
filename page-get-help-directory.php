@@ -11,10 +11,12 @@
 /* get the neighborhood value from the post fields and call the agencylist api for a list of agencies */
 $nhood = htmlspecialchars($_GET["q"]);
 
-if ($nhood != '') {
-	$url = 'http://wordpress.pittsburghfoodbank.org:8888/gethelp/gethelp.cfc?method=agencylist&q=' . urlencode($nhood);
-	$content = file_get_contents($url);
 
+
+if ($nhood != '') {
+	$url = 'https://www.pittsburghfoodbank.org/gethelp/gethelp.cfc?method=agencylist&q=' . urlencode($nhood);
+	
+	$content = file_get_contents($url);
 	/* decode the json results into an array */
 	$json = json_decode($content, true);
 	$arrayLen = sizeof($json);
@@ -22,6 +24,7 @@ if ($nhood != '') {
 else {
 		$arrayLen = 0;
 }
+
 
 /* set the initial map address in google if there are results */
 if ($arrayLen > 0)
