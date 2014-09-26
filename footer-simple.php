@@ -6,5 +6,6 @@
 	</div>
 </footer>
 <?php wp_footer(); ?>
+<?php include (TEMPLATEPATH . '/includes/google-analytics.php'); ?>
 </body>
 </html>

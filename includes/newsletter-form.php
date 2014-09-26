@@ -1,4 +1,4 @@
-<form action="http://gpcfb.convio.net/site/Survey" method="post" class="inline-form newsletter-form">           
+<form action="https://gpcfb.convio.net/site/Survey" method="post" class="inline-form newsletter-form">           
     <input type="hidden" id="SURVEY_ID" name="SURVEY_ID" value="1903" />
     <fieldset>
 	    <legend>Sign up for our newsletter</legend>
