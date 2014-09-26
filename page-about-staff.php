@@ -30,7 +30,7 @@
 								<div class="block block-thumb">
 									
 									<div class="b-img">
-										<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" />
+										<img src="<?php echo $image['url'] ?>" alt="" />
 									</div>
 									<div class="b-text">
 										<h2 class="b-title"><?php the_sub_field('name'); ?></h2>

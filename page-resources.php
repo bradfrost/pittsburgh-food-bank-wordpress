@@ -28,7 +28,7 @@
 											$image = get_sub_field('resource_img');
 											if ( $image ) {
 				
-												echo '<img src="' . $image["url"] .'" alt="Thumb" />';
+												echo '<img src="' . $image["url"] .'" alt="" />';
 												
 											} else {
 											

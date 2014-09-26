@@ -52,7 +52,7 @@
 											$imageCrop = aq_resize($imageURL,250, 250, true);
 											if ( $image ) {
 				
-												echo '<img src="' . $imageCrop .'" alt="Thumb" />';
+												echo '<img src="' . $imageCrop .'" alt="" />';
 												
 											} else {
 											
