@@ -55,7 +55,7 @@
 		<div class="g g-2up">
 			<div class="field-container gi">
 				<label for="donate-name">Full Name</label>
-				<input type="text" id="donate-name" placeholder="Firstname Lastname" autocomplete="name" name="fullname" required pattern="[a-zA-Z0-9\s]+" data-parsley-pattern="[a-zA-Z0-9\s]+" data-parsley-error-message="Please enter your first and last name" />
+				<input type="text" id="donate-name" placeholder="Firstname Lastname" autocomplete="name" name="fullname" required pattern="\ " data-parsley-pattern="\ " data-parsley-error-message="Please enter your first and last name" />
 			</div>
 			<div class="field-container gi">
 				<label for="donate-email">E-mail</label>
