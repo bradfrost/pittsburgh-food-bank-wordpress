@@ -6,7 +6,7 @@
 	<!-- Begin .header -->
 	<header class="header" role="banner">
 		<div class="lc">
-			<a href="/" rel="home" class="logo-link" tabindex="1"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg"  onerror="this.src=<?php bloginfo('template_directory'); ?>/images/logo.png" data-fallback="<?php bloginfo('template_directory'); ?>/images/logo.png" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America" /></a>
+			<a href="/" rel="home" class="logo-link" tabindex="1"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg"  onerror="this.src='<?php bloginfo('template_directory'); ?>/images/logo.png';" data-fallback="<?php bloginfo('template_directory'); ?>/images/logo.png" class="logo" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America" /></a>
 			<a href="#search-form" class="nav-toggle nav-toggle-search"><span class="icon-search"></span></a>
 			<a href="#nav" class="nav-toggle nav-toggle-menu"><span class="icon-menu2"></span><span class="nav-toggle-label">Menu</span></a>
 			<div class="header-nav-container">
