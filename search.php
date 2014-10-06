@@ -6,8 +6,19 @@
 <div class="main-body l">
 	<div class="l-main">
 		<div class="lc lc-single">
+			<h2></h2>
 			<ul class="post-list">
 			<?php if ( have_posts() ) : ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<li>
+					<?php include (TEMPLATEPATH . '/includes/block-post.php');  ?>
+				</li>
+			<?php endwhile; ?>
+			</ul><!--end post-list-->
+		
+			<ul class="post-list">
+			<?php if ( have_posts() ) : ?>
+			<h2>Posts</h2>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li>
 					<?php include (TEMPLATEPATH . '/includes/block-post.php');  ?>
