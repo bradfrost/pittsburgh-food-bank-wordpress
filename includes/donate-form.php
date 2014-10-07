@@ -12,7 +12,6 @@
 	<input type="hidden" name="method" value="donate" />
     <input type="hidden" name="form_id" value="<?php the_field('form_id',$postID); ?>" data-monthly-id="<?php the_field('monthly_form_id',$postID); ?>" />
     <input type="hidden" name="validate" value="true" />
-    <input type="hidden" name="df_preview" value="true" />
     <input type="hidden" name="billing.name.first" id="billing-first-name" value="" />
     <input type="hidden" name="billing.name.last" id="billing-last-name" value="" />
     
