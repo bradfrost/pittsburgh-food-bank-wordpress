@@ -1,4 +1,5 @@
 <head>
+	<meta http-equiv="x-ua-compatible" content="IE=Edge"/> 
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width" />
 	<title><?php wp_title(' | ', true, 'right'); ?> <?php echo get_bloginfo ( 'name' ); ?></title>

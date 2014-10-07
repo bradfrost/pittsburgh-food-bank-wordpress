@@ -55,7 +55,7 @@
 		<div class="g g-2up">
 			<div class="field-container gi">
 				<label for="donate-name">Full Name</label>
-				<input type="text" id="donate-name" placeholder="Firstname Lastname" autocomplete="name" name="fullname" required pattern="[a-zA-Z0-9\s]+" data-parsley-pattern="[a-zA-Z0-9\s]+" data-parsley-error-message="Please enter your first and last name" />
+				<input type="text" id="donate-name" placeholder="Firstname Lastname" autocomplete="name" name="fullname" required pattern="\ " data-parsley-pattern="\ " data-parsley-error-message="Please enter your first and last name" />
 			</div>
 			<div class="field-container gi">
 				<label for="donate-email">E-mail</label>
@@ -89,14 +89,21 @@
 		</div>
 		
 		<div class="payment-type active" id="payment-type-cc">
-			<h4>Credit Card Info</h4>
 			<div class="credit-card-group">
-				<label for="card-number">Credit Card Number</label>
-				<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number">
-				<label for="card-expiration">Credit Card Expiration</label>
-				<input placeholder="MM/YYYY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
-				<label for="card-cvv">CVV Number</label>
-				<input placeholder="CVV" pattern="[0-9]*" type="text" class="card-cvv" id="card-cvv" name="card_cvv" autocomplete="cc-csc">
+				<div class="field-container">
+					<label for="card-number">Credit Card Number</label>
+					<input placeholder="1234 5678 9012 3456" pattern="[0-9]*" type="text" class="card-number" id="card-number" name="card_number" autocomplete="cc-number">
+				</div>
+				<div class="g g-2up cc-info">
+					<div class="field-container gi">
+						<label for="card-expiration">Expiration</label>
+						<input placeholder="MM/YYYY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
+					</div>
+					<div class="field-container gi">
+						<label for="card-cvv">CVV Number</label>
+						<input placeholder="CVV" pattern="[0-9]*" type="text" class="card-cvv" id="card-cvv" name="card_cvv" autocomplete="cc-csc">
+					</div>
+				</div>
 			</div><!--end .credit-card-group-->
 		</div><!--end .payment-type-bank-->
 		
