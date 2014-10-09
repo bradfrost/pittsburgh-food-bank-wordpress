@@ -40,6 +40,11 @@ else {
 
 <?php print $item['cooking_instructions'] ?>
 
+	<a href="https://www.pittsburghfoodbank.org/reciperainbow/recipepdf.cfm?recipe_guid=<?php print $item['recipe_guid'] ?>"  target="_blank">
+		<button class="btn btn-small" >Download PDF</button>
+	</a>
+
+
 		<h2>Nutrition Information</h2>
 		<p><img src="https://www.pittsburghfoodbank.org/reciperainbow/nutritionfacts/<?php print strtolower($item['recipe_guid']) ?>.jpg" alt="<?php print $item['recipe_guid'] ?>" width="138" height="300" class="alignnone size-medium wp-image-2919" /></p>
 <p>All recipes ranked according to <a href="/resources/nutrition/chop/">CHOP for nutritional quality</a></p>
@@ -54,7 +59,7 @@ else {
 
 		<p class="well-desc">Make affordable and healthy meals based on ingredients you already have with Recipe Rainbow</p>
 
-		<a href="/resources/recipe-rainbow" class="btn">View Recipe Rainbow</a>
+		<a href="javascript:history.back()" class="btn">View Recipe Rainbow</a>
 
 	</div>
 
