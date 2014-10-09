@@ -4,7 +4,7 @@
  */
 ?>
 
-<?php include (TEMPLATEPATH . '/header-simple.php');  ?>
+<?php include (TEMPLATEPATH . '/header-donate.php');  ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="page-header <?php the_field('header_image'); ?>">
 	<h1 class="page-title"><?php the_title(); ?></h1>
