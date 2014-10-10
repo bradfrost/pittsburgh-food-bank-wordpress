@@ -6,18 +6,29 @@
 <div class="main-body l">
 	<div class="l-main">
 		<div class="lc lc-single">
-			<h2></h2>
+			
+			<?php 
+				global $query_string;
+				query_posts( $query_string . '&post_type=page' );
+				if ( have_posts() ) : 
+			?>
+			
+			<h2>Pages</h2>
 			<ul class="post-list">
-			<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li>
-					<?php include (TEMPLATEPATH . '/includes/block-post.php');  ?>
+					<?php include (TEMPLATEPATH . '/includes/block-page.php');  ?>
 				</li>
 			<?php endwhile; ?>
 			</ul><!--end post-list-->
+			<?php endif; wp_reset_query(); ?>
 		
 			<ul class="post-list">
-			<?php if ( have_posts() ) : ?>
+			<?php 
+				global $query_string;
+				query_posts( $query_string .'&post_type=post' );
+				if ( have_posts() ) : 
+			?>
 			<h2>Posts</h2>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li>
@@ -26,14 +37,6 @@
 			<?php endwhile; ?>
 			</ul><!--end post-list-->
 			<?php get_template_part('nav', 'below'); ?>
-			<?php else : ?>
-			<article id="post-0" class="post no-results not-found">
-	
-			<h1><?php printf( __( 'No search results found for “%s”', 'blankslate' ), get_search_query() ); ?></h1>
-			<p><?php _e( 'Please try again.', 'blankslate' ); ?></p>
-			<?php get_search_form(); ?>
-	
-			</article>
 			<?php endif; ?>
 		</div>
 	</div><!--end .l-main-->
