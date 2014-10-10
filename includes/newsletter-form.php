@@ -1,3 +1,5 @@
+<a class="btn" href="https://gpcfb.convio.net/site/Survey">Sign Up</a>
+<?php /*
 <form action="https://gpcfb.convio.net/site/Survey" method="post" class="inline-form newsletter-form">           
     <input type="hidden" id="SURVEY_ID" name="SURVEY_ID" value="1903" />
     <fieldset>
@@ -9,3 +11,5 @@
 		</div>
     </fieldset>
 </form><!--end newsletter-form-->
+
+*/ ?>
