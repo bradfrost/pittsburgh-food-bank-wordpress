@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<div class="banner banner-hero" style="background-image: url(<?php the_field('homepage_hero'); ?>);">
+<div class="banner banner-hero">
 	<div class="lc">
 		<h2 class="banner-hero-text"><?php the_field('tagline'); ?></h2>
 	</div>

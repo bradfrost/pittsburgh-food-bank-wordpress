@@ -14,5 +14,27 @@
 	<script src="<?php bloginfo('template_directory'); ?>/js/respond.min.js"></script>
 	<![endif]-->
 	
+	<?php if ( is_front_page() ) : ?>
+		<style type="text/css">
+			<?php 
+				$image = get_field('homepage_hero',791);
+				$url = $image['url'];
+				$small = $image['sizes']['large'];
+			?>
+		
+			.banner-hero {
+				background-image: url(<?php echo $small; ?>);
+			}
+		
+			@media all and (min-width: 45em) {
+				.banner-hero {
+					background-image: url(<?php echo $url; ?>);
+				}
+			}
+		
+		</style>
+	
+	<?php endif; ?>
+	
 	<?php wp_head(); ?>
 </head>
