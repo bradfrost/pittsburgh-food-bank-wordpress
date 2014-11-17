@@ -4287,7 +4287,20 @@ if ('undefined' !== typeof window.ParsleyValidator)
 		}
 		//If user is on the final step, submit the form
 		else if (donateStep === 3) {
-			$('#donate-form').submit();
+			//TODO: Prevent double form submission
+			/*
+if($('#donation-errors').length) {
+				$('#donate-form').removeClass('submitting');
+			}
+			
+			if($('#donate-form').hasClass('submitting')) {
+				console.log('already submitted');
+			} else {
+				$('#donate-form').submit().addClass('submitting');
+			}
+*/
+			
+			$('#donate-form').submit().addClass('submitting');
 		}
 	});
 
