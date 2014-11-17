@@ -158,7 +158,7 @@
 		</div><!--end .g-2up-->
 		
 		<div class="footer-meta">
-			<a href="/" rel="home" class="logo-link"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" onerror="this.src='<?php bloginfo('template_directory'); ?>/images/logo.png';" data-fallback="<?php bloginfo('template_directory'); ?>/images/logo.png" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="/privacy-policy">Privacy Policy</a> &nbsp; <a href="https://pww.pittsburghfoodbank.org/primariusww/login.aspx" class="btn btn-small btn-alt-2" target="_blank" rel="external">Agency Login</a></p>
+			<a href="/" rel="home" class="logo-link"><img src="<?php bloginfo('template_directory'); ?>/images/logo.svg" class="logo" onerror="this.src='<?php bloginfo('template_directory'); ?>/images/logo.png';" data-fallback="<?php bloginfo('template_directory'); ?>/images/logo.png" alt="Greater Pittsburgh Community Food Bank, a member of Feeding America"></a>			<p class="copyright">© 2014 All Rights Reserved. <a href="/privacy-policy">Privacy Policy</a> &nbsp; <a href="https://pww.pittsburghfoodbank.org/primariusww/login.aspx" class="btn btn-small" target="_blank" rel="external">Agency Login</a></p>
 		</div>
 	</div>
 </footer>
