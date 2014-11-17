@@ -4256,7 +4256,8 @@ if ('undefined' !== typeof window.ParsleyValidator)
 
 	//Hide steps 2 and 3
 	$('.donate-step').not('#donate-step-1').addClass('closed');
-	$('.field-container-city, .field-container-state').addClass('is-vishidden');
+// temp change to sort out city, state zip issues in donate
+//	$('.field-container-city, .field-container-state').addClass('is-vishidden');
 	$('.donate-submit-text').text('Next Step');
 	
 	//Donation form submit action

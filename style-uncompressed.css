@@ -1272,6 +1272,10 @@ td {
   margin-bottom: 0.5em; }
 
 /* Wordpress Caption */
+.text .wp-caption img {
+  margin-bottom: 0;
+}
+
 .wp-caption-text {
   font-style: italic; }
 
