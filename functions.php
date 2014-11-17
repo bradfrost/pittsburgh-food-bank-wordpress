@@ -60,6 +60,17 @@ function load_js() {
    		wp_enqueue_script( 'typeahead', get_template_directory_uri() . '/js/typeahead.bundle.min.js', true);
    		wp_enqueue_script( 'gethelp', get_template_directory_uri() . '/js/recipe-rainbow.js', array ('jq'), true);
    }
+      
+   //If page is Virtual Plate
+   if ( is_page(3284) ) {
+   		wp_enqueue_script( 'virtualplate', get_template_directory_uri() . '/js/virtualplate.js', array ('jq'), true);
+   }
+   
+   //If page is Donate Success, load facebook campaign js
+   if ( is_page(2161) ) {
+   		wp_enqueue_script( 'fbdonate', get_template_directory_uri() . '/js/fbdonate.js', array ('jq'), true);
+   }
+   
 } 
 add_action( 'wp_footer', 'load_js' );
 
@@ -115,6 +126,17 @@ function resources_sidebar() {
 }
 // Hook into the 'widgets_init' action
 add_action( 'widgets_init', 'resources_sidebar' );
+
+//Search filter http://wordpress.stackexchange.com/questions/41691/how-do-i-filter-the-search-results-order
+add_filter('posts_orderby','my_sort_custom',10,2);
+function my_sort_custom( $orderby, $query ){
+    global $wpdb;
+
+    if(!is_admin() && is_search()) 
+        $orderby =  $wpdb->prefix."posts.post_type ASC, {$wpdb->prefix}posts.post_date DESC";
+
+    return  $orderby;
+}
 
 
 

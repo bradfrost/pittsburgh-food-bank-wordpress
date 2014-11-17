@@ -14,7 +14,7 @@
 				<nav id="nav" class="nav" role="navigation">
 					<ul class="nav-action-list">
 						<li><a href="/get-help">Get Help<span class="icon-arrow-right5"></span></a></li>
-						<li><a href="/get-involved">Give Help<span class="icon-arrow-right5"></span></a></li>
+						<li><a href="/give-help">Give Help<span class="icon-arrow-right5"></span></a></li>
 					</ul>
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 				</nav><!--end .nav-->
