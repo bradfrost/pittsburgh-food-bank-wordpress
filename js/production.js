@@ -1779,12 +1779,12 @@ Optional extensions on the jquery.inputmask base
 
 				$("." + opts.cardExpirationClass)
 					.addClass("parsley-success")
-					.unbind("keydown blur")
+					// .unbind("keydown blur")
 					.bind("keydown", function (e) {
 						if (e.keyCode === 8 && $(this).val() === "") {
 							// $(this).removeClass("full");
 							if (window.navigator.standalone || !Modernizr.touch) {
-								$("." + opts.cardNumberClass).focus();
+							//	$("." + opts.cardNumberClass).focus();
 
 								// Update instruction message
 								helpers.updateInstruction(opts.messageEnterCardNumber);
@@ -1794,7 +1794,7 @@ Optional extensions on the jquery.inputmask base
 
 				if (window.navigator.standalone || !Modernizr.touch) {
 					setTimeout(function () {
-						$("." + opts.cardCvvClass).focus();
+						// $("." + opts.cardCvvClass).focus();
 
 						// Update instruction message
 						helpers.updateInstruction(opts.messageCVV);
@@ -1980,7 +1980,7 @@ Optional extensions on the jquery.inputmask base
 		focusDelay: 200,
 		messageEnterCardNumber : "Please enter your credit card number",
 		messageCardNumberError : "Please enter a valid credit card number",
-		messageExpiration : "Please enter your card's expiration month and year",
+		messageExpiration : "Please enter your card's expiration month and full year (i.e. 2017)",
 		messageExpirationError : "Please enter a valid month and year",
 		messageCVV : "Please enter the three-digit CVV number found on the back of your card",
 		messageCVVAmEx : "Please enter your four-digit CVV number on the front of your card",
