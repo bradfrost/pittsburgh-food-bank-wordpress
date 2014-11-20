@@ -95,7 +95,7 @@
 				</div>
 				<div class="g g-2up cc-info">
 					<div class="field-container gi">
-						<label for="card-expiration">Expiration</label>
+						<label for="card-expiration">Expiration (MM/YYYY)</label>
 						<input placeholder="MM/YYYY"  type="text" class="card-expiration" id="card-expiration" name="card_exp_date">
 					</div>
 					<div class="field-container gi">
