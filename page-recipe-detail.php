@@ -35,6 +35,7 @@
 	<div class="lc">
 		<div class="section">
 			<div class="recipe-rainbow">
+				<div>
 				<div class="recipe-toolbar">
 					<form action="" method="GET" class="inline-form get-ingredient" id="ingredient-form">
 						<input type="hidden" name="q" id="ingredientHiddenList" />
@@ -59,8 +60,21 @@
 							<li data-ingredient-name="<?php print("$item") ?>"><?php print("$item")?><a href="#" class="ingredient-remove"><span class="icon-close"></span> Remove</a></li>
 						<?php 	}} ?>
 						</ul>
-					<?php } ?>
+					<?php } ?>					
 					</div>
+					<div>
+						<a href="https://play.google.com/store/apps/details?id=air.com.gpcfb.reciperainbow&hl=en">
+						<img class="alignnone wp-image-3176" title="Recipe Rainbow on Google Play store" 
+						src="https://www.pittsburghfoodbank.org/wp-content/uploads/2014/11/RR-banner-google-play.jpg" 
+						alt="RR Google Play" width="300" height="106" /></a>
+					</div>
+					<div>
+						<a href="https://itunes.apple.com/us/app/recipe-rainbow/id804114191?mt=8">
+						<img class="alignnone wp-image-3176" title="Recipe Rainbow on Apple iTunes" 
+						src="https://www.pittsburghfoodbank.org/wp-content/uploads/2014/11/RR-banner-apple-app-store.jpg" 
+						alt="RR Apple iTunes" width="300" height="106" /></a>
+					</div>
+				</div>
 				</div>
 				<div class="recipe-results">
 					<?php if($recipeLen > 0) { ?>

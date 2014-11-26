@@ -38,10 +38,10 @@ Version: 1.0
     $MIXINS
 \*------------------------------------*/
 /* CSS Transition
-	Usage: @include transition(width,0.3s,ease-out);
+  Usage: @include transition(width,0.3s,ease-out);
  */
 /* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback  
-	Usage: @include font-size(1, large);
+  Usage: @include font-size(1, large);
 */
 /*------------------------------------*\
     $RESET
@@ -1233,6 +1233,10 @@ td {
     background-image: url(images/bg_hero_squash.jpg); }
   .page-header.tomatoes {
     background-image: url(images/bg_hero_tomatoes.jpg); }
+  .page-header.givingtuesday {
+    background-image: url(images/bg_hero_givingtuesday.jpg); }
+  .page-header.reciperainbow {
+    background-image: url(images/bg_hero_reciperainbow.jpg); }
   @media all and (min-width: 29.75em) {
     .page-header {
       margin-bottom: 2em; } }
@@ -1389,175 +1393,175 @@ td {
   -moz-osx-font-smoothing: grayscale; }
 
 .icon-mail:before {
-	content: "\e62d";
+  content: "\e62d";
 }
 .icon-arrow-left3:before {
-	content: "\e627";
+  content: "\e627";
 }
 .icon-arrow-down3:before {
-	content: "\e624";
+  content: "\e624";
 }
 .icon-arrow-up3:before {
-	content: "\e625";
+  content: "\e625";
 }
 .icon-arrow-right3:before {
-	content: "\e626";
+  content: "\e626";
 }
 .icon-arrow-left5:before {
-	content: "\e628";
+  content: "\e628";
 }
 .icon-arrow-down5:before {
-	content: "\e629";
+  content: "\e629";
 }
 .icon-arrow-up5:before {
-	content: "\e62a";
+  content: "\e62a";
 }
 .icon-arrow-right5:before {
-	content: "\e62b";
+  content: "\e62b";
 }
 .icon-arrow-left:before {
-	content: "\e62e";
+  content: "\e62e";
 }
 .icon-arrow-down:before {
-	content: "\e62f";
+  content: "\e62f";
 }
 .icon-arrow-up:before {
-	content: "\e630";
+  content: "\e630";
 }
 .icon-arrow-right:before {
-	content: "\e631";
+  content: "\e631";
 }
 .icon-arrow-left2:before {
-	content: "\e632";
+  content: "\e632";
 }
 .icon-arrow-down2:before {
-	content: "\e633";
+  content: "\e633";
 }
 .icon-arrow-up2:before {
-	content: "\e634";
+  content: "\e634";
 }
 .icon-arrow-right2:before {
-	content: "\e635";
+  content: "\e635";
 }
 .icon-home:before {
-	content: "\e607";
+  content: "\e607";
 }
 .icon-camera:before {
-	content: "\e608";
+  content: "\e608";
 }
 .icon-phone:before {
-	content: "\e609";
+  content: "\e609";
 }
 .icon-location:before {
-	content: "\e62c";
+  content: "\e62c";
 }
 .icon-clock:before {
-	content: "\e60a";
+  content: "\e60a";
 }
 .icon-clock2:before {
-	content: "\e60b";
+  content: "\e60b";
 }
 .icon-calendar2:before {
-	content: "\e60d";
+  content: "\e60d";
 }
 .icon-calendar:before {
-	content: "\e60c";
+  content: "\e60c";
 }
 .icon-bubble:before {
-	content: "\e605";
+  content: "\e605";
 }
 .icon-bubble2:before {
-	content: "\e606";
+  content: "\e606";
 }
 .icon-user:before {
-	content: "\e618";
+  content: "\e618";
 }
 .icon-quotes-left:before {
-	content: "\e60e";
+  content: "\e60e";
 }
 .icon-search:before {
-	content: "\e601";
+  content: "\e601";
 }
 .icon-pie:before {
-	content: "\e60f";
+  content: "\e60f";
 }
 .icon-stats:before {
-	content: "\e610";
+  content: "\e610";
 }
 .icon-bars2:before {
-	content: "\e612";
+  content: "\e612";
 }
 .icon-bars:before {
-	content: "\e611";
+  content: "\e611";
 }
 .icon-truck:before {
-	content: "\e614";
+  content: "\e614";
 }
 .icon-menu:before {
-	content: "\e603";
+  content: "\e603";
 }
 .icon-earth:before {
-	content: "\e604";
+  content: "\e604";
 }
 .icon-link:before {
-	content: "\e623";
+  content: "\e623";
 }
 .icon-flag:before {
-	content: "\e622";
+  content: "\e622";
 }
 .icon-star:before {
-	content: "\e616";
+  content: "\e616";
 }
 .icon-heart:before {
-	content: "\e615";
+  content: "\e615";
 }
 .icon-info:before {
-	content: "\e61b";
+  content: "\e61b";
 }
 .icon-cancel-circle:before {
-	content: "\e61a";
+  content: "\e61a";
 }
 .icon-checkmark-circle:before {
-	content: "\e619";
+  content: "\e619";
 }
 .icon-close:before {
-	content: "\e61c";
+  content: "\e61c";
 }
 .icon-checkmark:before {
-	content: "\e61d";
+  content: "\e61d";
 }
 .icon-checkmark2:before {
-	content: "\e61e";
+  content: "\e61e";
 }
 .icon-minus:before {
-	content: "\e61f";
+  content: "\e61f";
 }
 .icon-plus:before {
-	content: "\e620";
+  content: "\e620";
 }
 .icon-mail2:before {
-	content: "\e621";
+  content: "\e621";
 }
 .icon-mail3:before {
-	content: "\e636";
+  content: "\e636";
 }
 .icon-googleplus:before {
-	content: "\e638";
+  content: "\e638";
 }
 .icon-facebook:before {
-	content: "\e600";
+  content: "\e600";
 }
 .icon-instagram:before {
-	content: "\e617";
+  content: "\e617";
 }
 .icon-twitter:before {
-	content: "\e613";
+  content: "\e613";
 }
 .icon-youtube:before {
-	content: "\e602";
+  content: "\e602";
 }
 .icon-pinterest:before {
-	content: "\e637";
+  content: "\e637";
 }
 
 /*------------------------------------*\
@@ -2328,7 +2332,7 @@ td {
 
 /*
 .js .credit-card-group label {
-	display: none;
+  display: none;
 }
 */
 .payment-type {
@@ -2348,91 +2352,91 @@ td {
  */
 /*
 .js .credit-card-group {
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-o-backface-visibility: hidden;
-	backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 
-	-webkit-perspective: 1000;
-	-moz-perspective: 1000;
-	-o-perspective: 1000;
-	perspective: 1000;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
 
-	border: 1px solid $gray-light-4;
-	border-radius: $border-radius;
-	overflow: hidden;
-	padding: 0 0.5em;
-	margin-bottom: 0.2em;
-	position: relative;
+  border: 1px solid $gray-light-4;
+  border-radius: $border-radius;
+  overflow: hidden;
+  padding: 0 0.5em;
+  margin-bottom: 0.2em;
+  position: relative;
 
-	.parsley-errors-list {
-		display: none !important; //Hide validation for single cc inputs
-	}
+  .parsley-errors-list {
+    display: none !important; //Hide validation for single cc inputs
+  }
 
-	input {
-		background: transparent;
-		border: 0;
-		box-shadow: none;
-		outline: 0;
-		padding: 0;
-		padding: 1em 0;
-	}
+  input {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    outline: 0;
+    padding: 0;
+    padding: 1em 0;
+  }
 
-	.card-number {
-		width: 206px;
+  .card-number {
+    width: 206px;
 
-		&.transitioning-out {
-			-webkit-animation-iteration-count: 1;
-			-moz-animation-iteration-count: 1;
-			-o-animation-iteration-count: 1;
-			animation-iteration-count: 1;
-			-webkit-animation-duration: .4s;
-			-moz-animation-duration: .4s;
-			-o-animation-duration: .4s;
-			animation-duration: .4s;
-			-webkit-animation-fill-mode: both;
-			-moz-animation-fill-mode: both;
-			-o-animation-fill-mode: both;
-			animation-fill-mode: both;
-			-webkit-animation-name: slide;
-			-moz-animation-name: slide;
-			-o-animation-name: slide;
-			animation-name: slide;
-		}
+    &.transitioning-out {
+      -webkit-animation-iteration-count: 1;
+      -moz-animation-iteration-count: 1;
+      -o-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      -webkit-animation-duration: .4s;
+      -moz-animation-duration: .4s;
+      -o-animation-duration: .4s;
+      animation-duration: .4s;
+      -webkit-animation-fill-mode: both;
+      -moz-animation-fill-mode: both;
+      -o-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: slide;
+      -moz-animation-name: slide;
+      -o-animation-name: slide;
+      animation-name: slide;
+    }
 
-		&.transitioning-in {
-			-webkit-transition: width 0s linear;
-			-moz-transition: width 0s linear;
-			-ms-transition: width 0s linear;
-			-o-transition: width 0s linear;
-			transition: width 0s linear;
-			width: 206px;
-		}
+    &.transitioning-in {
+      -webkit-transition: width 0s linear;
+      -moz-transition: width 0s linear;
+      -ms-transition: width 0s linear;
+      -o-transition: width 0s linear;
+      transition: width 0s linear;
+      width: 206px;
+    }
 
-		&.full {
-			width: 20%;
-		}
-	}
+    &.full {
+      width: 20%;
+    }
+  }
 
-	.card-expiration{
-		width: 30%;
-	}
+  .card-expiration{
+    width: 30%;
+  }
 
-	.card-cvv {
-		width: 18%;
-	}
+  .card-cvv {
+    width: 18%;
+  }
 
-	&.invalid { 
-		border-color: $error;
+  &.invalid { 
+    border-color: $error;
 
-		input {
-			color: $error;
-		}
-	}
+    input {
+      color: $error;
+    }
+  }
 
-	&.valid { 
-		border-color: $valid;
-	}
+  &.valid { 
+    border-color: $valid;
+  }
 }
 */
 .donate .g.cc-info {
