@@ -1752,7 +1752,7 @@ td {
     border-radius: 5em;
     line-height: 1;
     display: block;
-    padding: 1.15em;
+    padding: 1.15em 0.2em;
     width: 5em;
     height: 5em;
     text-align: center;
