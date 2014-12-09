@@ -1,0 +1,94 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.pittsburghfoodbank\.org$ [NC]  
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+Redirect 301 /about/ceo_message.aspx /about/
+Redirect 301 /about/mission_statement.aspx /about/
+Redirect 301 /about/history.aspx /about/history/
+Redirect 301 /programs/operations.aspx /about/operations/
+Redirect 301 /about/board.aspx /about/leadership
+Redirect 301 /about/agencies.aspx /about/agencies/
+Redirect 301 /donate/donors.aspx /about/donors/
+Redirect 301 /sponsors.aspx /about/donors/
+Redirect 301 /fundraising_policy.aspx /about/finances/fundraising-policy/
+Redirect 301 /about/jobs.aspx /about/jobs/
+Redirect 301 /pdf/gpcfb_990.pdf /about/finances/
+Redirect 301 /programs/csfp.aspx /programs/csfp/
+Redirect 301 /programs/local_produce.aspx /programs/farm-to-food-bank
+Redirect 301 /programs/farmstandproject.aspx /programs/farm-stand-project/
+Redirect 301 /programs/distributing.aspx /programs/programs
+Redirect 301 /programs/produce.aspx /programs/produce-to-people/
+Redirect 301 /programs/community_harvest.aspx /programs/community-harvest/
+Redirect 301 /programs/SNAP.aspx /programs/snap/
+Redirect 301 /programs/SummerFood.aspx /programs/summer-food/
+Redirect 301 /programs/nutrition.aspx /resources/nutrition/
+Redirect 301 /programs/agency_relations.aspx /about/network
+Redirect 301 /about/educational_programs.aspx /get-involved/kids
+Redirect 301 /programs/individual_events.aspx /programs/special-events/
+Redirect 301 /involved/ /get-involved/
+Redirect 301 /donate/donate_food.aspx /get-involved/food-drives/
+Redirect 301 /donate/planned_giving.aspx /get-involved/
+Redirect 301 /involved/volunteer.aspx /get-involved/volunteer
+Redirect 301 /involved/volunteeropportunities.aspx /get-involved/volunteer
+Redirect 301 /involved/repack.aspx /get-involved/volunteer
+Redirect 301 /involved/advocacy.aspx /get-involved/speak-out/
+Redirect 301 /involved/PolicyPriorities.aspx /get-involved/speak-out/priorities/
+Redirect 301 /involved/p2p.aspx /get-involved/volunteer
+Redirect 301 /involved/learnmore.aspx /get-involved
+Redirect 301 /kids/ /get-involved/kids/
+Redirect 301 /kids/occasions.aspx /get-involved/kids/
+Redirect 301 /kids/food_drives.aspx /get-involved/kids/
+Redirect 301 /kids/group.aspx /get-involved/kids/
+Redirect 301 /kids/fundraising.aspx /get-involved/kids/
+Redirect 301 /kids/p4pb.aspx /get-involved/kids/
+Redirect 301 /kids/action.aspx /get-involved/kids/
+Redirect 301 /kids/contact.htm /get-involved/kids/
+Redirect 301 /kids/volunteer.aspx /get-involved/kids/
+Redirect 301 /about/about_hunger.aspx /resources/about-hunger/
+Redirect 301 /MealGapMap/ /resources/about-hunger/
+Redirect 301 /involved/HungerProfiles.aspx /resources/about-hunger/
+Redirect 301 /involved/resources.aspx /resources/about-hunger/
+Redirect 301 /programs/sources.aspx /programs
+Redirect 301 /links.aspx /
+Redirect 301 /gethelp.aspx /get-help/
+Redirect 301 /gethelp/agencydetails.cfm?call_number=POUR1032-1 /get-help/directory
+Redirect 301 /recipedatabase/ /resources/recipe-rainbow
+Redirect 301 /recipedatabase /resources/recipe-rainbow
+Redirect 301 /calendar.aspx /events
+Redirect 301 /programs/p2pcalendar.aspx /produce-to-people/
+Redirect 301 /news.aspx /blog/news
+Redirect 301 /advocacyupdate.aspx /blog/category/advocacy-update
+Redirect 301 /campaign/default.aspx /resources
+Redirect 301 /contact.aspx /contact/
+Redirect 301 /directions.aspx /
+Redirect 301 /privacy_policy.aspx /privacy-policy/
+Redirect 301 /inventory https://pww.pittsburghfoodbank.org
+Redirect 301 /volunteer /get-involved/volunteer/volunteer-event-application/
+Redirect 301 /dorhadash http://friends.pittsburghfoodbank.org/site/TR/Events/General?fr_id=1030&pg=team&team_id=1050
+Redirect 301 /Calendar.aspx /events
+Redirect 301 /donate/tribute-gifts/ https://secure2.convio.net/gpcfb/site/Donation2?df_id=1780&1780.donation=form1
+Redirect 301 /dropoff  https://mapsengine.google.com/map/u/0/edit?mid=zEwy67CSVvnk.kzzNzxZQPM54
+Redirect 301 /glean http://visitor.r20.constantcontact.com/manage/optin/ea?v=001WY2H_3RLHWrfI-GB-eKZW0EDFZ2qlZgZMiL5EK0yhtyB5YuG1ef-JPjsC2SW_IkeiYfbXLBf5hQ-5qa98anFC5eaEo9Xs62gkmsQe1K3CB0%3D
+Redirect 301 /virtualplate  http://wordpress.pittsburghfoodbank.org/virtualplate/
+Redirect 301 /virtualfooddrive http://friends.pittsburghfoodbank.org/site/TR?fr_id=1030&pg=entry
+Redirect 301 /get-involved/ /give-help/
+Redirect 301 /get-involved /give-help/
+Redirect 301 /fallfoodshare https://www.pittsburghfoodbank.org/events/15th-annual-fall-foodshare/
+Redirect 301 /CitizensBankFallFoodShare /events/15th-annual-fall-foodshare/
+Redirect 301 /steelers http://friends.pittsburghfoodbank.org/site/TR/Events/General?px=1227064&pg=personal&fr_id=1040
+Redirect 301 /GivingTuesday /donate/
+RedirectMatch 301 ^/reciperainbow/?$ /resources/ciperecipe-rainbow
+RedirectMatch 301 ^/gethelp/?$ /get-help
+Redirect 301 /givingtuesday /donate/givingtuesday
